@@ -31,7 +31,7 @@
 //   return chainData
 // }
 
-export function ellipseAddress(address = '', width = 10) {
+export function ellipseAddress(address = '', width = 5) {
   if (!address) {
     return ''
   }

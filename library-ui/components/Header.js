@@ -21,7 +21,7 @@ const Header = ({web3Provider, address, disconnect, connect}) => {
         </Box>
         
         <Box display="flex" justifyContent="space-around" pr={5} alignItems="center">
-        	{address ? <Avatar name="Anonymous" src="dp.png" size="xl"/> : null}
+        	{address ? <Avatar name="Anonymous" src="dp.png" size="lg"/> : null}
             <Box display="flex" flexDirection="column" mt="-10px">
 	            {web3Provider ?  
 	            	<Button color="linear-gradient(225deg, #192038 0%, #2E3A59 100%)" bg="white" ml={5} onClick={disconnect} mb={2}>
