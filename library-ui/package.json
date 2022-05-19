@@ -9,10 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.0",
+    "@chakra-ui/react": "^2.0.2",
+    "@emotion/react": "11",
+    "@emotion/styled": "11",
+    "@walletconnect/web3-provider": "^1.7.8",
+    "carousel": "^0.0.3",
     "ethers": "^5.6.5",
+    "framer-motion": "6",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-slick": "^0.29.0",
+    "react-star-ratings": "^2.3.0",
+    "slick": "^1.12.2",
+    "slick-carousel": "^1.8.1",
     "web3modal": "^1.9.7"
   },
   "devDependencies": {
