@@ -2,7 +2,7 @@ import React from 'react';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Box, Image, IconButton } from "@chakra-ui/react";
+import { Box, Image, IconButton, Button } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 
 function PrevArrow({...props}){
@@ -38,14 +38,30 @@ const Carousel = () => {
       slidesToScroll: 1,
       autoplay: true,
       speed: 2000,
-      autoplaySpeed: 2000,
+      autoplaySpeed: 5000,
       cssEase: "linear"
     };
 
     const slider = React.useRef(null)
 
     return (
-    	<div style={{overflow:"hidden", padding:"30px", margin:"auto"}}>
+    	<div style={{overflow:"hidden", padding:"30px", margin:"auto", position:'relative'}} className="dl-carousel">
+                <div className="dl-overlay" >
+                <Button 
+                    display="none"
+                    variant="outline" 
+                    colorScheme="#0384C6" 
+                    py={10} 
+                    px={10} 
+                    position="absolute" 
+                    top="40%"
+                    left="35%"
+                    zIndex="5"
+                    border="5px solid #0384C6"
+                    fontSize="30px"
+                    id="dl-btn"
+                > Explore Openbooks</Button>
+        </div>
          <Slider {...settings} ref={slider}>
           <Image 
       				src="image2.jpg" 
@@ -93,16 +109,18 @@ const Carousel = () => {
         <NextArrow
         	position="absolute"
         	right="80px"
-        	top="50%"
+        	top="45%"
         	w="30px"
+            zIndex="3"
         	onClick={()=> slider?.current?.slickNext()}
         />
 
         <PrevArrow
         	position="absolute"
         	left="80px"
-        	top="50%"
+        	top="45%"
         	w="30px"
+            zIndex="3"
         	onClick={()=> slider?.current?.slickPrev()}
         />
     </div>

@@ -27,7 +27,7 @@ const 	BookCard = ({title, author, image,w, account}) => {
       			/>	
  
   				<Box>	
-  					<Box>	
+  					<Box my={3}>	
   						<StarRatings
 				          rating={rating}
 				          starRatedColor="yellow"

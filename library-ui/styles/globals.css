@@ -24,3 +24,24 @@ a {
     width: 20px !important  ;
     height: 20px !important ;
   }
+
+  .slick-arrow{
+    display: none !important;
+  }
+
+.dl-overlay{
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  bottom: 30px;
+  background-color: #8F9BB3;
+  opacity: 0.5;
+  z-index: 2;
+
+}
+
+.dl-overlay:hover + #dl-btn{
+  display: block !important ;
+  cursor: pointer;
+}
