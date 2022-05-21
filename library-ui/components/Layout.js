@@ -171,6 +171,7 @@ const account = {
           return React.cloneElement(child, {account}, null)
         })}
         </Box>
+        
 	        <Footer/>
 	    </>
     );

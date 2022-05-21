@@ -24,3 +24,39 @@ a {
     width: 20px !important  ;
     height: 20px !important ;
   }
+
+
+  .sidebar-items:not(:last-child) {
+  margin-bottom: 1.5em;
+}
+
+@media only screen and (max-width: 767px) {
+  .sidebar-items {
+    margin-bottom: 0 !important;
+  }
+}
+
+.sidebar-items {
+  color: gray;
+  font-size: large;
+}
+
+.sidebar-items p {
+  margin-left: 1em;
+}
+
+.sidebar-items:hover svg {
+  color: #B57295;
+}
+
+.sidebar-items:hover p {
+  color: #fff;
+}
+
+.active {
+  color: #fff;
+}
+
+.active-icon {
+  color: #B57295 !important;
+}
