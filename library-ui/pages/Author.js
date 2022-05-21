@@ -80,6 +80,7 @@ export default function Author() {
                   <Icon as={FiHome} fontSize="2xl" className="active-icon" />
                 </Link>
                 <Link
+                  href=""
                   _hover={{ textDecor: "none" }}
                   display={["flex", "flex", "none", "flex", "flex"]}
                 >

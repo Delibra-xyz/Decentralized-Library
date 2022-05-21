@@ -3,11 +3,13 @@ import { Box, Text, Avatar, Button, Tabs, TabList ,Tab } from '@chakra-ui/react'
 import Logo from "./Logo";
 import { ellipseAddress } from '../utils/ConnectionUtilities'
 import Link from 'next/link';
-const Header = ({web3Provider, address, disconnect, connect}) => {
+
+const Header = ({web3Provider, address, disconnect, connect, network}) => {
     return (
-      <Box
-        p={5}
-        w="100vw"
+    <Box 
+        px={5}
+        py={3} 
+        w="100vw" 
         bg="linear-gradient(225deg, #192038 0%, #2E3A59 100%)"
         position="fixed"
         display="flex"
@@ -82,7 +84,8 @@ const Header = ({web3Provider, address, disconnect, connect}) => {
               PolygonMumbai
             </sub>
           </Box>
-        </Box>
+    </Box>
+        
       </Box>
     );
 };

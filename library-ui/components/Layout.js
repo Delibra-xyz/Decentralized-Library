@@ -11,9 +11,9 @@ const providerOptions = {
     package: WalletConnectProvider, // required
     options: {
       rpc: {
-        137: "https://rpc-mumbai.maticvigil.com"
+        80001: "https://rpc-mumbai.maticvigil.com"
       },
-      chainId:137
+      chainId:80001
     },
   },
 }
@@ -21,9 +21,10 @@ const providerOptions = {
 let web3Modal
 if (typeof window !== 'undefined') {
   web3Modal = new Web3Modal({
-    network: 'Mumbai', // optional
+    network: 'Mumbai Testnet', // optional
     cacheProvider: true,
     providerOptions, // required
+
   })
 }
 
@@ -33,6 +34,7 @@ const initialState = {
   web3Provider: null,
   address: null,
   chainId: null,
+  network:null,
 }
 
 function reducer(state, action) {
@@ -44,6 +46,7 @@ function reducer(state, action) {
         web3Provider: action.web3Provider,
         address: action.address,
         chainId: action.chainId,
+        network: action.network,
       }
     case 'SET_ADDRESS':
       return {
@@ -55,6 +58,11 @@ function reducer(state, action) {
         ...state,
         chainId: action.chainId,
       }
+    case 'SET_NETWORK':
+      return {
+        ...state,
+        network: action.network,
+      }
     case 'RESET_WEB3_PROVIDER':
       return initialState
     default:
@@ -64,7 +72,7 @@ function reducer(state, action) {
 
 const Layout = (props) => {
 	const [state, dispatch] = useReducer(reducer, initialState)
-  const { provider, web3Provider, address, chainId } = state
+  const { provider, web3Provider, address, chainId, network } = state
 
   const connect = useCallback(async function () {
     // This is the initial `provider` that is returned when
@@ -87,6 +95,7 @@ const Layout = (props) => {
       web3Provider,
       address,
       chainId: network.chainId,
+      network,
     })
   }, [])
 
@@ -150,7 +159,6 @@ const Layout = (props) => {
     }
   }, [provider, disconnect])
 
-  // const chainData = getChainData(chainId)
 
 const account = {
   address: address,
@@ -165,7 +173,9 @@ const account = {
 		        web3Provider={web3Provider} 
 		        disconnect={disconnect}
 		        connect={connect}
+            network={network}
 		    />
+        {console.log(network)}
         <Box minH="calc(100vh - 100px)" w="100%" pt="100px" bg="#E4E9F2"> 
         {React.Children.map(props.children, child => {
           return React.cloneElement(child, {account}, null)
