@@ -32,6 +32,7 @@ const Header = ({web3Provider, address, disconnect, connect, network}) => {
         <Tabs>
           <TabList>
               {address ? <></>: null}
+              {web3Provider ? () => <></> : null}
             <Tab>
               {" "}
               <Link href="/Reader">
