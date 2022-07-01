@@ -38,7 +38,8 @@ To buy a user need to have a matic token for gas fee,
 - Reactjs, Solidity, Chakra-ui ethersjs
 
 
-## 🛠 Development
+## 🛠 Pitch deck
+[Pitch Deck](https://docs.google.com/presentation/d/1ZinFCA4vuUHbJYHx6Xo9ivtsvnQ9cMzQZuwfSLcUZLc/edit#slide=id.gd91e1f37e_0_0)
 
 
 
