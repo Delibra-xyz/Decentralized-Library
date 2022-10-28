@@ -1,0 +1,38 @@
+#countdown {
+    width: 550px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+  }
+  #countdown .box {
+    padding: 10px;
+    border-right: solid 1px rgba(255, 255, 255, 0.2);
+  }
+  #countdown .col-4:last-child .box {
+    border-right-color: transparent;
+  }
+  #countdown .box p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+  #countdown .box .text {
+    font-size: 12px;
+    font-family: sans-serif;
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      width: 1100px;
+    }
+    h1 {
+      font-size: 58px;
+    }
+    #countdown {
+      width: 350px;
+      padding: 20px;
+    }
+  }
+  
