@@ -1,0 +1,59 @@
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get Yarn cache directory
+        run: echo "::set-output name=YARN_CACHE_DIR::$(yarn cache dir)"
+        id: yarn-cache-dir
+
+      - name: Get Yarn version
+        run: echo "::set-output name=YARN_VERSION::$(yarn --version)"
+        id: yarn-version
+
+      - name: Cache yarn dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir.outputs.YARN_CACHE_DIR }}
+          key: yarn-cache-${{ runner.os }}-${{ steps.yarn-version.outputs.YARN_VERSION }}-${{ hashFiles('yarn.lock') }}
+
+      - run: yarn --frozen-lockfile
+
+      - run: |
+          cd library-ui
+          yarn build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './out'
+
+  Deploy:
+    runs-on: ubuntu-latest
+
+    needs: Build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: '${{ steps.deployment.outputs.page_url }}'
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
