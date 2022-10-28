@@ -34,12 +34,13 @@ jobs:
           yarn --frozen-lockfile
 
       - run: |
+          cd library-ui
           yarn build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: './out'
+          path: './library-ui/out'
 
   Deploy:
     runs-on: ubuntu-latest
