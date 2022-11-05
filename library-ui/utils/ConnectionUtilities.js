@@ -1,39 +1,28 @@
-// import supportedChains from './chains'
-// import { IChainData } from './types'
 
-// export function getChainData(chainId) {
-//   if (!chainId) {
-//     return null
-//   }
-//   const chainData = supportedChains.filter(
-//     (chain: any) => chain.chain_id === chainId
-//   )[0]
+import { alchemyProvider } from 'wagmi/providers/alchemy';
+import { publicProvider } from 'wagmi/providers/public';
+import {
+  getDefaultWallets,
+} from '@rainbow-me/rainbowkit';
+import {
+  chain,
+  configureChains,
+  createClient,
+} from 'wagmi';
 
-//   if (!chainData) {
-//     throw new Error('ChainId missing or not supported')
-//   }
-
-//   const API_KEY = '460f40a260564ac4a4f4b3fffb032dad'
-
-//   if (
-//     chainData.rpc_url.includes('infura.io') &&
-//     chainData.rpc_url.includes('%API_KEY%') &&
-//     API_KEY
-//   ) {
-//     const rpcUrl = chainData.rpc_url.replace('%API_KEY%', API_KEY)
-
-//     return {
-//       ...chainData,
-//       rpc_url: rpcUrl,
-//     }
-//   }
-
-//   return chainData
-// }
-
-export function ellipseAddress(address = '', width = 5) {
-  if (!address) {
-    return ''
-  }
-  return `${address.slice(0, width)}...${address.slice(-width)}`
-}
+export const { chains, provider } = configureChains(
+  [chain.polygonMumbai],
+  [
+    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID }),
+    publicProvider()
+  ]
+);
+const { connectors } = getDefaultWallets({
+  appName: 'Delibra',
+  chains
+});
+export const wagmiClient = createClient({
+  autoConnect: true,
+  connectors,
+  provider
+})
