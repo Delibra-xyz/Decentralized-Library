@@ -97,9 +97,7 @@ export default function Home() {
             </GoalCard>
           </Flex>
         </Box>
-        <Box>
-          <Footer />
-        </Box>
+        <Footer />
         <Preloader />
       </Box>
     </>

@@ -12,7 +12,8 @@
 }
 
 .footer {
-  margin: 30px 0;
+  background: linear-gradient(98.41deg, #02081f 0%, #1a0830 96.87%);
+  padding: 40px 0 10px;
 }
 
 .footer__container {
@@ -37,7 +38,7 @@
 }
 
 .footer .footer__input__group {
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
 }
 
@@ -78,7 +79,6 @@
   height: 1.5px;
   width: 100%;
   background-color: #222222;
-  opacity: 0.2;
   margin: 2px 0;
 }
 
