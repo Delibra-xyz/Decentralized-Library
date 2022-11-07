@@ -22,6 +22,8 @@ const CustomButton = ({ children, ...props }) => {
       <Text
         bgGradient="linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)"
         bgClip="text"
+        display="flex"
+        alignItems="center"
       >
         {children}
       </Text>
@@ -44,6 +46,7 @@ function ConnectWalletButton() {
         // Note: If your app doesn't use authentication, you
         // can remove all 'authenticationStatus' checks
         const ready = mounted && authenticationStatus !== 'loading'
+        account.displayBalance = false;
         const connected =
           ready &&
           account &&
@@ -86,7 +89,7 @@ function ConnectWalletButton() {
                     type="button"
                   >
                     {chain.hasIcon && (
-                      <div
+                      <span
                         style={{
                           background: chain.iconBackground,
                           width: 12,
@@ -103,7 +106,7 @@ function ConnectWalletButton() {
                             style={{ width: 12, height: 12 }}
                           />
                         )}
-                      </div>
+                      </span>
                     )}
                     {chain.name}
                   </CustomButton>
