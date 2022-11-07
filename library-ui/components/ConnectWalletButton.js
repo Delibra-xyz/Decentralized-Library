@@ -22,6 +22,8 @@ const CustomButton = ({ children, ...props }) => {
       <Text
         bgGradient="linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)"
         bgClip="text"
+        display="flex"
+        alignItems="center"
       >
         {children}
       </Text>
@@ -86,11 +88,11 @@ function ConnectWalletButton() {
                     type="button"
                   >
                     {chain.hasIcon && (
-                      <div
+                      <span
                         style={{
                           background: chain.iconBackground,
-                          width: 12,
-                          height: 12,
+                          width: 20,
+                          height: 20,
                           borderRadius: 999,
                           overflow: 'hidden',
                           marginRight: 4,
@@ -100,19 +102,19 @@ function ConnectWalletButton() {
                           <img
                             alt={chain.name ?? 'Chain icon'}
                             src={chain.iconUrl}
-                            style={{ width: 12, height: 12 }}
+                            style={{ width: 20, height: 20 }}
                           />
                         )}
-                      </div>
+                      </span>
                     )}
                     {chain.name}
                   </CustomButton>
 
                   <CustomButton onClick={openAccountModal} type="button">
                     {account.displayName}
-                    {account.displayBalance
+                    {/* {account.displayBalance
                       ? ` (${account.displayBalance})`
-                      : ''}
+                      : ''} */}
                   </CustomButton>
                 </div>
               )

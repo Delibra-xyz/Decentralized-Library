@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Preloader from '../components/Preloader/preloader'
-import Timer from '../components/Countdown/Timer'
-import { Box, Flex, Tag } from '@chakra-ui/react'
+// import Preloader from '../components/Preloader/preloader'
+// import Timer from '../components/Countdown/Timer'
+import { Box, Button, Divider, Flex, Image, Tag } from '@chakra-ui/react'
 import { Heading, Text } from '@chakra-ui/react'
 import FeatureCard from '../components/Home/FeatureCard'
 import { MdOutlineEnhancedEncryption } from 'react-icons/md'
@@ -13,6 +13,8 @@ import Avatar1 from '../assets/svgs/Avatar1'
 import Avatar2 from '../assets/svgs/Avatar2'
 import Navbar from '../components/Navbar/navbar'
 import Footer from '../components/Footer/footer'
+import Book from '../assets/svgs/Book'
+import Frame from '../assets/svgs/Frame'
 
 export default function Home() {
   return (
@@ -29,9 +31,55 @@ export default function Home() {
         <Box
           bg="linear-gradient(98.41deg, #02081F 0%, #1A0830 96.87%)"
           width="100vw"
-          height="100vh"
+          height="90vh"
           mb={10}
-        ></Box>
+          px="90px"
+        >
+          <Box pt="5%" mb={10}>
+            <Heading
+              fontFamily="'Clash Grotesk', sans-serif"
+              fontSize="81px"
+              fontWeight="700"
+              bgGradient="linear-gradient(89.34deg, #FFFFFF -13.15%, #332640 93.4%)"
+              bgClip="text"
+              width="45%"
+              // pl="90px"
+            >Meet the first decentralized 
+            <Frame/>
+              {/* <Text
+                bg="linear-gradient(115.03deg, rgba(255, 176, 189, 0.2) 6.95%, rgba(255, 194, 161, 0.2) 89.09%)"
+                w="max-content"
+
+              >library</Text> */}
+            </Heading>
+          </Box>
+          <Flex>
+            <Image src="/book 1.svg"/>
+            <Image src="/book 2.svg"/>
+            <Image src="/arrow.gif" w="40%" h="auto"/>
+            <Box w="40%">
+              <Text
+                fontSize="20px"
+                fontWeight="500"
+                color="#E2E0E5"
+                mb={5}
+              >Delibra is the first read to earn decentalized platform that gives instant access to ebooks, audiobooks, articles, podcasts, sheet music, and documents.</Text>
+              <Button 
+                fontSize="18px" 
+                fontWeight="700"
+                background="#FFFFFF"
+                border="1px solid #FFFFFF"
+                borderRadius="6px"
+              >
+                <Text
+                  bgGradient="linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)"
+                  bgClip="text"
+                  fontFamily="'Clash Grotesk', sans-serif"
+                >Download Whitepaper</Text>
+              </Button>
+            </Box>
+          </Flex>
+        </Box>
 
         {/* Our features section */}
 
@@ -91,7 +139,12 @@ export default function Home() {
         </Box>
 
         {/* Goals section */}
-        <Box py={10} px="100px" minH="50vh" textAlign="center">
+        <Box py={10} px="100px" minH="50vh" textAlign="center" pos="relative">
+          <Book className="rotate-in-center" style={{
+            position: "absolute",
+            top: "120px",
+            right: "-20px"
+          }}/>
           <Tag
             color="#EAA391"
             bg="#FFEBE1"
@@ -109,6 +162,8 @@ export default function Home() {
             fontSize="56px"
             fontWeight="700"
             mb={5}
+            w="90%"
+            mx="auto"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum
             augue mi vestibulum tempor.
@@ -127,6 +182,11 @@ export default function Home() {
               <Avatar2 />
             </GoalCard>
           </Flex>
+        </Box>
+
+        {/* Divider section */}
+        <Box my={5} px="20%">
+          <Divider/>
         </Box>
         <Footer />
         {/* <Preloader /> */}
