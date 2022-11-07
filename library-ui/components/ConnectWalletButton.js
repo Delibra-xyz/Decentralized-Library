@@ -46,7 +46,6 @@ function ConnectWalletButton() {
         // Note: If your app doesn't use authentication, you
         // can remove all 'authenticationStatus' checks
         const ready = mounted && authenticationStatus !== 'loading'
-        account.displayBalance = false;
         const connected =
           ready &&
           account &&
@@ -92,8 +91,8 @@ function ConnectWalletButton() {
                       <span
                         style={{
                           background: chain.iconBackground,
-                          width: 12,
-                          height: 12,
+                          width: 20,
+                          height: 20,
                           borderRadius: 999,
                           overflow: 'hidden',
                           marginRight: 4,
@@ -103,7 +102,7 @@ function ConnectWalletButton() {
                           <img
                             alt={chain.name ?? 'Chain icon'}
                             src={chain.iconUrl}
-                            style={{ width: 12, height: 12 }}
+                            style={{ width: 20, height: 20 }}
                           />
                         )}
                       </span>
@@ -113,9 +112,9 @@ function ConnectWalletButton() {
 
                   <CustomButton onClick={openAccountModal} type="button">
                     {account.displayName}
-                    {account.displayBalance
+                    {/* {account.displayBalance
                       ? ` (${account.displayBalance})`
-                      : ''}
+                      : ''} */}
                   </CustomButton>
                 </div>
               )

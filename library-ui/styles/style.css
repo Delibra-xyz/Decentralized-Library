@@ -240,3 +240,38 @@ a {
   }
 }
 
+/**
+ * ----------------------------------------
+ * animation rotate-in-center
+ * ----------------------------------------
+ */
+ .rotate-in-center {
+	-webkit-animation: rotate-in-center 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both;
+	        animation: rotate-in-center 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite both;
+}
+
+ @-webkit-keyframes rotate-in-center {
+  0% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    opacity: 1;
+  }
+}
+@keyframes rotate-in-center {
+  0% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    opacity: 1;
+  }
+}
+
