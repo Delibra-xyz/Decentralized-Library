@@ -1,0 +1,117 @@
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('//cdn.fontshare.com/wf/P6VJ47S3OYMUC7HYSJLTK7PEIK5O2NPQ/TK62VLUWA76PMTK2XWBNDZB7QVXJGYE3/I5W5NEJGYVFUC5I4XOXVET63OE5PSVHJ.woff2')
+      format('woff2'),
+    url('//cdn.fontshare.com/wf/P6VJ47S3OYMUC7HYSJLTK7PEIK5O2NPQ/TK62VLUWA76PMTK2XWBNDZB7QVXJGYE3/I5W5NEJGYVFUC5I4XOXVET63OE5PSVHJ.woff')
+      format('woff'),
+    url('//cdn.fontshare.com/wf/P6VJ47S3OYMUC7HYSJLTK7PEIK5O2NPQ/TK62VLUWA76PMTK2XWBNDZB7QVXJGYE3/I5W5NEJGYVFUC5I4XOXVET63OE5PSVHJ.ttf')
+      format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+.footer {
+  background: linear-gradient(98.41deg, #02081f 0%, #1a0830 96.87%);
+  padding: 40px 0 10px;
+}
+
+.footer__container {
+  padding: 0 130px;
+}
+
+.footer__heading {
+  font-family: 'Clash Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 56px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.footer__sub {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+  color: #bcbfc9;
+  margin: 20px 0 50px;
+}
+
+.footer .footer__input__group {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.footer .footer__btn {
+  background: linear-gradient(115.03deg, #ffb0bd 6.95%, #ffc2a1 89.09%);
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  width: 159px;
+  height: 48px;
+  color: #000000;
+}
+
+.footer .footer__btn:hover {
+  background: linear-gradient(115.03deg, #ffb0bd 6.95%, #ffc2a1 89.09%);
+}
+
+.footer .footer__btn:focus,
+.footer .footer__btn:active {
+  outline: none;
+}
+
+.footer__socials {
+  margin: 40px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__socials a:not(:last-child) {
+  margin-right: 36px;
+}
+
+.footer__wrapper::before {
+  content: '';
+  display: block;
+  height: 1.5px;
+  width: 100%;
+  background-color: #222222;
+  margin: 2px 0;
+}
+
+.footer__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+  padding: 0 130px;
+}
+
+.footer__copy {
+  font-family: 'DM Sans';
+  font-weight: 500;
+  font-size: 18px;
+  color: #bcbfc9;
+}
+
+.footer__list {
+  display: flex;
+}
+
+.footer__item {
+  list-style: none;
+}
+
+.footer__item:not(:last-child) {
+  padding-right: 64px;
+}
+
+.footer__link {
+  font-family: 'DM Sans';
+  font-weight: 500;
+  font-size: 18px;
+  color: #bcbfc9;
+}

@@ -1,5 +1,6 @@
 import Head from 'next/head'
-// import Preloader from '../components/Preloader/preloader'
+import Preloader from '../components/Preloader/preloader'
+import Timer from '../components/Countdown/Timer'
 import { Box, Flex, Tag } from '@chakra-ui/react'
 import { Heading, Text } from '@chakra-ui/react'
 import FeatureCard from '../components/Home/FeatureCard'
@@ -8,10 +9,10 @@ import { GiReceiveMoney } from 'react-icons/gi'
 import { BiPurchaseTag } from 'react-icons/bi'
 import { SiSimpleanalytics } from 'react-icons/si'
 import GoalCard from '../components/Home/GoalCard'
-import Avatar1 from '../components/svg/Avatar1'
-import Avatar2 from '../components/svg/Avatar2'
-// import ConnectWalletButton from '../components/ConnectWalletButton'
+import Avatar1 from '../assets/svgs/Avatar1'
+import Avatar2 from '../assets/svgs/Avatar2'
 import Navbar from '../components/Navbar/navbar'
+import Footer from '../components/Footer/footer'
 
 export default function Home() {
   return (
@@ -127,6 +128,7 @@ export default function Home() {
             </GoalCard>
           </Flex>
         </Box>
+        <Footer />
         {/* <Preloader /> */}
       </Box>
     </>
