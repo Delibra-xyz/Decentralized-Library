@@ -16,6 +16,7 @@ import Footer from '../components/Footer/footer';
 import Book from '../assets/svgs/Book';
 import Frame from '../assets/svgs/Frame';
 import HowItWorks from './HowItWorks/how-it-works';
+import Roadmap from './Roadmap/roadmap';
 
 export default function Home() {
   return (
@@ -164,6 +165,12 @@ export default function Home() {
         <Box my='100px' px='7%'>
           <HowItWorks />
         </Box>
+
+        {/*  Roadmap section */}
+        <Box py='100px' px='7%' bg='linear-gradient(98.41deg, #02081F 0%, #1A0830 96.87%)'>
+          <Roadmap />
+        </Box>
+
         <Footer />
         {/* <Preloader /> */}
       </Box>
