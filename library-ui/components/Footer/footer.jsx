@@ -30,25 +30,25 @@ const Footer = () => {
         </InputGroup>
         <div className={styles.footer__socials}>
           <Link href='/'>
-            <a>
-              <Twitter className={styles.footer__socials__icon} />
-            </a>
+
+            <Twitter className={styles.footer__socials__icon} />
+
           </Link>
           <Link href='/'>
-            <a>
-              <LinkedIn className={styles.footer__socials__icon} />
-            </a>
+
+            <LinkedIn className={styles.footer__socials__icon} />
+
           </Link>
           <Link href='/'>
-            <a>
-              <Facebook className={styles.footer__socials__icon} />
-            </a>
+
+            <Facebook className={styles.footer__socials__icon} />
+
           </Link>
 
           <Link href='/'>
-            <a>
-              <Discord className={styles.footer__socials__icon} />
-            </a>
+
+            <Discord className={styles.footer__socials__icon} />
+
           </Link>
         </div>
       </div>
@@ -57,13 +57,13 @@ const Footer = () => {
           <p className={styles.footer__copy}>© {new Date().getFullYear()} Delibra. All rights reserved.</p>
           <ul className={styles.footer__list}>
             <li className={styles.footer__item}>
-              <Link href='/'>
-                <a className={styles.footer__link}>Terms</a>
+              <Link href='/' className={styles.footer__link}>
+                Terms
               </Link>
             </li>
             <li className={styles.footer__item}>
-              <Link href='/'>
-                <a className={styles.footer__link}>Privacy Policy</a>
+              <Link href='/' className={styles.footer__link}>
+                Privacy Policy
               </Link>
             </li>
           </ul>
