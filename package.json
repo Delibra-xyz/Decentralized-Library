@@ -5,8 +5,5 @@
   "workspaces": [
     "./library-ui",
     "./Delibra"
-  ],
-  "resolutions": {
-    "minimatch@<3.0.5": "3.0.5"
-  }
+  ]
 }
