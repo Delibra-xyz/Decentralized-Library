@@ -1,7 +1,7 @@
 import { Heading, Text } from '@chakra-ui/react';
 import { Tab, TabList, TabPanel, TabPanels, Tabs, Grid, GridItem } from '@chakra-ui/react';
-import { authorData } from './authorData';
-import HowItWorksCard from '../../components/Home/HowItWorksCard';
+import { authorData } from '../utils/data/authorData';
+import HowItWorksCard from '../components/Home/HowItWorksCard';
 
 const tabNames = ['Authors', 'Readers'];
 

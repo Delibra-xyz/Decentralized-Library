@@ -30,25 +30,16 @@ const Footer = () => {
         </InputGroup>
         <div className={styles.footer__socials}>
           <Link href='/'>
-            <a>
-              <Twitter className={styles.footer__socials__icon} />
-            </a>
+            <Twitter className={styles.footer__socials__icon} />
           </Link>
           <Link href='/'>
-            <a>
-              <LinkedIn className={styles.footer__socials__icon} />
-            </a>
+            <LinkedIn className={styles.footer__socials__icon} />
           </Link>
           <Link href='/'>
-            <a>
-              <Facebook className={styles.footer__socials__icon} />
-            </a>
+            <Facebook className={styles.footer__socials__icon} />
           </Link>
-
           <Link href='/'>
-            <a>
-              <Discord className={styles.footer__socials__icon} />
-            </a>
+            <Discord className={styles.footer__socials__icon} />
           </Link>
         </div>
       </div>
