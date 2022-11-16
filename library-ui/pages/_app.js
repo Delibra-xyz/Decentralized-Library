@@ -31,6 +31,7 @@ const wagmiClient = createClient({
 })
 
 function Home({ Component, pageProps }) {
+    const getLayout = Component.getLayout || (page => page);
   return (
     <ChakraProvider>
       <WagmiConfig client={wagmiClient}>
@@ -45,7 +46,7 @@ function Home({ Component, pageProps }) {
           modalSize="compact"
           coolMode
         >
-          <Component {...pageProps} />
+           {getLayout(<Component {...pageProps} />)}
         </RainbowKitProvider>
       </WagmiConfig>
     </ChakraProvider>
