@@ -25,44 +25,44 @@ const Authentication = () => {
         </Text>
         <div className={styles.authentication__wrapper}>
           <Link href=''>
-            <a>
-              <div className={styles.authentication__box}>
-                <Reading />
-                <Heading
-                  color='#000000'
-                  mt={2}
-                  fontSize='20px'
-                  fontWeight='700'
-                  textAlign='center'
-                  letterSpacing='-0.02em'
-                >
-                  As a reader
-                </Heading>
-                <Text color='#374151' textAlign='center' mb={1} fontSize='14px'>
-                  Purchase books and own legal right
-                </Text>
-              </div>
-            </a>
+
+            <div className={styles.authentication__box}>
+              <Reading />
+              <Heading
+                color='#000000'
+                mt={2}
+                fontSize='20px'
+                fontWeight='700'
+                textAlign='center'
+                letterSpacing='-0.02em'
+              >
+                As a reader
+              </Heading>
+              <Text color='#374151' textAlign='center' mb={1} fontSize='14px'>
+                Purchase books and own legal right
+              </Text>
+            </div>
+
           </Link>
           <Link href=''>
-            <a>
-              <div className={styles.authentication__box}>
-                <Publish />
-                <Heading
-                  color='#000000'
-                  mt={4}
-                  fontSize='20px'
-                  fontWeight='700'
-                  textAlign='center'
-                  letterSpacing='-0.02em'
-                >
-                  Publish a book
-                </Heading>
-                <Text color='#374151' textAlign='center' mb={1} fontSize='14px'>
-                  Publish a book and earn crypto
-                </Text>
-              </div>
-            </a>
+
+            <div className={styles.authentication__box}>
+              <Publish />
+              <Heading
+                color='#000000'
+                mt={4}
+                fontSize='20px'
+                fontWeight='700'
+                textAlign='center'
+                letterSpacing='-0.02em'
+              >
+                Publish a book
+              </Heading>
+              <Text color='#374151' textAlign='center' mb={1} fontSize='14px'>
+                Publish a book and earn crypto
+              </Text>
+            </div>
+
           </Link>
         </div>
         <Text color='#000000' fontSize='12px' fontWeight='400' textAlign='center' mt={8}>
