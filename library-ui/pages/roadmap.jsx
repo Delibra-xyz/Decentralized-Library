@@ -30,7 +30,8 @@ const Roadmap = () => {
         w="70%"
         mx="auto"
       >
-        {' '}
+        We have fascinating milestones to achieve, here is our project
+        development phase.
       </Text>
       <RoadmapStepper />
     </div>

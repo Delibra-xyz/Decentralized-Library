@@ -430,6 +430,14 @@ const Home = () => {
             mb={5}
           >
             Our Features
+          </Text>
+          <Heading
+            fontFamily="'Clash Grotesk', sans-serif"
+            fontSize="56px"
+            fontWeight="700"
+            mb={5}
+          >
+            Explore our amazing features
           </Heading>
           <Text
             fontFamily="'Inter', sans-serif"
@@ -437,8 +445,8 @@ const Home = () => {
             fontWeight="400"
             mb={5}
           >
-            {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum
-            augue mi vestibulum tempor.{' '} */}
+            {/* We have distinct features and benefits that m
+           ake our platform the best for readers and authors. */}
           </Text>
 
           <Flex justify="space-between" my={10}>
