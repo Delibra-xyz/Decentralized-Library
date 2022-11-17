@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Button, Text } from '@chakra-ui/react'
+import { useAuth } from '../context/AppContext'
 
 const CustomButton = ({ children, ...props }) => {
   return (
@@ -52,6 +53,15 @@ function ConnectWalletButton() {
           chain &&
           (!authenticationStatus || authenticationStatus === 'authenticated')
 
+          const { setConnected } = useAuth();
+
+          useEffect(()=> {
+            ready &&
+            account &&
+            chain &&
+            (!authenticationStatus || authenticationStatus === 'authenticated') ? setConnected(true) : setConnected(false)
+          },[ready, chain, authenticationStatus])
+
         return (
           <div
             {...(!ready && {
@@ -66,7 +76,10 @@ function ConnectWalletButton() {
             {(() => {
               if (!connected) {
                 return (
-                  <CustomButton onClick={openConnectModal} type="button">
+                  <CustomButton 
+                    onClick={openConnectModal} 
+                    type="button"
+                    >
                     Connect Wallet
                   </CustomButton>
                 )

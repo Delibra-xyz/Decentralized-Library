@@ -12,7 +12,7 @@ const Footer = () => {
       <div className={styles.footer__container}>
         <h2 className={styles.footer__heading}>Be the first to know when we launch</h2>
         <p className={styles.footer__sub}>
-          Sign up for updates. No spam, just exciting stuff from the stables of a blockchain library.
+          Subscribe for updates. No spam, just exciting content from a blockchain library&apos;s stable.
         </p>
         <InputGroup className={styles.footer__input__group}>
           <Input
@@ -37,6 +37,7 @@ const Footer = () => {
           <Link href='/'>
             <Facebook className={styles.footer__socials__icon} />
           </Link>
+
           <Link href='/'>
             <Discord className={styles.footer__socials__icon} />
           </Link>
