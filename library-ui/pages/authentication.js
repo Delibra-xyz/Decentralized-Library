@@ -1,14 +1,13 @@
 import Link from 'next/link';
 import { Heading, Text } from '@chakra-ui/react';
-import Navbar from '../components/Navbar/navbar';
 import Reading from '../assets/svgs/reading';
 import Publish from '../assets/svgs/publish';
 import styles from '../styles/authentication.module.css';
+import { getLayout } from '../layout/HomeLayout';
 
 const Authentication = () => {
   return (
     <div className={styles.authentication}>
-      <Navbar />
       <div className={styles.authentication__container}>
         <Heading
           fontFamily="'Clash Grotesk', sans-serif"
@@ -68,5 +67,5 @@ const Authentication = () => {
     </div>
   );
 };
-
+Authentication.getLayout = getLayout;
 export default Authentication;
