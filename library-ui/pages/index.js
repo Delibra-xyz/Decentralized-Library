@@ -411,10 +411,10 @@ const Home = () => {
             Our Features
           </Text>
           <Heading fontFamily="'Clash Grotesk', sans-serif" fontSize='56px' fontWeight='700' mb={5}>
-            Lorem ipsum dolor sit amet
+            Explore our amazing features
           </Heading>
           <Text fontFamily="'Inter', sans-serif" fontSize='20px' fontWeight='400' mb={5}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum augue mi vestibulum tempor.{' '}
+            We have distinct features and benefits that make our platform the best for readers and authors.
           </Text>
 
           <Flex justify='space-between' my={10}>
