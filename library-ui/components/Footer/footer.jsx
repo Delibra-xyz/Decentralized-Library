@@ -12,8 +12,7 @@ const Footer = () => {
       <div className={styles.footer__container}>
         <h2 className={styles.footer__heading}>Be the first to know when we launch</h2>
         <p className={styles.footer__sub}>
-          we promise!Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum augue mi vestibulum tempor.
-          Mauris suspendisse.
+          Sign up for updates. No spam, just exciting stuff from the stables of a blockchain library.
         </p>
         <InputGroup className={styles.footer__input__group}>
           <Input

@@ -22,7 +22,7 @@ const Roadmap = () => {
         Delibra Roadmap
       </Heading>
       <Text color='#E5E7EB' fontSize='20px' fontWeight='500' mb={5} textAlign='center' w='70%' mx='auto'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id dictum augue mi vestibulum tempor.{' '}
+        We have fascinating milestones to achieve, here is our project development phase.
       </Text>
       <RoadmapStepper />
     </div>
