@@ -17,12 +17,17 @@ const Navbar = () => {
         borderBottom={'1px solid #2A1B38;'}
         backdropFilter="blur(12.5px);"
         p={10}
+
       >
-        <Box px={3} maxW="full" m={[2, 3]}></Box>
-        <Image src="logo.svg" />
-        <Box>
-          <Image src="delibra.svg" />
-        </Box>
+        <Link href="/">
+          <Flex>
+            <Box px={3} maxW="full" m={[2, 3]}></Box>
+            <Image src="logo.svg" />
+            <Box>
+              <Image src="delibra.svg" />
+            </Box>
+          </Flex>
+        </Link>
 
         <Spacer />
         {connected ? 
@@ -40,8 +45,6 @@ const Navbar = () => {
               &nbsp;Dashboard
             </Text>
           </Link> : null}
-
-          <Spacer />
           
         <ButtonGroup gap="10">
           <ConnectWalletButton />
