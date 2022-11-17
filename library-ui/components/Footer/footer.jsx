@@ -37,7 +37,6 @@ const Footer = () => {
           <Link href='/'>
             <Facebook className={styles.footer__socials__icon} />
           </Link>
-
           <Link href='/'>
             <Discord className={styles.footer__socials__icon} />
           </Link>
