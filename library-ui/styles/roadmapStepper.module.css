@@ -28,6 +28,11 @@
   padding-left: 20px;
   padding-right: 8px;
   width: 50.7%;
+  height: 250px;
+}
+
+.roadmapStepper__content__wrapper.lastChild {
+  height: unset;
 }
 
 .roadmapStepper__content__wrapper.right {

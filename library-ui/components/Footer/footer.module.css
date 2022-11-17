@@ -69,7 +69,7 @@
   align-items: center;
 }
 
-.footer__socials a:not(:last-child) {
+.footer__socials__icon:not(:last-child) {
   margin-right: 36px;
 }
 
