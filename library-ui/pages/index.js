@@ -424,25 +424,25 @@ export default function Home() {
             <FeatureCard
               icon={<MdOutlineEnhancedEncryption />}
               title='Book encryption'
-              cont='Preventing the problem of e-book piracy and protecting against the loss of data or assets'
+              cont='Through secure means, we solve the problem of e-book piracy, plagiarism, and loss of data or assets.'
             />
 
             <FeatureCard
               icon={<GiReceiveMoney />}
               title='Read to earn'
-              cont='Earn tokens and royalties for your translations, reviews, and other activities. '
+              cont='In addition to reading for knowledge, earn tokens and royalties for your reviews and comments on a book.'
             />
 
             <FeatureCard
               icon={<BiPurchaseTag />}
               title='Ease of purchase'
-              cont='Buy books conveniently on the blockchain with a single click  '
+              cont='Purchase books freely and conveniently on the blockchain with a few steps from the comfort of your home.'
             />
 
             <FeatureCard
               icon={<FaPeopleArrows />}
               title='Community'
-              cont='Creating a fascinating community of Readers and Authors '
+              cont='We provide a captivating community where readers and authors can interact, and connect with each other.'
             />
           </Flex>
         </Box>
@@ -469,10 +469,16 @@ export default function Home() {
             mx='auto'
           ></Heading>
           <Flex justify='space-between' mt={10}>
-            <GoalCard title='For Authors' cont=' Access to a global platform of potential readers and buyers'>
+            <GoalCard
+              title='For Authors'
+              cont='Connect with an extensive global platform that grants access to potential readers and buyers, which would promote your creative work.'
+            >
               <Avatar1 />
             </GoalCard>
-            <GoalCard title='For Readers' cont=' Access to free'>
+            <GoalCard
+              title='For Readers'
+              cont='Get access to various books for free while connecting, relating, and discussing with other readers on book reviews.'
+            >
               <Avatar2 />
             </GoalCard>
           </Flex>
