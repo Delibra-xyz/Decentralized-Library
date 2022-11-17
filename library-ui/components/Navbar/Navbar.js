@@ -1,8 +1,12 @@
 import React from 'react'
 import ConnectWalletButton from '../ConnectWalletButton'
-import { Flex, Box, Spacer, ButtonGroup } from '@chakra-ui/react'
+import { Flex, Box, Spacer, ButtonGroup, Text, Icon } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
+import { useAuth } from '../../context/AppContext'
+import Link from 'next/link'
+import { MdOutlineDashboard } from 'react-icons/md'
 const Navbar = () => {
+  const { connected } = useAuth()
   return (
     <>
       <Flex
@@ -21,6 +25,24 @@ const Navbar = () => {
         </Box>
 
         <Spacer />
+        {connected ? 
+          <Link href="/authentication">
+            <Text 
+              color="#fff"
+              fontWeight="700"
+              fontSize="lg"
+              px={10}
+              display="flex"
+              alignItems="center"
+            >
+
+              <Icon as={MdOutlineDashboard} />
+              &nbsp;Dashboard
+            </Text>
+          </Link> : null}
+
+          <Spacer />
+          
         <ButtonGroup gap="10">
           <ConnectWalletButton />
         </ButtonGroup>

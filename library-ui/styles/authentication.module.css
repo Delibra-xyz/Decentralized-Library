@@ -1,5 +1,5 @@
 .authentication__container {
-  margin: 120px 0 34px;
+  margin: 150px 0 34px;
   padding: 0 90px;
 }
 
@@ -20,6 +20,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .authentication__box:first-child {

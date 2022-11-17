@@ -10,6 +10,7 @@ import {
 import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { publicProvider } from 'wagmi/providers/public'
+import { AppProvider } from '../context/AppContext'
 
 const { chains, provider } = configureChains(
   [chain.polygonMumbai],
@@ -34,21 +35,23 @@ function Home({ Component, pageProps }) {
     const getLayout = Component.getLayout || (page => page);
   return (
     <ChakraProvider>
-      <WagmiConfig client={wagmiClient}>
-        <RainbowKitProvider
-          chains={chains}
-          theme={darkTheme({
-            overlayBlur: 'small',
-            borderRadius: 'medium',
-            accentColor: '#7b3fe4',
-            accentColorForeground: 'white',
-          })}
-          modalSize="compact"
-          coolMode
-        >
-           {getLayout(<Component {...pageProps} />)}
-        </RainbowKitProvider>
-      </WagmiConfig>
+      <AppProvider>
+        <WagmiConfig client={wagmiClient}>
+          <RainbowKitProvider
+            chains={chains}
+            theme={darkTheme({
+              overlayBlur: 'small',
+              borderRadius: 'medium',
+              accentColor: '#7b3fe4',
+              accentColorForeground: 'white',
+            })}
+            modalSize="compact"
+            coolMode
+          >
+            {getLayout(<Component {...pageProps} />)}
+          </RainbowKitProvider>
+        </WagmiConfig>
+        </AppProvider>
     </ChakraProvider>
   )
 }

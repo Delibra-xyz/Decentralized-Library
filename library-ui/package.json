@@ -16,6 +16,7 @@
     "@rainbow-me/rainbowkit": "^0.7.4",
     "ethers": "^5.7.2",
     "framer-motion": "7.6.7",
+    "gsap": "^3.11.3",
     "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -23,8 +24,8 @@
     "wagmi": "^0.8.4"
   },
   "devDependencies": {
+    "@babel/core": "*",
     "eslint": "8.27.0",
-    "eslint-config-next": "13.0.3",
-    "@babel/core": "*"
+    "eslint-config-next": "13.0.3"
   }
 }

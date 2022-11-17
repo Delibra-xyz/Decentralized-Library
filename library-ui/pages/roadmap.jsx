@@ -6,7 +6,7 @@ import {
   RangeSliderTrack,
   Text,
 } from '@chakra-ui/react';
-import RoadmapStepper from '../../components/Home/RoadmapStepper';
+import RoadmapStepper from '../components/Home/RoadmapStepper';
 
 const Roadmap = () => {
   return (
