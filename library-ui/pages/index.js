@@ -430,15 +430,8 @@ const Home = () => {
             mb={5}
           >
             Our Features
-          </Text>
-          <Heading
-            fontFamily="'Clash Grotesk', sans-serif"
-            fontSize="56px"
-            fontWeight="700"
-            mb={5}
-          >
-            Explore our amazing features
           </Heading>
+
           <Text
             fontFamily="'Inter', sans-serif"
             fontSize="20px"
