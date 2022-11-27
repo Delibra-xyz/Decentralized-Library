@@ -69,8 +69,8 @@
   align-items: center;
 }
 
-.footer__socials__icon:not(:last-child) {
-  margin-right: 36px;
+.footer__socials__icon{
+  margin-right: 20px;
 }
 
 .footer__wrapper::before {

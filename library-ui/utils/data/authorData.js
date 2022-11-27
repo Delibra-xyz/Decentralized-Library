@@ -15,7 +15,7 @@ export const authorData = [
     id: 3,
     step: '3',
     content:
-      'Create your Username and also pick a preferred Nft art from your wallet as your profile picture',
+      'Create your username and pick a preferred Nft art from your wallet as your profile picture',
   },
   {
     id: 4,
