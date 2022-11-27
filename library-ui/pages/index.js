@@ -415,9 +415,7 @@ const Home = () => {
           <Heading fontFamily="'Clash Grotesk', sans-serif" fontSize='56px' fontWeight='700' mb={5}>
             Our Features
           </Heading>
-          <Heading fontFamily="'Clash Grotesk', sans-serif" fontSize='56px' fontWeight='700' mb={5}>
-            Explore our amazing features
-          </Heading>
+
           <Text fontFamily="'Inter', sans-serif" fontSize='20px' fontWeight='400' mb={5}>
             {/* We have distinct features and benefits that m
            ake our platform the best for readers and authors. */}
