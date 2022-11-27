@@ -69,6 +69,10 @@
   align-items: center;
 }
 
+.footer__socials > * {
+  cursor: pointer;
+}
+
 .footer__socials__icon:not(:last-child) {
   margin-right: 36px;
 }
@@ -103,6 +107,7 @@
 
 .footer__item {
   list-style: none;
+  color: #bcbfc9;
 }
 
 .footer__item:not(:last-child) {
@@ -113,5 +118,4 @@
   font-family: 'DM Sans';
   font-weight: 500;
   font-size: 18px;
-  color: #bcbfc9;
 }
