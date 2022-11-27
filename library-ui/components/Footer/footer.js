@@ -29,16 +29,24 @@ const Footer = () => {
         </InputGroup>
         <div className={styles.footer__socials}>
           <Link href='/'>
-            <Twitter className={styles.footer__socials__icon} />
+            <a>
+              <Twitter className={styles.footer__socials__icon} />
+            </a>
           </Link>
           <Link href='/'>
-            <LinkedIn className={styles.footer__socials__icon} />
+            <a>
+              <LinkedIn className={styles.footer__socials__icon} />
+            </a>
           </Link>
           <Link href='/'>
-            <Facebook className={styles.footer__socials__icon} />
+            <a>
+              <Facebook className={styles.footer__socials__icon} />
+            </a>
           </Link>
           <Link href='/'>
-            <Discord className={styles.footer__socials__icon} />
+            <a>
+              <Discord className={styles.footer__socials__icon} />
+            </a>
           </Link>
         </div>
       </div>
