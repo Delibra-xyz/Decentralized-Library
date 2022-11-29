@@ -1,5 +1,5 @@
 .dashboardHeader {
-  padding: 20px 25px;
+  padding: 15px 25px;
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
 }
@@ -32,25 +32,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.dashboardHeader__dropdown {
-  padding: 5px 16px;
-  border-radius: 8px;
-  margin-right: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  background-color: #f3f4f6;
-}
-
-.dashboardHeader__dropdown:nth-child(2n) {
-  background-color: #e5e7eb;
-}
-
-.dashboardHeader__dropdown span {
-  padding: 5px 10px;
 }
 
 .dashboardHeader__dropdown__box {
