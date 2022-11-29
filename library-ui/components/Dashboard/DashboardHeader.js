@@ -39,7 +39,7 @@ const DashboardHeader = () => {
           <Menu>
             <MenuButton
               as={Button}
-              leftIcon={<Image src='metamask.png' alt='metamask' />}
+              leftIcon={<Image src='/metamask.png' alt='metamask' />}
               rightIcon={<ChevronDown />}
               backgroundColor='#f3f4f6'
               mr='16px'
