@@ -26,7 +26,7 @@ a {
 .main {
   flex: 1;
   margin-left: 245px;
-  background-color: #f1f1f1;
+  background-color: #f6f8fa;
   min-height: 100vh;
 }
 
@@ -51,6 +51,22 @@ a {
 #countdown .box .text {
   font-size: 12px;
   font-family: sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cecece;
+  border-radius: 28px;
 }
 
 @media (max-width: 768px) {
