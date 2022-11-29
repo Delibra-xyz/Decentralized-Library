@@ -28,7 +28,6 @@ const Footer = () => {
           </InputRightElement>
         </InputGroup>
         <div className={styles.footer__socials}>
-
           <Link
             as={NextLink}
             href='/'
@@ -67,25 +66,6 @@ const Footer = () => {
               boxShadow: 'unset',
             }}
           >
-            <Discord className={styles.footer__socials__icon} />
-
-          <Link href='/'>
-
-            <Twitter className={styles.footer__socials__icon} />
-
-          </Link>
-          <Link href='/'>
-
-            <LinkedIn className={styles.footer__socials__icon} />
-
-          </Link>
-          <Link href='/'>
-
-            <Facebook className={styles.footer__socials__icon} />
-
-          </Link>
-          <Link href='/'>
-
             <Discord className={styles.footer__socials__icon} />
           </Link>
         </div>
