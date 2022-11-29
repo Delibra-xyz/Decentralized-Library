@@ -19,6 +19,7 @@ const SideBar = () => {
         <ul className={styles.sidebar__navigation__menu}>
           {authorRoutes.map(({ to, routeIcon, routeName }) => (
             <li key={routeName} className={styles.sidebar__navigation__list}>
+
               <Link
                 as={NextLink}
                 href={to}
@@ -31,6 +32,12 @@ const SideBar = () => {
                   {routeIcon}
                   <span className={styles.sidebar__navigation__name}>{routeName}</span>
                 </>
+
+              <Link href={to} className={styles.sidebar__navigation__link}>
+
+                {routeIcon}
+                <span className={styles.sidebar__navigation__name}>{routeName}</span>
+
               </Link>
             </li>
           ))}
