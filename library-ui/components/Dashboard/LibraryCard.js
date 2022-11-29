@@ -1,4 +1,5 @@
-import { Box, Heading, Image, Text } from '@chakra-ui/react';
+import { Link, Box, Heading, Image, Text } from '@chakra-ui/react';
+import { Link as NextLink } from 'next/link';
 import Unit from '../../assets/svgs/unit';
 import styles from '../../styles/library.module.css';
 
@@ -12,9 +13,25 @@ const LibraryCard = () => {
         <Text fontSize='12px' color='#374151' fontFamily='DM Sans' pt={3}>
           Romance
         </Text>
-        <Heading fontSize='16px' color='#000000' fontWeight={800} letterSpacing='-0.024em' fontFamily='Inter' pt='2px'>
-          Life on the Mississppi
-        </Heading>
+        <Link
+          as={NextLink}
+          href='/library/libraryOverview'
+          _hover={{ textDecoration: 'none' }}
+          _focus={{
+            boxShadow: 'unset',
+          }}
+        >
+          <Heading
+            fontSize='16px'
+            color='#000000'
+            fontWeight={800}
+            letterSpacing='-0.024em'
+            fontFamily='Inter'
+            pt='2px'
+          >
+            Life on the Mississppi
+          </Heading>
+        </Link>
       </Box>
       <div className={styles.library__wrapper}>
         <Box>
