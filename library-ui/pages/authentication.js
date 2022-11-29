@@ -1,6 +1,6 @@
-import { Link as NextLink } from 'next/link';
+import Link from 'next/link';
 import { getLayout } from '../layout/HomeLayout';
-import { Heading, Text, Link } from '@chakra-ui/react';
+import { Heading, Text } from '@chakra-ui/react';
 import Reading from '../assets/svgs/reading';
 import Publish from '../assets/svgs/publish';
 import styles from '../styles/authentication.module.css';
@@ -23,13 +23,7 @@ const Authentication = () => {
           Select an account type.
         </Text>
         <div className={styles.authentication__wrapper}>
-          <Link
-            as={NextLink}
-            href='/'
-            _focus={{
-              boxShadow: 'unset',
-            }}
-          >
+          <Link href='' legacyBehavior>
             <div className={styles.authentication__box}>
               <Reading />
               <Heading
@@ -47,13 +41,7 @@ const Authentication = () => {
               </Text>
             </div>
           </Link>
-          <Link
-            as={NextLink}
-            href='/authorDashboard'
-            _focus={{
-              boxShadow: 'unset',
-            }}
-          >
+          <Link href='/authorDashboard' legacyBehavior>
             <div className={styles.authentication__box}>
               <Publish />
               <Heading
