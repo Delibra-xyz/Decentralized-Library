@@ -45,6 +45,7 @@ const DashboardHeader = () => {
               mr='16px'
               borderRadius='8px'
               fontWeight={600}
+              _hover={{ bg: '#f3f4f6' }}
               _focus={{
                 boxShadow: 'unset',
               }}
