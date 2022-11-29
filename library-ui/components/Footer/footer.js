@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { Button, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
+import { Link as NextLink } from 'next/link';
+import { Link, Button, Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 import Twitter from '../../assets/svgs/twitter';
 import LinkedIn from '../../assets/svgs/linkedIn';
 import Facebook from '../../assets/svgs/facebook';
@@ -28,25 +28,45 @@ const Footer = () => {
           </InputRightElement>
         </InputGroup>
         <div className={styles.footer__socials}>
-          <Link href='/'>
-            <a>
-              <Twitter className={styles.footer__socials__icon} />
-            </a>
+          <Link
+            as={NextLink}
+            href='/'
+            className={styles.footer__socials__link}
+            _focus={{
+              boxShadow: 'unset',
+            }}
+          >
+            <Twitter className={styles.footer__socials__icon} />
           </Link>
-          <Link href='/'>
-            <a>
-              <LinkedIn className={styles.footer__socials__icon} />
-            </a>
+          <Link
+            as={NextLink}
+            href='/'
+            className={styles.footer__socials__link}
+            _focus={{
+              boxShadow: 'unset',
+            }}
+          >
+            <LinkedIn className={styles.footer__socials__icon} />
           </Link>
-          <Link href='/'>
-            <a>
-              <Facebook className={styles.footer__socials__icon} />
-            </a>
+          <Link
+            as={NextLink}
+            href='/'
+            className={styles.footer__socials__link}
+            _focus={{
+              boxShadow: 'unset',
+            }}
+          >
+            <Facebook className={styles.footer__socials__icon} />
           </Link>
-          <Link href='/'>
-            <a>
-              <Discord className={styles.footer__socials__icon} />
-            </a>
+          <Link
+            as={NextLink}
+            href='/'
+            className={styles.footer__socials__link}
+            _focus={{
+              boxShadow: 'unset',
+            }}
+          >
+            <Discord className={styles.footer__socials__icon} />
           </Link>
         </div>
       </div>

@@ -69,11 +69,7 @@
   align-items: center;
 }
 
-.footer__socials > * {
-  cursor: pointer;
-}
-
-.footer__socials__icon:not(:last-child) {
+.footer__socials__link:not(:last-child) {
   margin-right: 36px;
 }
 
