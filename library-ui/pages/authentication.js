@@ -29,7 +29,7 @@ const Authentication = () => {
           Select an account type.
         </Text>
         <div className={styles.authentication__wrapper}>
-          <Link href="">
+          <Link href="" legacyBehavior>
             <div className={styles.authentication__box}>
               <Reading />
               <Heading
@@ -47,7 +47,7 @@ const Authentication = () => {
               </Text>
             </div>
           </Link>
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <div className={styles.authentication__box}>
               <Publish />
               <Heading
@@ -77,7 +77,7 @@ const Authentication = () => {
         </Text>
       </div>
     </div>
-  )
+  );
 }
 Authentication.getLayout = getLayout
 export default Authentication
