@@ -49,7 +49,7 @@ const Authentication = () => {
           </Link>
           <Link
             as={NextLink}
-            href='/dashboard'
+            href='/authorDashboard'
             _focus={{
               boxShadow: 'unset',
             }}
