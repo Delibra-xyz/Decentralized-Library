@@ -1,0 +1,37 @@
+.libraryOverview__box::before {
+  display: inline-block;
+  content: '';
+  background-color: #1f2937;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  height: 4px;
+  width: 4px;
+  margin: 0 8px;
+}
+
+.libraryOverview__icon__container {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #495ecd;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.libraryOverview__icon g > * {
+  fill: #e6e6e6;
+}
+
+.libraryOverview__item {
+  padding: 4px 9px;
+  list-style: none;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.libraryOverview__item.active {
+  background: #f3f4f6;
+  border-radius: 4px;
+  width: 126px;
+}

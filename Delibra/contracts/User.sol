@@ -12,4 +12,3 @@ contract User {
         users[_addr] = true;
         emit UserCreated(_addr, block.timestamp);
     }
-}

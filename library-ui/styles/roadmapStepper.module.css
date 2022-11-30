@@ -18,7 +18,6 @@
 
 .roadmapStepper__thumb.active {
   box-shadow: 0 0 0 9.44672px rgba(255, 255, 255, 0.31);
-
 }
 
 .roadmapStepper__thumb.one {
@@ -29,7 +28,7 @@
   padding-left: 20px;
   padding-right: 8px;
   width: 50.7%;
-  height: 250px;
+  height: 320px;
 }
 
 .roadmapStepper__content__wrapper.lastChild {
