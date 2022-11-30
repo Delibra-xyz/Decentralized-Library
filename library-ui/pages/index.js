@@ -1,21 +1,18 @@
-import Head from 'next/head';
-// import Preloader from '../components/Preloader/preloader'
-// import Timer from '../components/Countdown/Timer'
-import { Box, Button, Divider, Flex, Image, Tag } from '@chakra-ui/react';
-import { Heading, Text } from '@chakra-ui/react';
-import FeatureCard from '../components/Home/FeatureCard';
-import { MdOutlineEnhancedEncryption } from 'react-icons/md';
-import { GiReceiveMoney } from 'react-icons/gi';
-import { BiPurchaseTag } from 'react-icons/bi';
-import { FaPeopleArrows } from 'react-icons/fa';
-import GoalCard from '../components/Home/GoalCard';
-import Avatar1 from '../assets/svgs/Avatar1';
-import Avatar2 from '../assets/svgs/Avatar2';
-import Book from '../assets/svgs/Book';
-import Frame from '../assets/svgs/Frame';
-import HowItWorks from './how-it-works';
-import Roadmap from './roadmap';
-import { getLayout } from '../layout/HomeLayout';
+import Head from 'next/head'
+import { Box, Button, Divider, Flex, Image, Tag } from '@chakra-ui/react'
+import { Heading, Text } from '@chakra-ui/react'
+import FeatureCard from '../components/Home/FeatureCard'
+import { MdOutlineEnhancedEncryption } from 'react-icons/md'
+import { GiReceiveMoney } from 'react-icons/gi'
+import { BiPurchaseTag } from 'react-icons/bi'
+import { FaPeopleArrows } from 'react-icons/fa'
+import GoalCard from '../components/Home/GoalCard'
+import Avatar1 from '../assets/svgs/Avatar1'
+import Avatar2 from '../assets/svgs/Avatar2'
+import Book from '../assets/svgs/Book'
+import HowItWorks from '../components/how-it-works'
+import Roadmap from '../components/roadmap'
+import { getLayout } from '../layout/HomeLayout'
 
 // import LitJsSdk from 'lit-js-sdk'
 

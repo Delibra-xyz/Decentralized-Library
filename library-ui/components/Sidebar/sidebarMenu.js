@@ -5,22 +5,22 @@ import Settings from '../../assets/svgs/settings';
 
 export const authorRoutes = [
   {
-    to: '/',
+    to: '/dashboard',
     routeIcon: <Grid />,
     routeName: 'Dashboard',
   },
   {
-    to: '/',
+    to: '/dashboard/library',
     routeIcon: <BookOpen />,
     routeName: 'My library',
   },
   {
-    to: '/',
+    to: '/dashboard',
     routeIcon: <Gift />,
     routeName: 'Rewards',
   },
   {
-    to: '/',
+    to: '/dashboard',
     routeIcon: <Settings />,
     routeName: 'Settings',
   },

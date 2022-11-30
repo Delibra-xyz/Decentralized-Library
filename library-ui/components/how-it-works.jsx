@@ -9,7 +9,7 @@ import {
   GridItem,
 } from '@chakra-ui/react'
 import { authorData, readerData } from '../utils/data/authorData'
-import HowItWorksCard from '../components/Home/HowItWorksCard'
+import HowItWorksCard from './Home/HowItWorksCard'
 
 const tabNames = ['Authors', 'Readers']
 

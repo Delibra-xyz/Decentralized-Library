@@ -23,7 +23,7 @@ const Authentication = () => {
           Select an account type.
         </Text>
         <div className={styles.authentication__wrapper}>
-          <Link href='' legacyBehavior>
+          <Link href='/dashboard' legacyBehavior>
             <div className={styles.authentication__box}>
               <Reading />
               <Heading
@@ -41,7 +41,7 @@ const Authentication = () => {
               </Text>
             </div>
           </Link>
-          <Link href='/authorDashboard' legacyBehavior>
+          <Link href='/dashboard' legacyBehavior>
             <div className={styles.authentication__box}>
               <Publish />
               <Heading

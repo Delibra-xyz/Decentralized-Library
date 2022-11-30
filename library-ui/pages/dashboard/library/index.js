@@ -1,4 +1,4 @@
-import { getLayout } from '../../layout/DashboardLayout';
+import { getLayout } from '../../../layout/DashboardLayout';
 import {
   Box,
   Button,
@@ -16,12 +16,12 @@ import {
   Tabs,
   Text,
 } from '@chakra-ui/react';
-import List from '../../assets/svgs/list';
-import Grid2 from '../../assets/svgs/Grid2';
-import Search from '../../assets/svgs/search';
-import LibraryCard from '../../components/Dashboard/LibraryCard';
-import LibraryEmptyState from '../../components/Dashboard/LibraryEmptyState';
-import styles from '../../styles/library.module.css';
+import List from '../../../assets/svgs/list';
+import Grid2 from '../../../assets/svgs/Grid2';
+import Search from '../../../assets/svgs/search';
+import LibraryCard from '../../../components/Dashboard/LibraryCard';
+import LibraryEmptyState from '../../../components/Dashboard/LibraryEmptyState';
+import styles from '../../../styles/library.module.css';
 
 const Library = () => {
   const tabNames = ['Published', 'Activities'];
@@ -121,8 +121,8 @@ const Library = () => {
               </Text>
               <Box mt={6}>
                 <SimpleGrid templateColumns='repeat(4, 1fr)' gap={5}>
-                  <LibraryCard />
-                  <LibraryCard />
+                  <LibraryCard id="1"/>
+                  <LibraryCard id="2"/>
                 </SimpleGrid>
               </Box>
             </TabPanel>
