@@ -1,3 +1,4 @@
+import { getLayout } from '../../layout/DashboardLayout';
 import {
   Box,
   Button,
@@ -15,12 +16,12 @@ import {
   Tabs,
   Text,
 } from '@chakra-ui/react';
-import List from '../assets/svgs/list';
-import Grid from '../assets/svgs/grid';
-import Search from '../assets/svgs/search';
-import LibraryCard from '../components/Dashboard/LibraryCard';
-import LibraryEmptyState from '../components/Dashboard/LibraryEmptyState';
-import styles from '../styles/library.module.css';
+import List from '../../assets/svgs/list';
+import Grid2 from '../../assets/svgs/Grid2';
+import Search from '../../assets/svgs/search';
+import LibraryCard from '../../components/Dashboard/LibraryCard';
+import LibraryEmptyState from '../../components/Dashboard/LibraryEmptyState';
+import styles from '../../styles/library.module.css';
 
 const Library = () => {
   const tabNames = ['Published', 'Activities'];
@@ -99,7 +100,7 @@ const Library = () => {
               />
               <IconButton
                 aria-label='Grid view'
-                icon={<Grid className={styles.library__icon__btn} />}
+                icon={<Grid2 />}
                 backgroundColor='transparent'
                 borderRadius='4px'
                 _hover={{ bgColor: 'transparent' }}
@@ -132,4 +133,5 @@ const Library = () => {
   );
 };
 
+Library.getLayout = getLayout;
 export default Library;
