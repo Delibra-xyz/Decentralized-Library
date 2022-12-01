@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { getLayout } from '../../../layout/DashboardLayout';
 import {
   Box,
@@ -7,6 +8,7 @@ import {
   FormHelperText,
   FormLabel,
   Heading,
+  Image,
   Input,
   InputGroup,
   InputRightElement,
@@ -19,6 +21,19 @@ import BookOpenColoured from '../../../assets/svgs/BookOpenColoured';
 import styles from '../../../styles/libraryOverview.module.css';
 
 const UploadBook = () => {
+  const [photo, setPhoto] = useState('');
+  const [imagePreviewUrl, setImagePreviewUrl] = useState(<ImageIcon />);
+
+  const handleFileChange = (e) => {
+    const reader = new FileReader();
+    const file = e.target.files[0];
+
+    reader.onloadend = () => {
+      setPhoto(file);
+      setImagePreviewUrl(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
   return (
     <Box my='23px' px='40px'>
       <Heading
@@ -53,12 +68,13 @@ const UploadBook = () => {
             overflow='hidden'
             position='relative'
           >
-            <FormLabel display='flex' justifyContent='center' alignItems='center' m='0'>
-              <ImageIcon />
+            <FormLabel display='flex' justifyContent='center' alignItems='center' m='0' p='24px' height='265px'>
+              {photo === '' ? imagePreviewUrl : <Image src={imagePreviewUrl} alt='' height='210px' width='160px' />}
             </FormLabel>
             <Input
               type='file'
               placeholder='Upload a cover'
+              onChange={handleFileChange}
               title=' '
               p='0'
               borderRadius='none'
