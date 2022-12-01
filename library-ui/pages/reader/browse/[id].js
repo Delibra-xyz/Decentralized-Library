@@ -7,6 +7,13 @@ import {
   Heading,
   Image,
   Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Spacer,
   Tab,
   TabList,
@@ -15,15 +22,21 @@ import {
   Tabs,
   Tag,
   Text,
+  useDisclosure,
 } from '@chakra-ui/react';
+import { getLayout } from '../../../layout/DashboardLayout';
+import BookOpen2 from '../../../assets/svgs/BookOpen2';
 import Ethereum from '../../../assets/svgs/ethereum';
 import Share from '../../../assets/svgs/share';
 import Star from '../../../assets/svgs/Star';
-import { getLayout } from '../../../layout/DashboardLayout';
 import styles from '../../../styles/browse.module.css';
 
 const BookOverview = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const tabNames = ['Properties', 'History'];
+  const myStr = '0xaab27b150451726ec7738aa1d0a94505c8729bd1';
+  const address = myStr.substring(0, 18) + '...';
   return (
     <Box px='24px' py='30px'>
       <Flex>
@@ -118,9 +131,11 @@ const BookOverview = () => {
               borderRadius='8px'
               bgGradient='linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)'
               _hover={{ bg: 'linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)' }}
+              _active={{ bg: 'linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)' }}
               _focus={{
                 boxShadow: 'unset',
               }}
+              onClick={onOpen}
             >
               Buy Now for 2.90 ETH
               <span className={styles.browse__icon__container}>
@@ -230,9 +245,151 @@ const BookOverview = () => {
                 </FormControl>
               </Box>
             </TabPanel>
+            <TabPanel px='0'>
+              <Box>
+                <Flex mt='40px'>
+                  <Flex>
+                    <Box
+                      bg='linear-gradient(98.41deg, #02081F 0%, #1A0830 96.87%)'
+                      width='48px'
+                      height='48px'
+                      borderRadius='50%'
+                      display='flex'
+                      justifyContent='center'
+                      alignItems='center'
+                    >
+                      <BookOpen2 />
+                    </Box>
+                    <Box pl='12px'>
+                      <Heading
+                        pb='8px'
+                        bg='linear-gradient(98.41deg, #02081F 0%, #1A0830 96.87%)'
+                        bgClip='text'
+                        fontFamily='DM Sans'
+                        fontSize='16px'
+                        fontWeight={700}
+                        letterSpacing='-0.02em'
+                      >
+                        purchased by {address}
+                      </Heading>
+                      <Text color='#9CA3AF' fontSize='15px' fontWeight={500}>
+                        3 hours ago
+                      </Text>
+                    </Box>
+                  </Flex>
+                  <Spacer />
+                  <Box textAlign='right'>
+                    <Heading
+                      pb='8px'
+                      color='#1F2937'
+                      fontFamily='DM Sans'
+                      fontSize='16px'
+                      fontWeight={700}
+                      letterSpacing='-0.02em'
+                    >
+                      <span>0.06 ETH</span>
+                      <span className={styles.browse__icon__container}>
+                        <Ethereum className={styles.browse__icon} />
+                      </span>
+                    </Heading>
+                    <Text color='#9CA3AF' fontSize='14px' fontWeight={500}>
+                      $16,739
+                    </Text>
+                  </Box>
+                </Flex>
+              </Box>
+            </TabPanel>
           </TabPanels>
         </Tabs>
       </Box>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent py='30px'>
+          <ModalHeader
+            pb='10px'
+            pt='0'
+            color='#000000'
+            fontFamily='Inter'
+            fontSize='24px'
+            fontWeight={800}
+            letterSpacing='-0.02em'
+            textAlign='center'
+          >
+            Checkout
+          </ModalHeader>
+          <ModalBody>
+            <Text
+              color='#6B7280'
+              fontFamily='DM Sans'
+              fontSize='17px'
+              lineHeight='30px'
+              fontWeight={500}
+              textAlign='center'
+              letterSpacing='-0.02em'
+            >
+              You are about to purchase{' '}
+              <span style={{ color: '#000000', fontWeight: '700' }}>The Perfect Marriage</span> from
+              <span style={{ color: '#000000', fontWeight: '700' }}>&nbsp;{address}</span>
+            </Text>
+            <Box border=' 1px solid #D1D5DB' borderRadius='8px' px='8px' py='16px' mt='40px'>
+              <Box display='flex' justifyContent='space-between' alignItems='center' pb='16px'>
+                <Text color='#284E51' fontSize='16px' fontWeight={500}>
+                  Creator
+                </Text>
+                <Text color='#000000' fontSize='15px' fontWeight={500} textAlign='right'>
+                  Madeline Miller
+                </Text>
+              </Box>
+              <Box display='flex' justifyContent='space-between' alignItems='center' pb='16px'>
+                <Text color='#284E51' fontSize='16px' fontWeight={500}>
+                  Price
+                </Text>
+                <Text color='#000000' fontSize='15px' fontWeight={500} textAlign='right'>
+                  2.90 ETH
+                </Text>
+              </Box>
+              <Box display='flex' justifyContent='space-between' alignItems='center' pb='16px'>
+                <Text color='#284E51' fontSize='16px' fontWeight={500}>
+                  Service fee 0.4%
+                </Text>
+                <Text color='#000000' fontSize='15px' fontWeight={500} textAlign='right'>
+                  0.01 ETH
+                </Text>
+              </Box>
+              <Box display='flex' justifyContent='space-between' alignItems='center'>
+                <Text color='#284E51' fontSize='16px' fontWeight={500}>
+                  You will pay
+                </Text>
+                <Text color='#000000' fontSize='15px' fontWeight={500} textAlign='right'>
+                  13.18 ETH
+                </Text>
+              </Box>
+            </Box>
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              fontWeight={700}
+              px='24px'
+              py='16px'
+              fontSize='17px'
+              color='#000000'
+              borderRadius='8px'
+              margin='0 auto'
+              bgGradient='linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)'
+              _hover={{ bg: 'linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)' }}
+              _focus={{
+                boxShadow: 'unset',
+              }}
+              onClick={onClose}
+            >
+              Buy Now for 2.90 ETH
+              <span className={styles.browse__icon__container}>
+                <Ethereum className={styles.browse__icon} />
+              </span>
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
