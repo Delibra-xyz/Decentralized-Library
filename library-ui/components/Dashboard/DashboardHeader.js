@@ -1,8 +1,7 @@
-import { Button, Image, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import { Image} from '@chakra-ui/react';
 import Bell from '../../assets/svgs/Bell';
-import Ethereum from '../../assets/svgs/ethereum';
-import ChevronDown from '../../assets/svgs/ChevronDown';
 import styles from '../../styles/dashboard-header.module.css';
+import ConnectWalletButton from '../ConnectWalletButton';
 
 const DashboardHeader = () => {
   return (
@@ -13,49 +12,15 @@ const DashboardHeader = () => {
           <div className={styles.dashboardHeader__notification}>
             <Bell />
           </div>
-          <Menu>
-            <MenuButton
-              as={Button}
-              leftIcon={
-                <div className={styles.dashboardHeader__dropdown__box}>
-                  <Ethereum />
-                </div>
-              }
-              rightIcon={<ChevronDown />}
-              backgroundColor='#e5e7eb'
-              mr='16px'
-              borderRadius='8px'
-              fontWeight={600}
-              _focus={{
-                boxShadow: 'none',
-              }}
-            >
-              Ethereum
-            </MenuButton>
-            <MenuList>
-              <MenuItem>Hello</MenuItem>
-            </MenuList>
-          </Menu>
-          <Menu>
-            <MenuButton
-              as={Button}
-              leftIcon={<Image src='/metamask.png' alt='metamask' />}
-              rightIcon={<ChevronDown />}
-              backgroundColor='#f3f4f6'
-              mr='16px'
-              borderRadius='8px'
-              fontWeight={600}
-              _hover={{ bg: '#f3f4f6' }}
-              _focus={{
-                boxShadow: 'unset',
-              }}
-            >
-              0x9...10Q
-            </MenuButton>
-            <MenuList>
-              <MenuItem>Hello</MenuItem>
-            </MenuList>
-          </Menu>
+          <ConnectWalletButton
+            backgroundColor="#E5E7EB"
+            bgGradient="linear-gradient(98.41deg, #02081F 0%, #1A0830 96.87%)"
+            color="#000000"
+            mr={3}
+            fontSize="14px"
+            _hover={{ bg: '#f3f4f6' }}
+          />
+          
           <Image src='/dp.png' alt='avatar' width='40px' height='40px' borderRadius='50%' />
         </div>
       </div>

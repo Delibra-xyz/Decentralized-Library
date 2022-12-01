@@ -35,6 +35,15 @@
   padding: 8px 10px;
 }
 
+.sidebar__navigation__link__active {
+  background-color: #1e1155;
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+}
+
 .sidebar__navigation__link:active {
   background-color: #1e1155;
   height: 100%;

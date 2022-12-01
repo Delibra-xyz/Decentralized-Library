@@ -3,7 +3,7 @@ import { Box, Button, Image, Text } from '@chakra-ui/react';
 const LibraryEmptyState = () => {
   return (
     <Box mt={10}>
-      <Image src='StackOfBooks.png' alt='' margin='0 auto' />
+      <Image src='/StackOfBooks.png' alt='' margin='0 auto' />
       <Text fontSize='18px' color='#4B5563' textAlign='center' letterSpacing='-0.02em' fontFamily='DM Sans' py={5}>
         You have not written any book yet.
       </Text>
