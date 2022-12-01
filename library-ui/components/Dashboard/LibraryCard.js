@@ -3,9 +3,17 @@ import { Link as NextLink } from 'next/link';
 import Unit from '../../assets/svgs/unit';
 import styles from '../../styles/library.module.css';
 
-const LibraryCard = ({id, ...props}) => {
+const LibraryCard = ({ id, link, ...props }) => {
   return (
-    <Box maxW='3xs' borderWidth='1px' borderColor='#E5E7EB' borderRadius='16px' p='2' backgroundColor='#FFFFFF' {...props}>
+    <Box
+      maxW='3xs'
+      borderWidth='1px'
+      borderColor='#E5E7EB'
+      borderRadius='16px'
+      p='2'
+      backgroundColor='#FFFFFF'
+      {...props}
+    >
       <Box bg='#F3F4F6' borderRadius='8' overflow='hidden' py='4'>
         <Image src='/featured1.jfif' alt='bookCover' width='86px' height='110px' margin='0 auto' />
       </Box>
@@ -15,7 +23,7 @@ const LibraryCard = ({id, ...props}) => {
         </Text>
         <Link
           as={NextLink}
-          href={`/dashboard/library/${id}`}
+          href={link}
           _hover={{ textDecoration: 'none' }}
           _focus={{
             boxShadow: 'unset',
