@@ -1,6 +1,5 @@
-import { Link as NextLink } from 'next/link';
 import { getLayout } from '../layout/HomeLayout';
-import { Heading, Text, Link } from '@chakra-ui/react';
+import { Heading, Text, LinkOverlay, LinkBox } from '@chakra-ui/react';
 import Reading from '../assets/svgs/reading';
 import Publish from '../assets/svgs/publish';
 import styles from '../styles/authentication.module.css';
@@ -23,8 +22,8 @@ const Authentication = () => {
           Select an account type.
         </Text>
         <div className={styles.authentication__wrapper}>
-          <div className={styles.authentication__box}>
-            <Link as={NextLink} href='/reader/home' _hover={{ textDecoration: 'none' }} _focus={{ boxShadow: 'unset' }}>
+          <LinkBox className={styles.authentication__box}>
+            <LinkOverlay href='/reader/home' _hover={{ textDecoration: 'none' }} _focus={{ boxShadow: 'unset' }}>
               <>
                 <Reading className={styles.authentication__box__link} />
                 <Heading
@@ -41,15 +40,10 @@ const Authentication = () => {
                   Purchase books and own legal right
                 </Text>
               </>
-            </Link>
-          </div>
-          <div className={styles.authentication__box}>
-            <Link
-              as={NextLink}
-              href='/author/overview'
-              _hover={{ textDecoration: 'none' }}
-              _focus={{ boxShadow: 'unset' }}
-            >
+            </LinkOverlay>
+          </LinkBox>
+          <LinkBox className={styles.authentication__box}>
+            <LinkOverlay href='/author/overview' _hover={{ textDecoration: 'none' }} _focus={{ boxShadow: 'unset' }}>
               <>
                 <Publish className={styles.authentication__box__link} />
                 <Heading
@@ -66,8 +60,8 @@ const Authentication = () => {
                   Publish a book and earn crypto
                 </Text>
               </>
-            </Link>
-          </div>
+            </LinkOverlay>
+          </LinkBox>
         </div>
         <Text color='#000000' fontSize='12px' fontWeight='400' textAlign='center' mt={8}>
           This site is protected by Delibra Terms of Service and Privacy policy.
