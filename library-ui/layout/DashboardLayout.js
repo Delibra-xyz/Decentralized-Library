@@ -3,19 +3,18 @@ import DashboardHeader from '../components/Dashboard/dashboardHeader';
 import { useAuth } from '../context/AppContext';
 import { useRouter} from "next/router"
 import { useEffect, useState } from 'react';
+import { useAccount } from 'wagmi';
 
 const DashboardLayout = ({ children }) => {
   const router = useRouter()
-  const { connected } = useAuth()
-  const [ isMounted, setIsMounted] = useState(false)
+  const { isConnected } = useAccount()
+  const { mounted } = useAuth()
 
   useEffect(() => {
-    setIsMounted(true)
-  }, []);
-
-  useEffect(() => {
-    if (!connected && isMounted) router.push("/");
-  }, [connected]);
+    if(mounted){
+      if (isConnected === false) router.push("/");
+    }
+  }, [mounted]);
 
   return (
     <div className='flex'>

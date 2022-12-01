@@ -29,8 +29,8 @@ const Publish = ({ className }) => {
           y2="14.1807"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFB0BD" />
-          <stop offset="1" stop-color="#FFC2A1" />
+          <stop stopColor="#FFB0BD" />
+          <stop offset="1" stopColor="#FFC2A1" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_1028_1405"
@@ -40,8 +40,8 @@ const Publish = ({ className }) => {
           y2="24.6525"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFB0BD" />
-          <stop offset="1" stop-color="#FFC2A1" />
+          <stop stopColor="#FFB0BD" />
+          <stop offset="1" stopColor="#FFC2A1" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_1028_1405"
@@ -51,8 +51,8 @@ const Publish = ({ className }) => {
           y2="33.568"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFB0BD" />
-          <stop offset="1" stop-color="#FFC2A1" />
+          <stop stopColor="#FFB0BD" />
+          <stop offset="1" stopColor="#FFC2A1" />
         </linearGradient>
       </defs>
     </svg>
