@@ -1,3 +1,4 @@
+import { Link as NextLink } from 'next/link';
 import { getLayout } from '../../../layout/DashboardLayout';
 import {
   Box,
@@ -7,6 +8,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Link,
   SimpleGrid,
   Spacer,
   Tab,
@@ -45,7 +47,15 @@ const Library = () => {
             }}
           />
         </InputGroup>
-        <Button
+        <Link
+          as={NextLink}
+          href='/dashboard/library/uploadBook'
+          display='block'
+          fontWeight={700}
+          px='24px'
+          py='12px'
+          width='15%'
+          borderRadius='8px'
           bgGradient='linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)'
           _hover={{ bg: 'linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)' }}
           _focus={{
@@ -53,7 +63,7 @@ const Library = () => {
           }}
         >
           Upload Book
-        </Button>
+        </Link>
       </div>
       <Box>
         <Tabs defaultIndex={0} paddingBottom={'16px'}>
@@ -121,8 +131,8 @@ const Library = () => {
               </Text>
               <Box mt={6}>
                 <SimpleGrid templateColumns='repeat(4, 1fr)' gap={5}>
-                  <LibraryCard id="1"/>
-                  <LibraryCard id="2"/>
+                  <LibraryCard id='1' />
+                  <LibraryCard id='2' />
                 </SimpleGrid>
               </Box>
             </TabPanel>
