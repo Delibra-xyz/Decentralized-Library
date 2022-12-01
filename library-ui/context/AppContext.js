@@ -1,12 +1,21 @@
-import React, { createContext, useState, useContext} from 'react';
+import React, { createContext, useState, useContext, useEffect} from 'react';
+import { useAccount } from 'wagmi'
 
 const AppContext = createContext({});
 
 export const AppProvider = ({children}) => {
-    const [ connected, setConnected ] = useState(false);
+    const { isConnected } = useAccount()
+    const [mounted, setMounted] = useState(false)
+    const [ connected, setConnected ] = useState(mounted ? isConnected : false);
+
+    useEffect(() => {
+        setMounted(true)
+    },[])
+
     const value = {
         connected,
-        setConnected
+        setConnected,
+        mounted
     }
 
     return (

@@ -31,7 +31,7 @@ const Navbar = () => {
       <Spacer />
       
       {connected ? 
-        <Link href="/authentication" legacyBehavior>
+        <Link href="/authentication" legacyBehavior cursor="pointer">
           <Text 
             color="#fff"
             fontWeight="700"
