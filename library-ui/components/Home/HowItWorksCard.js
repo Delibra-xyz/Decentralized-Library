@@ -8,6 +8,7 @@ const HowItWorksCard = ({ stepNumber, stepText }) => {
       borderRadius='13px'
       padding='24px 24px 48px'
       textAlign='left'
+      height='310px'
     >
       <Heading
         bgGradient='linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)'
