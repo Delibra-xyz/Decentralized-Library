@@ -1,9 +1,9 @@
 import { Box, Button, Flex, Image, Text } from '@chakra-ui/react';
 import React from 'react';
-import OverviewBook from '../../assets/svgs/OverviewBook';
-import Wallet from '../../assets/svgs/wallet';
-import OverviewCard from '../../components/Dashboard/OverviewCard';
-import { getLayout } from '../../layout/DashboardLayout';
+import OverviewBook from '../../../assets/svgs/OverviewBook';
+import Wallet from '../../../assets/svgs/wallet';
+import OverviewCard from '../../../components/Dashboard/OverviewCard';
+import { getLayout } from '../../../layout/DashboardLayout';
 
 const Overview = () => {
   return (

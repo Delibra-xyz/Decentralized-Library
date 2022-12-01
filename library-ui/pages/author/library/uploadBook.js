@@ -263,7 +263,7 @@ const UploadBook = () => {
                 border='1px solid #D1D5DB'
                 _placeholder={{ color: '#9CA3AF' }}
               />
-              <InputRightElement>
+              <InputRightElement pr='16px'>
                 <span>ETH</span>
               </InputRightElement>
             </InputGroup>

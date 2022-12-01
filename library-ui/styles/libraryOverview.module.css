@@ -17,6 +17,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  margin-left: 8px;
 }
 
 .libraryOverview__icon g > * {
