@@ -29,6 +29,7 @@ const Navbar = () => {
       </Link>
 
       <Spacer />
+      
       {connected ? 
         <Link href="/authentication" legacyBehavior>
           <Text 
@@ -46,7 +47,10 @@ const Navbar = () => {
         </Link> : null}
         
       <ButtonGroup gap="10">
-        <ConnectWalletButton />
+        <ConnectWalletButton 
+          bgGradient="linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)"
+          backgroundColor="#fff"
+        />
       </ButtonGroup>
     </Flex>
   </>;

@@ -3,7 +3,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Button, Text } from '@chakra-ui/react'
 import { useAuth } from '../context/AppContext'
 
-const CustomButton = ({ children, ...props }) => {
+const CustomButton = ({ children, bgGradient,color, ...props }) => {
   return (
     <Button
       backgroundColor="transparent"
@@ -21,7 +21,8 @@ const CustomButton = ({ children, ...props }) => {
       {...props}
     >
       <Text
-        bgGradient="linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)"
+        color={color}
+        bgGradient={bgGradient}
         bgClip="text"
         display="flex"
         alignItems="center"
@@ -32,7 +33,7 @@ const CustomButton = ({ children, ...props }) => {
   )
 }
 
-function ConnectWalletButton() {
+function ConnectWalletButton({bgGradient, ...props}) {
   return (
     <ConnectButton.Custom>
       {({
@@ -79,6 +80,8 @@ function ConnectWalletButton() {
                   <CustomButton 
                     onClick={openConnectModal} 
                     type="button"
+                    bgGradient={bgGradient}
+                    {...props}
                     >
                     Connect Wallet
                   </CustomButton>
@@ -87,7 +90,7 @@ function ConnectWalletButton() {
 
               if (chain.unsupported) {
                 return (
-                  <CustomButton onClick={openChainModal} type="button">
+                  <CustomButton onClick={openChainModal} type="button" bgGradient={bgGradient} {...props}>
                     Wrong network
                   </CustomButton>
                 )
@@ -99,6 +102,8 @@ function ConnectWalletButton() {
                     onClick={openChainModal}
                     style={{ display: 'flex', alignItems: 'center' }}
                     type="button"
+                    bgGradient={bgGradient}
+                    {...props}
                   >
                     {chain.hasIcon && (
                       <span
@@ -123,7 +128,7 @@ function ConnectWalletButton() {
                     {chain.name}
                   </CustomButton>
 
-                  <CustomButton onClick={openAccountModal} type="button">
+                  <CustomButton onClick={openAccountModal} type="button" bgGradient={bgGradient} {...props}>
                     {account.displayName}
                     {/* {account.displayBalance
                       ? ` (${account.displayBalance})`
