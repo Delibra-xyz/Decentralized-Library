@@ -30,3 +30,7 @@
 .authentication__box:last-child {
   margin-left: 20px;
 }
+
+.authentication__box__link {
+  margin: 0 auto;
+}
