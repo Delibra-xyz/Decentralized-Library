@@ -10,11 +10,11 @@ const DashboardLayout = ({ children }) => {
   const { isConnected } = useAccount();
   const { mounted } = useAuth();
 
-  // useEffect(() => {
-  //   if(mounted){
-  //     if (isConnected === false) router.push("/");
-  //   }
-  // }, [mounted]);
+  useEffect(() => {
+    if (mounted) {
+      if (isConnected === false) router.push('/');
+    }
+  }, [mounted]);
 
   return (
     <div className='flex'>
