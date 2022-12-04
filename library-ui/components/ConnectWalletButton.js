@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { Button, Text } from '@chakra-ui/react'
+import { Button, Text, Image } from '@chakra-ui/react'
 import { useAuth } from '../context/AppContext'
 
-const CustomButton = ({ children, bgGradient,color, ...props }) => {
+const CustomButton = ({ children, bgGradient, color, ...props }) => {
   return (
     <Button
       backgroundColor="transparent"
@@ -33,7 +33,7 @@ const CustomButton = ({ children, bgGradient,color, ...props }) => {
   )
 }
 
-function ConnectWalletButton({bgGradient, ...props}) {
+function ConnectWalletButton({ bgGradient, ...props }) {
   return (
     <ConnectButton.Custom>
       {({
@@ -54,14 +54,18 @@ function ConnectWalletButton({bgGradient, ...props}) {
           chain &&
           (!authenticationStatus || authenticationStatus === 'authenticated')
 
-          const { setConnected } = useAuth();
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const { setConnected } = useAuth()
 
-          useEffect(()=> {
-            ready &&
-            account &&
-            chain &&
-            (!authenticationStatus || authenticationStatus === 'authenticated') ? setConnected(true) : setConnected(false)
-          },[ready, chain, authenticationStatus])
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useEffect(() => {
+          ready &&
+          account &&
+          chain &&
+          (!authenticationStatus || authenticationStatus === 'authenticated')
+            ? setConnected(true)
+            : setConnected(false)
+        }, [ready, chain, authenticationStatus, account, setConnected])
 
         return (
           <div
@@ -77,12 +81,12 @@ function ConnectWalletButton({bgGradient, ...props}) {
             {(() => {
               if (!connected) {
                 return (
-                  <CustomButton 
-                    onClick={openConnectModal} 
+                  <CustomButton
+                    onClick={openConnectModal}
                     type="button"
                     bgGradient={bgGradient}
                     {...props}
-                    >
+                  >
                     Connect Wallet
                   </CustomButton>
                 )
@@ -90,7 +94,12 @@ function ConnectWalletButton({bgGradient, ...props}) {
 
               if (chain.unsupported) {
                 return (
-                  <CustomButton onClick={openChainModal} type="button" bgGradient={bgGradient} {...props}>
+                  <CustomButton
+                    onClick={openChainModal}
+                    type="button"
+                    bgGradient={bgGradient}
+                    {...props}
+                  >
                     Wrong network
                   </CustomButton>
                 )
@@ -117,7 +126,7 @@ function ConnectWalletButton({bgGradient, ...props}) {
                         }}
                       >
                         {chain.iconUrl && (
-                          <img
+                          <Image
                             alt={chain.name ?? 'Chain icon'}
                             src={chain.iconUrl}
                             style={{ width: 20, height: 20 }}
@@ -128,7 +137,12 @@ function ConnectWalletButton({bgGradient, ...props}) {
                     {chain.name}
                   </CustomButton>
 
-                  <CustomButton onClick={openAccountModal} type="button" bgGradient={bgGradient} {...props}>
+                  <CustomButton
+                    onClick={openAccountModal}
+                    type="button"
+                    bgGradient={bgGradient}
+                    {...props}
+                  >
                     {account.displayName}
                     {/* {account.displayBalance
                       ? ` (${account.displayBalance})`
