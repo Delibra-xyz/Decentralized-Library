@@ -1,6 +1,8 @@
 import { Box, Button, Image, Text } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 
 const LibraryEmptyState = () => {
+  const router = useRouter()
   return (
     <Box mt={10}>
       <Image src='/StackOfBooks.png' alt='' margin='0 auto' />
@@ -17,6 +19,7 @@ const LibraryEmptyState = () => {
         margin='0 auto'
         display='flex'
         _hover={{ bg: '#FFFFFF' }}
+        onClick={() => router.push("/author/library/upload")}
       >
         Publish a book
       </Button>

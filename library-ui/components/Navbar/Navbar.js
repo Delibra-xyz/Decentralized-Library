@@ -32,7 +32,7 @@ const Navbar = () => {
 
         {connected ? (
           <Link href='/authentication' legacyBehavior cursor='pointer'>
-            <Text color='#fff' fontWeight='700' fontSize='lg' px={10} display='flex' alignItems='center'>
+            <Text color='#fff' fontWeight='700' fontSize='lg' px={10} display='flex' alignItems='center' cursor="pointer">
               <Icon as={MdOutlineDashboard} />
               &nbsp;Dashboard
             </Text>

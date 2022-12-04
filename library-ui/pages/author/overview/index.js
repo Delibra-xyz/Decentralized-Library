@@ -1,4 +1,5 @@
 import { Box, Button, Flex, Image, Text } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 import React from 'react';
 import OverviewBook from '../../../assets/svgs/OverviewBook';
 import Wallet from '../../../assets/svgs/wallet';
@@ -6,6 +7,9 @@ import OverviewCard from '../../../components/Dashboard/OverviewCard';
 import { getLayout } from '../../../layout/DashboardLayout';
 
 const Overview = () => {
+
+  const router = useRouter();
+
   return (
     <Box>
       <Flex px={10} py={5} bg='#fff' w='100%' justify='space-between' alignItems='center'>
@@ -28,6 +32,7 @@ const Overview = () => {
           fontSize='17px'
           color='#000000'
           _hover={{ bg: 'linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)' }}
+          onClick={() => router.push("/author/library/upload")}
         >
           Publish book
         </Button>
@@ -86,6 +91,7 @@ const Overview = () => {
               margin='0 auto'
               display='flex'
               _hover={{ bg: '#FFFFFF' }}
+              onClick={() => router.push("/author/library/upload")}
             >
               Publish a book
             </Button>
@@ -119,6 +125,7 @@ const Overview = () => {
               margin='0 auto'
               display='flex'
               _hover={{ bg: '#FFFFFF' }}
+              onClick={() => router.push("/author/library/upload")}
             >
               Publish a book
             </Button>
@@ -154,6 +161,7 @@ const Overview = () => {
               margin='0 auto'
               display='flex'
               _hover={{ bg: '#FFFFFF' }}
+              onClick={() => router.push("/author/library/upload")}
             >
               Publish a book
             </Button>

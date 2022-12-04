@@ -23,7 +23,7 @@ const Authentication = () => {
         </Text>
         <div className={styles.authentication__wrapper}>
           <LinkBox className={styles.authentication__box}>
-            <LinkOverlay href='/reader/home' _hover={{ textDecoration: 'none' }} _focus={{ boxShadow: 'unset' }}>
+            <LinkOverlay href='/reader' _hover={{ textDecoration: 'none' }} _focus={{ boxShadow: 'unset' }}>
               <>
                 <Reading className={styles.authentication__box__link} />
                 <Heading
