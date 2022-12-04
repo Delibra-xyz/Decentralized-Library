@@ -49,7 +49,7 @@ const Library = () => {
         </InputGroup>
         <Link
           as={NextLink}
-          href='/author/library/uploadBook'
+          href='/author/library/upload'
           display='block'
           fontWeight={700}
           px='24px'

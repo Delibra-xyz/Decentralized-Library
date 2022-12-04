@@ -24,7 +24,7 @@ export const authorRoutes = [
     tag: 'rewards',
   },
   {
-    to: '/author',
+    to: '/author/settings',
     routeIcon: <Settings />,
     routeName: 'Settings',
     tag: 'settings',
@@ -33,7 +33,7 @@ export const authorRoutes = [
 
 export const readerRoutes = [
   {
-    to: '/reader/home',
+    to: '/reader',
     routeIcon: <Grid />,
     routeName: 'Home',
     tag: 'home',

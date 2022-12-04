@@ -381,13 +381,17 @@ const Home = () => {
                   background='#FFFFFF'
                   border='1px solid #FFFFFF'
                   borderRadius='6px'
+                  onClick={() => {
+                    if(window)
+                    window.location.href="https://khadijah-wuraola-amusat.gitbook.io/delibra/"
+                  }}
                 >
                   <Text
                     bgGradient='linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)'
                     bgClip='text'
                     fontFamily="'Clash Grotesk', sans-serif"
                   >
-                    Download Whitepaper
+                    View Whitepaper
                   </Text>
                 </Button>
               </Box>
