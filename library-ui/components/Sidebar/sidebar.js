@@ -13,6 +13,8 @@ const SideBar = () => {
     if (router.isReady) {
       if (router.pathname.includes('/overview')) {
         setActive('overview');
+      } else if (router.pathname.includes('/home')) {
+        setActive('home');
       } else if (router.pathname.includes('/library')) {
         setActive('library');
       } else if (router.pathname.includes('/browse')) {
