@@ -1,18 +1,18 @@
-import Head from 'next/head'
-import { Box, Button, Divider, Flex, Image, Tag } from '@chakra-ui/react'
-import { Heading, Text } from '@chakra-ui/react'
-import FeatureCard from '../components/Home/FeatureCard'
-import { MdOutlineEnhancedEncryption } from 'react-icons/md'
-import { GiReceiveMoney } from 'react-icons/gi'
-import { BiPurchaseTag } from 'react-icons/bi'
-import { FaPeopleArrows } from 'react-icons/fa'
-import GoalCard from '../components/Home/GoalCard'
-import Avatar1 from '../assets/svgs/Avatar1'
-import Avatar2 from '../assets/svgs/Avatar2'
-import Book from '../assets/svgs/Book'
-import HowItWorks from '../components/how-it-works'
-import Roadmap from '../components/roadmap'
-import { getLayout } from '../layout/HomeLayout'
+import Head from 'next/head';
+import { Box, Button, Divider, Flex, Image, Tag } from '@chakra-ui/react';
+import { Heading, Text } from '@chakra-ui/react';
+import FeatureCard from '../components/Home/FeatureCard';
+import { MdOutlineEnhancedEncryption } from 'react-icons/md';
+import { GiReceiveMoney } from 'react-icons/gi';
+import { BiPurchaseTag } from 'react-icons/bi';
+import { FaPeopleArrows } from 'react-icons/fa';
+import GoalCard from '../components/Home/GoalCard';
+import Avatar1 from '../assets/svgs/Avatar1';
+import Avatar2 from '../assets/svgs/Avatar2';
+import Book from '../assets/svgs/Book';
+import HowItWorks from '../components/how-it-works';
+import Roadmap from '../components/roadmap';
+import { getLayout } from '../layout/HomeLayout';
 
 // import LitJsSdk from 'lit-js-sdk'
 
@@ -371,8 +371,8 @@ const Home = () => {
             <Flex>
               <Box w='50%'>
                 <Text fontSize='20px' fontWeight='500' color='#E2E0E5' mb={10}>
-                  Delibra is the first read to earn decentalized platform that gives instant access to ebooks,
-                  audiobooks, articles, podcasts, sheet music, and documents.
+                  Delibra is the first read to earn decentalized platform that gives instant access to e-books,
+                  audiobooks, articles, and documents.
                 </Text>
 
                 <Button
@@ -382,8 +382,7 @@ const Home = () => {
                   border='1px solid #FFFFFF'
                   borderRadius='6px'
                   onClick={() => {
-                    if(window)
-                    window.location.href="https://khadijah-wuraola-amusat.gitbook.io/delibra/"
+                    if (window) window.location.href = 'https://khadijah-wuraola-amusat.gitbook.io/delibra/';
                   }}
                 >
                   <Text
