@@ -16,10 +16,11 @@ The Book cover contract and the User authentication smart contracts are  current
 
 [Book cover contract address](https://explorer.public.zkevm-test.net/tx/0xb6d352c789bab5ab0bfdc197f0431382f42bf91ce91975217ff641427de98994)
 
+[User Authentication contract address](https://explorer.public.zkevm-test.net/tx/0x9f85f3249715b240ea9b394febe3ca52cf600ced9825eb8a608197c4ef33d370)
 
 The [Ui-library](https://github.com/Delibra-xyz/Decentralized-Library/tree/staging/library-ui) directory holds the frontend of the dapp built using Nextjs and Chakra Ui.
 
-The Files which are encrypted using lit protocol are store on  are stored on Bundlr  using Arweave [ https://github.com/Delibra-xyz/Decentralized-Library/tree/staging/library-ui/arweave] 
+The Files which are encrypted using lit protocol are store on  are stored on Bundlr using [Arweave](https://github.com/Delibra-xyz/Decentralized-Library/tree/staging/library-ui/arweave) 
 
 ### 🏚 Links
 
