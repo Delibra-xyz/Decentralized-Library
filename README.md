@@ -24,14 +24,11 @@ The Files which are encrypted using lit protocol are store on  are stored on Bun
 
 ### 🏚 Links
 
-Deployed url
+[Deployed url](https://delibra.netlify.app)
 
-Link to Whitepaper
+Link to [Whitepaper](https://khadijah-wuraola-amusat.gitbook.io/delibra/)
 
-Demo and well explanatory video of the Daap
-
-
-You can watch a video demo of our DAAp here
+A quick video [demo](https://www.loom.com/share/26a0ac26194c4d29ac4bdb3eac5d3a0a) to show how the daap works.
 
 
 

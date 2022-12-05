@@ -14,20 +14,20 @@ const Navbar = () => {
   return (
     <>
       <Flex
-        minWidth='max-content'
-        alignItems='center'
-        gap='2'
-        bg='linear-gradient(98.41deg, #02081F 0%, #1A0830 96.87%);'
+        minWidth="max-content"
+        alignItems="center"
+        gap="2"
+        bg="linear-gradient(98.41deg, #02081F 0%, #1A0830 96.87%);"
         borderBottom={'1px solid #2A1B38;'}
-        backdropFilter='blur(12.5px);'
+        backdropFilter="blur(12.5px);"
         p={10}
       >
-        <Link href='/' legacyBehavior>
+        <Link href="/" legacyBehavior>
           <Flex>
-            <Box px={3} maxW='full' m={[2, 3]}></Box>
-            <Image src='logo.svg' />
+            <Box px={3} maxW="full" m={[2, 3]}></Box>
+            <Image src="logo.svg" alt="delibra" />
             <Box>
-              <Image src='delibra.svg' />
+              <Image src="delibra.svg" alt="delibra" />
             </Box>
           </Flex>
         </Link>
@@ -43,16 +43,16 @@ const Navbar = () => {
           </Link>
         ) : null}
 
-        <ButtonGroup gap='10'>
+        <ButtonGroup gap="10">
           <ConnectWalletButton
-            bgGradient='linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)'
-            backgroundColor='#fff'
+            bgGradient="linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)"
+            backgroundColor="#fff"
             _hover={{ bg: '#fff' }}
           />
         </ButtonGroup>
       </Flex>
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

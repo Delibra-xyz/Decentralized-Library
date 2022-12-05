@@ -2,7 +2,7 @@ import React from 'react'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Button, Text } from '@chakra-ui/react'
 
-const CustomButton = ({ children, bgGradient,color, ...props }) => {
+const CustomButton = ({ children, bgGradient, color, ...props }) => {
   return (
     <Button
       backgroundColor="transparent"
@@ -32,7 +32,7 @@ const CustomButton = ({ children, bgGradient,color, ...props }) => {
   )
 }
 
-function ConnectWalletButton({bgGradient, ...props}) {
+function ConnectWalletButton({ bgGradient, ...props }) {
   return (
     <ConnectButton.Custom>
       {({
@@ -67,12 +67,12 @@ function ConnectWalletButton({bgGradient, ...props}) {
             {(() => {
               if (!connected) {
                 return (
-                  <CustomButton 
-                    onClick={openConnectModal} 
+                  <CustomButton
+                    onClick={openConnectModal}
                     type="button"
                     bgGradient={bgGradient}
                     {...props}
-                    >
+                  >
                     Connect Wallet
                   </CustomButton>
                 )
@@ -80,7 +80,12 @@ function ConnectWalletButton({bgGradient, ...props}) {
 
               if (chain.unsupported) {
                 return (
-                  <CustomButton onClick={openChainModal} type="button" bgGradient={bgGradient} {...props}>
+                  <CustomButton
+                    onClick={openChainModal}
+                    type="button"
+                    bgGradient={bgGradient}
+                    {...props}
+                  >
                     Wrong network
                   </CustomButton>
                 )
@@ -118,7 +123,12 @@ function ConnectWalletButton({bgGradient, ...props}) {
                     {chain.name}
                   </CustomButton>
 
-                  <CustomButton onClick={openAccountModal} type="button" bgGradient={bgGradient} {...props}>
+                  <CustomButton
+                    onClick={openAccountModal}
+                    type="button"
+                    bgGradient={bgGradient}
+                    {...props}
+                  >
                     {account.displayName}
                     {/* {account.displayBalance
                       ? ` (${account.displayBalance})`

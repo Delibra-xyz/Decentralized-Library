@@ -45,7 +45,7 @@ export const readerData = [
       'Select from a list of different genre of books for a better experience',
   },
   {
-    id: 4,
+    id: 2,
     step: '4',
     content:
       'Get access to free and paid books on our platform and earn royalties',
