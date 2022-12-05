@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Stack, Tag, Text } from '@chakra-ui/react';
+import { Flex, Heading, Tag, Text } from '@chakra-ui/react';
 import React from 'react';
 
 export default function Genre(){
@@ -31,7 +31,7 @@ export default function Genre(){
       ];
       
     return (
-      <Box border='1px solid #E5E7EB' borderRadius='8px' px='50px' py='16px'>
+      <>
         <Heading
           pt='32px'
           color='#1F2937'
@@ -70,36 +70,7 @@ export default function Genre(){
             </Tag>
           ))}
         </Flex>
-        <Stack direction='row' spacing={4} align='center' justifyContent='flex-end' my='40px'>
-          <Button
-            bgColor='#E5E7EB'
-            fontWeight={700}
-            fontSize='14px'
-            color='#000000'
-            borderRadius='8px'
-            _hover={{ bg: '#E5E7EB' }}
-            _active={{ bg: '#E5E7EB' }}
-            _focus={{
-              boxShadow: 'unset',
-            }}
-          >
-            Skip
-          </Button>
-          <Button
-            fontWeight={700}
-            fontSize='14px'
-            color='#000000'
-            borderRadius='8px'
-            bgGradient='linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%);'
-            _hover={{ bg: 'linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%);' }}
-            _active={{ bg: 'linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%);' }}
-            _focus={{
-              boxShadow: 'unset',
-            }}
-          >
-            Continue
-          </Button>
-        </Stack>
-      </Box>
+        
+      </>
     )
 } 
