@@ -33,7 +33,7 @@ export const authorRoutes = [
 
 export const readerRoutes = [
   {
-    to: '/reader',
+    to: '/reader/home',
     routeIcon: <Grid />,
     routeName: 'Home',
     tag: 'home',

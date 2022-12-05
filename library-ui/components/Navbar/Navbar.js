@@ -1,12 +1,16 @@
-import React from 'react'
-import ConnectWalletButton from '../ConnectWalletButton'
-import { Flex, Box, Spacer, ButtonGroup, Text, Icon } from '@chakra-ui/react'
-import { Image } from '@chakra-ui/react'
-import { useAuth } from '../../context/AppContext'
-import Link from 'next/link'
-import { MdOutlineDashboard } from 'react-icons/md'
+import React from 'react';
+import ConnectWalletButton from '../ConnectWalletButton';
+import { Flex, Box, Spacer, ButtonGroup, Text, Icon } from '@chakra-ui/react';
+import { Image } from '@chakra-ui/react';
+import { useAuth } from '../../context/AppContext';
+import Link from 'next/link';
+import { MdOutlineDashboard } from 'react-icons/md';
+import { useAccount } from 'wagmi';
+
 const Navbar = () => {
-  const { connected } = useAuth()
+  const { isConnected } = useAccount();
+  const { mounted } = useAuth();
+
   return (
     <>
       <Flex
@@ -30,17 +34,9 @@ const Navbar = () => {
 
         <Spacer />
 
-        {connected ? (
-          <Link href="/authentication" legacyBehavior cursor="pointer">
-            <Text
-              color="#fff"
-              fontWeight="700"
-              fontSize="lg"
-              px={10}
-              display="flex"
-              alignItems="center"
-              cursor="pointer"
-            >
+        {mounted && isConnected ? (
+          <Link href='/authentication' legacyBehavior cursor='pointer'>
+            <Text color='#fff' fontWeight='700' fontSize='lg' px={10} display='flex' alignItems='center' cursor="pointer">
               <Icon as={MdOutlineDashboard} />
               &nbsp;Dashboard
             </Text>

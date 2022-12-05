@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { Button, Text, Image } from '@chakra-ui/react'
-import { useAuth } from '../context/AppContext'
+import { Button, Text } from '@chakra-ui/react'
 
 const CustomButton = ({ children, bgGradient, color, ...props }) => {
   return (
@@ -53,19 +52,6 @@ function ConnectWalletButton({ bgGradient, ...props }) {
           account &&
           chain &&
           (!authenticationStatus || authenticationStatus === 'authenticated')
-
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const { setConnected } = useAuth()
-
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        useEffect(() => {
-          ready &&
-          account &&
-          chain &&
-          (!authenticationStatus || authenticationStatus === 'authenticated')
-            ? setConnected(true)
-            : setConnected(false)
-        }, [ready, chain, authenticationStatus, account, setConnected])
 
         return (
           <div
@@ -126,7 +112,7 @@ function ConnectWalletButton({ bgGradient, ...props }) {
                         }}
                       >
                         {chain.iconUrl && (
-                          <Image
+                          <img
                             alt={chain.name ?? 'Chain icon'}
                             src={chain.iconUrl}
                             style={{ width: 20, height: 20 }}
