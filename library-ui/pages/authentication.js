@@ -1,10 +1,51 @@
 import { getLayout } from '../layout/HomeLayout';
-import { Heading, Text, LinkOverlay, LinkBox } from '@chakra-ui/react';
+import { Heading, Text, Box, useToast } from '@chakra-ui/react';
 import Reading from '../assets/svgs/reading';
 import Publish from '../assets/svgs/publish';
 import styles from '../styles/authentication.module.css';
+import { setUser } from '../utils/contractUtils';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { useAuth } from '../context/AppContext';
 
 const Authentication = () => {
+  const router  = useRouter();
+  const toast = useToast();
+  const { user } = useAuth()
+
+  const register = (type) => {
+      setUser(window.ethereum,"", false, type, "").then(res => 
+        {
+          if(res){
+            toast({
+              title: "Registeration successful",
+              status: "success",
+              isClosable: true,
+              duration: 3000,
+            })
+            type === 0 ? router.push("/reader/home") : router.push("/author/overview")
+          } else {
+            toast({
+              title: "An error occured",
+              description:"Please try again later",
+              status: "error",
+              isClosable: true,
+              duration: 3000,
+            })
+          }
+        })
+  }
+
+  useEffect(()=> {
+    if(user.userType === 0){
+       router.push("/reader/home")
+    } else if (user.userType === 1){
+      router.push("/author/overview")
+    } else if (!user || !user.userType){
+      return;
+    }  
+  },[user])
+
   return (
     <div className={styles.authentication}>
       <div className={styles.authentication__container}>
@@ -22,8 +63,7 @@ const Authentication = () => {
           Select an account type.
         </Text>
         <div className={styles.authentication__wrapper}>
-          <LinkBox className={styles.authentication__box}>
-            <LinkOverlay href='/reader/home' _hover={{ textDecoration: 'none' }} _focus={{ boxShadow: 'unset' }}>
+          <Box className={styles.authentication__box} onClick={() => register(0)}>
               <>
                 <Reading className={styles.authentication__box__link} />
                 <Heading
@@ -40,10 +80,8 @@ const Authentication = () => {
                   Purchase books and own legal right
                 </Text>
               </>
-            </LinkOverlay>
-          </LinkBox>
-          <LinkBox className={styles.authentication__box}>
-            <LinkOverlay href='/author/overview' _hover={{ textDecoration: 'none' }} _focus={{ boxShadow: 'unset' }}>
+          </Box>
+          <Box className={styles.authentication__box} onClick={() => register(1)}>
               <>
                 <Publish className={styles.authentication__box__link} />
                 <Heading
@@ -60,8 +98,7 @@ const Authentication = () => {
                   Publish a book and earn crypto
                 </Text>
               </>
-            </LinkOverlay>
-          </LinkBox>
+          </Box>
         </div>
         <Text color='#000000' fontSize='12px' fontWeight='400' textAlign='center' mt={8}>
           This site is protected by Delibra Terms of Service and Privacy policy.

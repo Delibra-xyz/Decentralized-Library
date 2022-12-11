@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/layout';
 import { useRouter } from 'next/router';
 import Footer from '../components/Footer/footer';
-import Navbar from '../components/Navbar/navbar';
+import Navbar from '../components/Navbar/Navbar';
 
 const HomeLayout = ({ children }) => {
   const router = useRouter();

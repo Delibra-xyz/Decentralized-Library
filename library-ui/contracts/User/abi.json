@@ -1,0 +1,162 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_username",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "_onboarded",
+				"type": "bool"
+			},
+			{
+				"internalType": "enum DelibraUserAuth.UserType",
+				"name": "_usertype",
+				"type": "uint8"
+			},
+			{
+				"internalType": "string",
+				"name": "_profileUrl",
+				"type": "string"
+			}
+		],
+		"name": "setUserInfo",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"name": "UserCreated",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "_addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"name": "UserUpdated",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "getUserInfo",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "userName",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "onboarded",
+						"type": "bool"
+					},
+					{
+						"internalType": "enum DelibraUserAuth.UserType",
+						"name": "userType",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "profileUrl",
+						"type": "string"
+					}
+				],
+				"internalType": "struct DelibraUserAuth.User",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_addr",
+				"type": "address"
+			}
+		],
+		"name": "isDelibraUser",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "users",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "userName",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "onboarded",
+				"type": "bool"
+			},
+			{
+				"internalType": "enum DelibraUserAuth.UserType",
+				"name": "userType",
+				"type": "uint8"
+			},
+			{
+				"internalType": "string",
+				"name": "profileUrl",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
