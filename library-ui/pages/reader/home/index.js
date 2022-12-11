@@ -3,19 +3,26 @@ import { Box, Button, Flex, Stack, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 import Genre from '../../../containers/Genre';
 import Recommendation from '../../../containers/Recommendation';
+import ReaderHome from '../../../containers/ReaderHome';
 
 const Home = () => {
   const [page, setPage] = useState(0);
 
-  // const next = () => {
-  //   if(page >= 1){
-  //     setPage()
-  //   }
-  // }
+  const handleContinue = () => {
+    if(page===0){
+      setPage(1)
+    } else if(page === 1){
+      setPage(2)
+    }
+  }
+
+  const handleSkip = () => {
+    setPage(2)
+  }
 
   return (
-    <Box px='21px' py='20px' bg="#F3F4F6"> 
-      <Box border='1px solid #E5E7EB' borderRadius='8px' px='50px' pb='16px' bg="#fff">
+    <Box px={10} py={5} bg="#F3F4F6"> 
+      {page === 2 ? <ReaderHome/> : <Box border='1px solid #E5E7EB' borderRadius='8px' px='50px' pb='16px' bg="#fff">
         <Flex mb={5} w="60%" mx="auto">
           <Flex 
             borderBottom={page ===0 ? "3px solid #FFC2A1" : "1px solid #E5E7EB" } 
@@ -94,7 +101,7 @@ const Home = () => {
         </Flex>
         {page === 0 ? <Genre/> : null}
         {page === 1 ? <Recommendation/> : null}
-        <Stack direction='row' spacing={4} align='center' justifyContent='flex-end' my='40px'>
+        <Stack direction='row' spacing={4} align='center' justifyContent='flex-end' my='20px'>
           <Button
             bgColor='#E5E7EB'
             fontWeight={700}
@@ -106,6 +113,7 @@ const Home = () => {
             _focus={{
               boxShadow: 'unset',
             }}
+            onClick={handleSkip}
           >
             Skip
           </Button>
@@ -120,12 +128,12 @@ const Home = () => {
             _focus={{
               boxShadow: 'unset',
             }}
-            // onClick={next}
+            onClick={handleContinue}
           >
             Continue
           </Button>
         </Stack>
-      </Box>
+      </Box>}
     </Box>
   );
 };
