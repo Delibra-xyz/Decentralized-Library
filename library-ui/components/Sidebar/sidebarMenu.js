@@ -18,7 +18,7 @@ export const authorRoutes = [
     tag: 'library',
   },
   {
-    to: '/author',
+    to: '/author/rewards',
     routeIcon: <Gift />,
     routeName: 'Rewards',
     tag: 'rewards',
@@ -51,13 +51,13 @@ export const readerRoutes = [
     tag: 'library',
   },
   {
-    to: '/reader',
+    to: '/reader/rewards',
     routeIcon: <Gift />,
     routeName: 'Rewards',
     tag: 'rewards',
   },
   {
-    to: '/reader',
+    to: '/reader/settings',
     routeIcon: <Settings />,
     routeName: 'Settings',
     tag: 'settings',
