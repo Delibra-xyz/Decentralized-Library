@@ -11,6 +11,7 @@ import LinkedIn from '../../assets/svgs/linkedIn'
 import Facebook from '../../assets/svgs/facebook'
 import Discord from '../../assets/svgs/discord'
 import styles from './footer.module.css'
+// import Waitlistform from '../Waitlist-form'
 
 const postUrl = `https://bit.us7.list-manage.com/subscribe/post?u=d25029132f3626cdd5e575572&id=9a216722ca`
 const Footer = () => {
@@ -25,7 +26,7 @@ const Footer = () => {
           blockchain library&apos;s stable.
         </p>
 
-        <InputGroup
+        <form
           className={styles.footer__input__group}
           name="contact"
           method="POST"
@@ -41,10 +42,11 @@ const Footer = () => {
             color="#667085"
             _placeholder={{ color: '#667085' }}
           />
-          <InputRightElement width="159px" height="48px">
-            <Button className={styles.footer__btn}>Stay Updated</Button>
-          </InputRightElement>
-        </InputGroup>
+
+          <button className={styles.footer__btn}>Stay Updated</button>
+        </form>
+
+        {/* <Waitlistform /> */}
 
         <div className={styles.footer__socials}>
           <Link
