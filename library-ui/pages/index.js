@@ -406,11 +406,15 @@ const Home = () => {
             </Flex>
           </Box>
 
-          <iframe
-            src="https://embed.lottiefiles.com/animation/99349"
-            width={700}
-            height={700}
-          ></iframe>
+          <div className="lottie" width={800} height={700}>
+            <lottie-player
+              src="https://assets5.lottiefiles.com/packages/lf20_1a8dx7zj.json"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+            ></lottie-player>
+          </div>
         </Flex>
 
         {/* Our features section */}

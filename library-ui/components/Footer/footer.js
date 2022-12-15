@@ -12,6 +12,7 @@ import Facebook from '../../assets/svgs/facebook'
 import Discord from '../../assets/svgs/discord'
 import styles from './footer.module.css'
 
+const postUrl = `https://bit.us7.list-manage.com/subscribe/post?u=d25029132f3626cdd5e575572&id=9a216722ca`
 const Footer = () => {
   return (
     <footer className={styles.footer}>
@@ -23,8 +24,16 @@ const Footer = () => {
           Subscribe for updates. No spam, just exciting content from a
           blockchain library&apos;s stable.
         </p>
-        <InputGroup className={styles.footer__input__group}>
+
+        <InputGroup
+          className={styles.footer__input__group}
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          action="/success"
+        >
           <Input
+            name="form-name"
             placeholder="Enter your email"
             size="lg"
             focusBorderColor="none"
@@ -36,6 +45,7 @@ const Footer = () => {
             <Button className={styles.footer__btn}>Stay Updated</Button>
           </InputRightElement>
         </InputGroup>
+
         <div className={styles.footer__socials}>
           <Link
             as={NextLink}
