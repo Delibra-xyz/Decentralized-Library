@@ -1,5 +1,5 @@
 import SideBar from '../components/Sidebar/sidebar';
-import DashboardHeader from '../components/Dashboard/dashboardHeader';
+import DashboardHeader from '../components/Dashboard/DashboardHeader';
 import { useAuth } from '../context/AppContext';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';

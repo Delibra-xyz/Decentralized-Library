@@ -20,7 +20,7 @@ import styles from '../../../styles/libraryOverview.module.css';
 
 const tabNames = ['Overview', 'Stats', 'Transactions'];
 
-const LibraryOverview = () => {
+const LibraryOverview = ({id}) => {
   return (
     <Box bgColor='#ffffff'>
       <Box bgColor='#F3F4F6' p='16px' display='flex' justifyContent='center'>
@@ -150,6 +150,34 @@ const LibraryOverview = () => {
     </Box>
   );
 };
+
+export const getStaticPaths = async () => {
+  const paths =  [
+    { params: { id: '1' }},
+    { params: { id: '2' }},
+    { params: { id: '3' }},
+    { params: { id: '4' }},
+    { params: { id: '5' }},
+  ]
+
+  return {
+    paths,
+    fallback: false, // meaning any path not returned by `getStaticPaths` will result in a 404 page
+  }
+}
+
+export async function getStaticProps({ params }) {
+  // params contains the post `id`.
+  // If the route is like /posts/1, then params.id is 1
+  // const res = await fetch(`https://.../posts/${params.id}`)
+  // const post = await res.json()
+
+  // Pass post data to the page via props
+  // return { props: { post } }
+  let id = params.id
+  return { props : { id }}
+}
+
 
 LibraryOverview.getLayout = getLayout;
 export default LibraryOverview;
