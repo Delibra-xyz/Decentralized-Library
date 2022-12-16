@@ -33,7 +33,7 @@ const Authentication = () => {
               duration: 3000,
             })
           }
-        })
+        }).catch(err => console.log(err))
   }
 
   useEffect(()=> {

@@ -29,7 +29,7 @@ export const AppProvider = ({children}) => {
                   isOnboarded: res.onboarded,
                   userName: res.userName
                 })
-              })
+              }).catch(err => console.log(err))
             }
           })
       },[])
