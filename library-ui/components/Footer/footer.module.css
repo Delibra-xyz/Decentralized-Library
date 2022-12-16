@@ -40,6 +40,10 @@
 .footer .footer__input__group {
   width: 50%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
 }
 
 .footer .footer__btn {
@@ -48,9 +52,16 @@
   font-weight: 700;
   font-size: 18px;
   letter-spacing: -0.02em;
+  border-radius: 0.375rem;
   width: 159px;
   height: 48px;
   color: #000000;
+  display: flex;
+  position: absolute;
+  right: 0;
+  margin: 0 auto;
+  display: block;
+  z-index: 2;
 }
 
 .footer .footer__btn:hover {
@@ -69,7 +80,7 @@
   align-items: center;
 }
 
-.footer__socials__icon{
+.footer__socials__icon {
   margin-right: 20px;
 }
 

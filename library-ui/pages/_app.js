@@ -8,14 +8,16 @@ import {
   darkTheme,
 } from '@rainbow-me/rainbowkit'
 import { configureChains, createClient, WagmiConfig } from 'wagmi'
-import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
+import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 import { AppProvider } from '../context/AppContext'
+import Script from 'next/script'
 
 const zkevm = {
   id: 1402,
   name: 'Polygon zkEVM Testnet',
   network: 'Polygon zkEVM Testnet',
-  iconUrl: 'https://res.cloudinary.com/polygontech/image/upload/f_auto,q_auto,dpr_2,w_44,h_44/Polygon_Hermez_efab9004dc',
+  iconUrl:
+    'https://res.cloudinary.com/polygontech/image/upload/f_auto,q_auto,dpr_2,w_44,h_44/Polygon_Hermez_efab9004dc',
   iconBackground: '#fff',
   nativeCurrency: {
     decimals: 18,
@@ -26,16 +28,18 @@ const zkevm = {
     default: 'https://rpc.public.zkevm-test.net',
   },
   blockExplorers: {
-    default: { name: 'polygon zkEVM', url: ' https://explorer.public.zkevm-test.net' },
+    default: {
+      name: 'polygon zkEVM',
+      url: ' https://explorer.public.zkevm-test.net',
+    },
   },
   testnet: true,
-};
-
+}
 
 const { provider, chains } = configureChains(
   [zkevm],
-  [jsonRpcProvider({ rpc: chain => ({ http: chain.rpcUrls.default }) })]
-);
+  [jsonRpcProvider({ rpc: (chain) => ({ http: chain.rpcUrls.default }) })],
+)
 
 const { connectors } = getDefaultWallets({
   appName: 'My RainbowKit App',
@@ -49,9 +53,11 @@ const wagmiClient = createClient({
 })
 
 function Home({ Component, pageProps }) {
-    const getLayout = Component.getLayout || (page => page);
+  const getLayout = Component.getLayout || ((page) => page)
   return (
     <ChakraProvider>
+      <Script src="https://unpkg.com/@lottiefiles/lottie-player@v1.5.7/dist/lottie-player.js"></Script>
+
       <AppProvider>
         <WagmiConfig client={wagmiClient}>
           <RainbowKitProvider
@@ -68,7 +74,7 @@ function Home({ Component, pageProps }) {
             {getLayout(<Component {...pageProps} />)}
           </RainbowKitProvider>
         </WagmiConfig>
-        </AppProvider>
+      </AppProvider>
     </ChakraProvider>
   )
 }
