@@ -347,88 +347,74 @@ const Home = () => {
       <Box>
         {/* Hero section */}
         <Flex
-          bg="linear-gradient(98.41deg, #02081F 0%, #1A0830 96.87%)"
+          bgGradient="linear-gradient(98.41deg, #02081F 0%, #1A0830 96.87%)"
           width="100vw"
-          height="90vh"
+          height={{base:"90vh", "2xl":"88vh"}}
           mb={10}
-          px="90px"
+          position="relative"
+          justifyContent="space-between"
+          alignItems="center"
         >
-          <Box>
-            <Box pt="5%" mb={10}>
-              <Flex>
-                <Heading
-                  fontFamily="'Clash Grotesk', sans-serif"
-                  fontSize="81px"
-                  fontWeight="700"
-                  bgGradient="linear-gradient(89.34deg, #FFFFFF -13.15%, #332640 93.4%)"
-                  bgClip="text"
-                  width="70%"
-                  // pl="90px"
-                >
-                  Meet the first decentralized Library
-                  {/* <Text
-                bg="linear-gradient(115.03deg, rgba(255, 176, 189, 0.2) 6.95%, rgba(255, 194, 161, 0.2) 89.09%)"
-                w="max-content"
 
-              >library</Text> */}
-                </Heading>
-              </Flex>
-            </Box>
-            <Flex>
-              <Box w="50%">
-                <Text fontSize="20px" fontWeight="500" color="#E2E0E5" mb={10}>
-                  Delibra is the first read to earn decentalized platform that
-                  gives instant access to e-books, audiobooks, articles, and
-                  documents.
-                </Text>
+          <Image src="Frame 75.svg" position="absolute" bottom="0" height="85vh" display={{base:"block", lg:"none"}}/>
+          <Image src="Rectangle 20.svg" position="absolute" bottom="0" display={{base:"none", lg:"block"}}/>
 
-                <Button
-                  fontSize="18px"
-                  fontWeight="700"
-                  background="#FFFFFF"
-                  border="1px solid #FFFFFF"
-                  borderRadius="6px"
-                  onClick={() => {
-                    if (window)
-                      window.location.href =
-                        'https://khadijah-wuraola-amusat.gitbook.io/delibra/'
-                  }}
-                >
-                  <Text
-                    bgGradient="linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)"
-                    bgClip="text"
-                    fontFamily="'Clash Grotesk', sans-serif"
-                  >
-                    View Whitepaper
-                  </Text>
-                </Button>
-              </Box>
-            </Flex>
+          <Box w={{base:"85%", md:"75%", lg:"65%", "2xl":"60%"}} ps={{base:"30px", md:"50px", lg:"90px"}}>
+            <Heading
+              fontFamily="'Clash Grotesk', sans-serif"
+              fontSize={{base:"40px", md: "50px",lg:"60px",xl:"81px", "2xl":"100px"}}
+              fontWeight="700"
+              bgGradient="linear-gradient(89.34deg, #FFFFFF -13.15%, #332640 93.4%)"
+              bgClip="text"
+              width="70%"
+            >
+              Meet the first decentralized Library
+            </Heading>
+
+            <Text fontSize={{base:"16px", lg: "20px", "2xl":"40px"}} fontWeight="500" color="#E2E0E5" mb={10} mt={5} w="70%">
+              Delibra is the first read to earn decentalized platform that
+              gives instant access to e-books, audiobooks, articles, and
+              documents.
+            </Text>
+
+            <Button
+              fontSize="18px"
+              fontWeight="700"
+              background="#FFFFFF"
+              border="1px solid #FFFFFF"
+              borderRadius="6px"
+              onClick={() => {
+                if (window)
+                  window.location.href =
+                    'https://khadijah-wuraola-amusat.gitbook.io/delibra/'
+              }}
+            >
+              <Text
+                bgGradient="linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)"
+                bgClip="text"
+                fontFamily="'Clash Grotesk', sans-serif"
+              >
+                View Whitepaper
+              </Text>
+            </Button>
+
           </Box>
-
-          <div className="lottie" width={800} height={700}>
-            <lottie-player
-              src="https://assets5.lottiefiles.com/packages/lf20_1a8dx7zj.json"
-              background="transparent"
-              speed="1"
-              loop
-              autoplay
-            ></lottie-player>
-          </div>
+          <Box w={{base:"0%", lg:"35%"}} pe="90px">
+            <div className="lottie" width={800}>
+              <lottie-player
+                src="https://assets5.lottiefiles.com/packages/lf20_1a8dx7zj.json"
+                background="transparent"
+                speed="1"
+                loop
+                autoplay
+              ></lottie-player>
+            </div>
+          </Box>  
         </Flex>
 
         {/* Our features section */}
 
-        <Box bg="#ffffff" width="100vw" minH="50vh" px="100px" py={10} mb={10}>
-          {/* <Text
-            bgGradient="linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)"
-            bgClip="text"
-            fontSize="40px"
-            fontWeight="500"
-            mb={5}
-          >
-            Our Features
-          </Text> */}
+        <Box bg="#ffffff" width="100vw" minH="50vh" px={{base:"30px", md:"50px",lg:"100px"}} py={10} mb={10}>
           <Heading
             fontFamily="'Clash Grotesk', sans-serif"
             fontSize="56px"
@@ -448,29 +434,37 @@ const Home = () => {
            ake our platform the best for readers and authors. */}
           </Text>
 
-          <Flex justify="space-between" my={10}>
+          <Flex justify="space-between" my={10} wrap="wrap" direction={{base:"column", md:"row"}}>
             <FeatureCard
               icon={<MdOutlineEnhancedEncryption />}
               title="Book encryption"
               cont="Through secure means, we solve the problem of e-book piracy, plagiarism, and loss of data or assets."
+              mb={{base:"30px", "2xl":0}}
+              w="100%"
             />
 
             <FeatureCard
               icon={<GiReceiveMoney />}
               title="Read to earn"
               cont="In addition to reading for knowledge, earn tokens and royalties for your reviews and comments on a book."
+              mb={{base:"30px", "2xl":0}}
+              w="100%"
             />
 
             <FeatureCard
               icon={<BiPurchaseTag />}
               title="Ease of purchase"
               cont="Purchase books freely and conveniently on the blockchain with a few steps from the comfort of your home."
+              mb={{base:"30px", "2xl":0}}
+              w="100%"
             />
 
             <FeatureCard
               icon={<FaPeopleArrows />}
               title="Community"
               cont="We provide a captivating community where readers and authors can interact, and connect with each other."
+              mb={{base:"30px", "2xl":0}}
+              w="100%"
             />
           </Flex>
         </Box>
@@ -505,7 +499,7 @@ const Home = () => {
             w="90%"
             mx="auto"
           ></Heading>
-          <Flex justify="space-between" mt={10}>
+          <Flex justify="space-between" mt={10} direction={{base:"column", md:"row"}}>
             <GoalCard
               title="For Authors"
               cont="Connect with an extensive global platform that grants access to potential readers and buyers, which would promote your creative work."
@@ -527,7 +521,7 @@ const Home = () => {
         </Box>
 
         {/*  How it works section */}
-        <Box my="100px" px="7%">
+        <Box my="100px" px="100px">
           <HowItWorks />
         </Box>
 

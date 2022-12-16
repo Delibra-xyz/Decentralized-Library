@@ -31,7 +31,7 @@ const HowItWorks = () => {
         fontWeight="500"
         mb={5}
         textAlign="center"
-        w="70%"
+        w={{base:"90%", md:"70%"}}
         mx="auto"
       >
         Earn with your articles and get discovered through the power of
@@ -68,7 +68,7 @@ const HowItWorks = () => {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <Grid templateColumns="repeat(4, 1fr)" gap={5}>
+            <Grid templateColumns={{base:"repeat(1, 1fr)", md:"repeat(2, 1fr)", lg:"repeat(4, 1fr)"}} gap={5}>
               {authorData.map(({ id, step, content }) => (
                 <GridItem key={id} w="100%">
                   <HowItWorksCard stepNumber={step} stepText={content} />
@@ -77,7 +77,7 @@ const HowItWorks = () => {
             </Grid>
           </TabPanel>
           <TabPanel>
-            <Grid templateColumns="repeat(4, 1fr)" gap={5}>
+            <Grid templateColumns={{base:"repeat(1, 1fr)", md:"repeat(2, 1fr)", lg:"repeat(4, 1fr)"}} gap={5}>
               {readerData.map(({ id, step, content }) => (
                 <GridItem key={id} w="100%">
                   <HowItWorksCard stepNumber={step} stepText={content} />

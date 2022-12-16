@@ -11,6 +11,7 @@ const CustomButton = ({ children, bgGradient, color, ...props }) => {
       border="1px solid #FFFFFF"
       borderRadius="6px"
       filter="drop-shadow(0px 4px 32px rgba(255, 177, 189, 0.2))"
+      size={{base:"sm", lg:"md"}}
       _hover={{
         opacity: '0.3',
       }}

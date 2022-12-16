@@ -7,9 +7,10 @@ const GoalCard = ({children, title, cont}) => {
             bg="linear-gradient(115.03deg, rgba(255, 176, 189, 0.2) 6.95%, rgba(255, 194, 161, 0.2) 89.09%)"
             borderRadius="13px"
             maxW="560px"
-            w="48%"
+            w={{base:"100%", md:"48%"}}
             p={5}
             textAlign="left"
+            mb={{base:"30px", md:"0px"}}
         >
             {children}
             <Text
