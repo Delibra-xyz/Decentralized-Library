@@ -28,9 +28,9 @@ const Navbar = () => {
               userName: res.userName
             })
             res.userType === 0 ? router.push("/reader/home") : router.push("/author/overview")
-          })
+          }).catch(err => console.log(err))
         }
-      })
+      }).catch(err => console.log(err))
   }
 
   return (
