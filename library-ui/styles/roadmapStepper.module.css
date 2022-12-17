@@ -39,7 +39,7 @@
   margin-left: auto;
   border-left: 16px solid #ffc2a1;
   padding-left: 70px;
-  margin-right: -1px;
+  margin-right: 5px;
 }
 
 .roadmapStepper__content__wrapper.left {
@@ -76,4 +76,39 @@
   display: block;
   border-left: 16px solid #ffc2a1;
   min-height: 24px;
+}
+
+@media screen and (max-width: 767px){
+  .roadmapStepper__content__wrapper.left {
+    padding-right: 20px;
+  }
+
+  .roadmapStepper__thumb {
+    left: 49%;
+  }
+
+  .roadmapStepper__content__wrapper.right {
+    padding-left: 30px;
+    margin-right: 10px;
+  }
+  
+}
+
+@media screen and (max-width:480px) {
+  .roadmapStepper__heading {
+    font-size: 20px;
+  }
+  
+  .roadmapStepper__content {
+    font-size: 14px;
+  }
+
+  .roadmapStepper__content__wrapper.right {
+    margin-right: 11px;
+  }
+
+  .roadmapStepper__content__wrapper {
+    padding-left: 10px;
+    padding-right: 0px;
+  }
 }

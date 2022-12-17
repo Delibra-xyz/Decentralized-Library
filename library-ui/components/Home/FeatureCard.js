@@ -1,13 +1,14 @@
 import { Box, IconButton, Text } from "@chakra-ui/react";
 import React from "react";
 
-const FeatureCard = ({icon, title, cont})=> {
+const FeatureCard = ({icon, title, cont, ...props})=> {
     return(
         <Box
             w="20%"
             minW="250px"
             maxW="280px"
             mr={5}
+            {...props}
         >
             <IconButton
                 bg="linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)"

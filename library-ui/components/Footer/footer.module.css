@@ -126,3 +126,59 @@
   font-weight: 500;
   font-size: 18px;
 }
+
+@media screen and (max-width:1024px){
+  .footer__container,
+  .footer__box {
+    padding: 0 100px;
+  }
+
+  .footer .footer__input__group {
+    width: 70%;
+  }
+  
+}
+
+@media screen and (max-width:800px){
+  .footer__container,
+  .footer__box { 
+    padding: 0 80px;
+  }
+
+  .footer .footer__input__group {
+    width: 80%;
+  }
+  
+}
+
+@media screen and (max-width:767px){
+  .footer__container,
+  .footer__box {
+    padding: 0 30px;
+  }
+
+  .footer__item:not(:last-child) {
+    padding-right: 20px;
+  }
+
+  .footer__copy,
+  .footer__link{
+    font-size: 16px;
+  }
+
+  .footer .footer__input__group {
+    width: 90%;
+  }
+  
+}
+
+@media screen and (max-width: 480px){
+  .footer .footer__input__group {
+    width: 100%;
+  }
+
+  .footer__copy,
+  .footer__link{
+    font-size: 14px;
+  }
+}

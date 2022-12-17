@@ -17,10 +17,11 @@ const Footer = () => {
           Subscribe for updates. No spam, just exciting content from a blockchain library&apos;s stable.
         </p>
 
-        <form className={styles.footer__input__form} name='contact' method='POST' data-netlify='true' action='/success'>
+        <form className={styles.footer__input__form} name='contact' method='POST' data-netlify="true" action='/success'>
+          <input type="hidden" name="form-name" value="contact"/>
           <div className={styles.footer__input__group}>
             <Input
-              name='form-name'
+              name='email'
               placeholder='Enter your email'
               size='lg'
               focusBorderColor='none'
@@ -29,7 +30,7 @@ const Footer = () => {
               _placeholder={{ color: '#667085' }}
             />
 
-            <button className={styles.footer__btn}>Stay Updated</button>
+            <button className={styles.footer__btn} type="submit">Stay Updated</button>
           </div>
         </form>
 
