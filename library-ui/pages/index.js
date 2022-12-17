@@ -356,22 +356,38 @@ const Home = () => {
           alignItems="center"
         >
 
-          <Image src="Frame 75.svg" position="absolute" bottom="0" height="85vh" display={{base:"block", lg:"none"}}/>
+          <Image 
+            src="Frame 75.svg" 
+            position="absolute" 
+            bottom="20vh" 
+            top={{base:"33vh", sm:"22vh"}}
+            // height={{base:"85vh", sm:"100%"}}
+            display={{base:"block", lg:"none"}}
+            left={{base:"-250px", sm:"-200px"}}
+            transform={{base:"scale(3)", sm:"scale(1.9)"}}
+          />
           <Image src="Rectangle 20.svg" position="absolute" bottom="0" display={{base:"none", lg:"block"}}/>
 
-          <Box w={{base:"85%", md:"75%", lg:"65%", "2xl":"60%"}} ps={{base:"30px", md:"50px", lg:"90px"}}>
+          <Box w={{base:"100%",sm:"85%", md:"75%", lg:"65%", "2xl":"60%"}} ps={{base:"30px", md:"50px", lg:"90px"}}>
             <Heading
               fontFamily="'Clash Grotesk', sans-serif"
               fontSize={{base:"40px", md: "50px",lg:"60px",xl:"81px", "2xl":"100px"}}
               fontWeight="700"
               bgGradient="linear-gradient(89.34deg, #FFFFFF -13.15%, #332640 93.4%)"
               bgClip="text"
-              width="70%"
+              width={{base:"100%", sm:"85%", md:"70%"}}
             >
               Meet the first decentralized Library
             </Heading>
 
-            <Text fontSize={{base:"16px", lg: "20px", "2xl":"40px"}} fontWeight="500" color="#E2E0E5" mb={10} mt={5} w="70%">
+            <Text 
+              fontSize={{base:"16px", lg: "20px", "2xl":"40px"}} 
+              fontWeight="500" 
+              color="#E2E0E5" 
+              mb={10} 
+              mt={5} 
+              w={{base:"100%", sm:"85%", md:"70%"}}
+            >
               Delibra is the first read to earn decentalized platform that
               gives instant access to e-books, audiobooks, articles, and
               documents.
@@ -470,7 +486,7 @@ const Home = () => {
         </Box>
 
         {/* Goals section */}
-        <Box py={10} px="100px" minH="50vh" textAlign="center" pos="relative">
+        <Box py={10} px={{base:"30px", sm:"80px", md:"100px"}} minH="50vh" textAlign="center" pos="relative">
           <Book
             className="rotate-in-center"
             style={{
@@ -521,7 +537,7 @@ const Home = () => {
         </Box>
 
         {/*  How it works section */}
-        <Box my="100px" px="100px">
+        <Box my="100px" px={{base:"30px", sm:"80px", md:"100px"}}>
           <HowItWorks />
         </Box>
 

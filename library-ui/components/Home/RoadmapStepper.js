@@ -41,7 +41,7 @@ const RoadmapStepper = () => {
           </ul>
         </div>
       </div>
-      <div className={styles.roadmapStepper__container}>
+      <div className={styles.roadmapStepper__container} id="roadmap-cont-2">
         <span
           className={`${styles.roadmapStepper__thumb} ${styles.active} `}
         ></span>
@@ -67,7 +67,7 @@ const RoadmapStepper = () => {
         <div
           className={`${styles.roadmapStepper__content__wrapper} ${styles.left} ${styles.lastChild}`}
         >
-          <h2 className={styles.roadmapStepper__heading}> Milestone 3 </h2>
+          <h2 className={styles.roadmapStepper__heading} id="stepper3"> Milestone 3 </h2>
           <ul className={styles.roadmapStepper__item}>
             <li className={styles.roadmapStepper__content}>
               Final Pitch Deck Design for Pitch Day.

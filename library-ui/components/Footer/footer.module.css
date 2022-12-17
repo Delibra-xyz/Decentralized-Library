@@ -171,3 +171,14 @@
   }
   
 }
+
+@media screen and (max-width: 480px){
+  .footer .footer__input__group {
+    width: 100%;
+  }
+
+  .footer__copy,
+  .footer__link{
+    font-size: 14px;
+  }
+}

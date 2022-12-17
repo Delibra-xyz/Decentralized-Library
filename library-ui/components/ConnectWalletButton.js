@@ -96,9 +96,10 @@ function ConnectWalletButton({ bgGradient, ...props }) {
                 <div style={{ display: 'flex', gap: 12 }}>
                   <CustomButton
                     onClick={openChainModal}
-                    style={{ display: 'flex', alignItems: 'center' }}
                     type="button"
                     bgGradient={bgGradient}
+                    display={{base:"none", sm:"flex"}}
+                    alignItems="center"
                     {...props}
                   >
                     {chain.hasIcon && (
@@ -122,6 +123,35 @@ function ConnectWalletButton({ bgGradient, ...props }) {
                       </span>
                     )}
                     {chain.name}
+                  </CustomButton>
+
+                  <CustomButton
+                    onClick={openChainModal}
+                    type="button"
+                    bgGradient={bgGradient}
+                    display={{base:"flex", sm:"none"}}
+                    {...props}
+                  >
+                    {chain.hasIcon && (
+                      <span
+                        style={{
+                          background: chain.iconBackground,
+                          width: 20,
+                          height: 20,
+                          borderRadius: 999,
+                          overflow: 'hidden',
+                          marginRight: 4,
+                        }}
+                      >
+                        {chain.iconUrl && (
+                          <img
+                            alt={chain.name ?? 'Chain icon'}
+                            src={chain.iconUrl}
+                            style={{ width: 20, height: 20 }}
+                          />
+                        )}
+                      </span>
+                    )}
                   </CustomButton>
 
                   <CustomButton

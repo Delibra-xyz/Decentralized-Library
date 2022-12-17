@@ -90,7 +90,11 @@ a {
   }
   .lottie{
     display: none;
-}
+  }
+
+  #stepper3{
+    padding-top: 50px;
+  }
 }
 
 @media (max-width: 665px) {
@@ -103,6 +107,16 @@ a {
   #countdown {
     width: 350px;
     padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #roadmap-cont-2{
+    margin-top: -5px;
+  }
+
+  #stepper3{
+    padding-top: 200px;
   }
 }
 
