@@ -11,23 +11,27 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract BookCover is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
-    address private Delibra = 0x20dB5945336B9Ba91084dd6FC70Be3D841304E73;
+    // address of the marketplace smart contract
+    address marketplaceContract;
+    //  will be emitted every time a NFT is minted.
+    event NFTMinted(uint256);
+    // address private Delibra = 0x20dB5945336B9Ba91084dd6FC70Be3D841304E73;
     uint transactionFee = 10 ^ 18;
 
-    constructor() ERC721("NFT", "ENFT") {}
+    constructor(address _marketplaceContract) ERC721("BookCover", "DBC") {
+        marketplaceContract = _marketplaceContract;
+    }
 
-    function mintNFT(string memory tokenURI)
-        public
-        payable
-        onlyOwner
-        returns (uint256)
-    {
+    function mintNFT(
+        string memory tokenURI
+    ) public payable onlyOwner returns (uint256) {
         require(msg.value == transactionFee, "invalid amount");
         _tokenIds.increment();
 
         uint256 newItemId = _tokenIds.current();
         _mint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
+        setApprovalForAll(marketplaceContract, true);
 
         return newItemId;
 
