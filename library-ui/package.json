@@ -16,6 +16,8 @@
     "@rainbow-me/rainbowkit": "^0.7.4",
     "ethers": "^5.7.2",
     "framer-motion": "7.6.7",
+    "lit-js-sdk": "^1.1.241",
+    "moralis": "^2.10.0",
     "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
