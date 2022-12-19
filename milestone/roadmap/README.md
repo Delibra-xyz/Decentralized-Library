@@ -1,5 +1,5 @@
 ---
-description: Milestone for to be achieved for Q1
+description: Milestone for to be achieved for V1
 ---
 
 # 🛠 Roadmap
@@ -8,17 +8,12 @@ description: Milestone for to be achieved for Q1
 
 <summary>First Milestone</summary>
 
-Milestone 1 ( Oct/Mid Nov)
-
-* Summary: User Research, Landing page implementation ,Technical Documentation and Community Creation
-* Team: Mayowa (Ui design ), Khadijah ( Frontend Development and Technical Documentation) Maureen ( Frontend Development
-
-<!---->
-
-* Duration: 4 weeks
-
-\
-
+* Design a landing page in Figma first, then work on workflow and prototypes.
+* Implementation of the landing page
+* Wallet Connection and symmetric encryption of books
+* Publishing of our Whitepaper and proper documentation
+* Social media accounts would be created, and regular content posting would commence.
+* Smart contract Implementation for the book covers that would be minted as NFTs
 
 </details>
 
@@ -26,20 +21,18 @@ Milestone 1 ( Oct/Mid Nov)
 
 <summary>Second Milestone</summary>
 
-Milestone 2 ( (MidNov-Early Dec)
-
-* Summary: Authors and Readers dashboard implementation and Smart contract Implementation. Implementation of Lit Protocol for book encryption
-
-<!---->
-
-* Duration: 4 weeks
+* Frontend Development of Both the Authors and Readers Dashboard
+* Buy and sell smart contracts implementation.
+* Encrypted Books will be uploaded to Bundlr
 
 </details>
 
 <details>
 
-<summary>Step 3: Making your first post</summary>
+<summary>Third Milestone</summary>
 
-
+* Final Pitch Deck Design for Pitch Day.
+* Users can upload an NFT connected to their wallet address as their profile picture.
+* Writing tests for the smart contract
 
 </details>
