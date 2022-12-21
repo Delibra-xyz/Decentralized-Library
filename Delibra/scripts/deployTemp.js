@@ -20,14 +20,13 @@ const main = async () => {
 
     console.log("account balance ", accountBalance.toString());
 
-    const abi = fs.readFileSync(`./artifacts/contracts/User.sol/User.json`);
+    const abi = fs.readFileSync(`./artifacts/contracts/User.sol/DelibraUserAuth.json`);
    
-    fs.writeFileSync('../../library-ui/contracts/User/abi.json', abi);
-    fs.writeFileSync('../../library-ui/contracts/User/contract_address.json', address)
-
+    fs.writeFileSync('../library-ui/contracts/User/abi.json', abi);
+    fs.writeFileSync('../library-ui/contracts/User/contract_address.json', address)
 
 }
-    
+
 const runMain = async () => {
     try {
         await main();
