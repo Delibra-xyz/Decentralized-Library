@@ -15,7 +15,7 @@ const getSigner = async (ethereum) => {
 
 const getContract = async (ethereum) => {
     const signer = await getSigner(ethereum)
-    const contract = new ethers.Contract(contractAddress.contractAddress, abi, signer)
+    const contract = new ethers.Contract(contractAddress.contractAddress, abi.abi, signer)
     return contract;
 }
 
