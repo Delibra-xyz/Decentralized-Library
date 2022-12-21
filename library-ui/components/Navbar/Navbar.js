@@ -62,6 +62,7 @@ const Navbar = () => {
 
         {mounted && isConnected ? (
           <Text
+            as="button"
             color="#fff"
             fontWeight="700"
             fontSize="lg"
@@ -128,6 +129,7 @@ const Navbar = () => {
             <DrawerBody>
               <Box py={3} borderTop="1px solid" borderBottom="1px solid">
                 <Text
+                  as="button"
                   bgGradient="linear-gradient(98.41deg, #02081F 0%, #1A0830 96.87%)" 
                   bgClip="text"
                   fontWeight="700"
