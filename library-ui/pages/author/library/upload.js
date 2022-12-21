@@ -110,7 +110,7 @@ const UploadBook = () => {
           border='1px solid #E5E7EB'
           borderRadius='16px'
           width='65%'
-          height='390px'
+          height='73vh'
           overflow='auto'
           px='24px'
           py='16px'

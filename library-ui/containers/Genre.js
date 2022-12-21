@@ -1,7 +1,7 @@
 import { Flex, Heading, Tag, Text } from '@chakra-ui/react';
 import React from 'react';
 
-export default function Genre(){
+export default function Genre({genre, setGenre}){
     const tags = [
         'Art',
         'Thriller',
@@ -11,7 +11,6 @@ export default function Genre(){
         "Children",
         'Religion',
         'Christian',
-        'Crime',
         'Fantasy',
         'E-books',
         'Business',
@@ -29,6 +28,15 @@ export default function Genre(){
         'Music',
         'Sport',
       ];
+
+      const handleSelect = x => {
+        if(!genre.includes(x)){
+            setGenre(prev => [...prev, x])
+        } else {
+          let rem = genre.filter(p => p !== x);
+          setGenre(rem)
+        }
+      }
       
     return (
       <>
@@ -62,9 +70,10 @@ export default function Genre(){
               borderRadius='31px'
               justifyContent='center'
               fontSize='16px'
-              bg='#FFFFFF'
+              bg={genre.includes(tag) ? '#E5E7EB' : '#FFFFFF'}
               color='#000000'
               cursor='pointer'
+              onClick={()=> handleSelect(tag)}
             >
               {tag}
             </Tag>

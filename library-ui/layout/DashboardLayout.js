@@ -2,19 +2,26 @@ import SideBar from '../components/Sidebar/sidebar';
 import DashboardHeader from '../components/Dashboard/DashboardHeader';
 import { useAuth } from '../context/AppContext';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useAccount } from 'wagmi';
 
 const DashboardLayout = ({ children }) => {
   const router = useRouter();
   const { isConnected } = useAccount();
-  const { mounted } = useAuth();
+  const { mounted, fetchDetailsFromDb, handleLogout } = useAuth();
 
   useEffect(() => {
     if (mounted) {
-      if (isConnected === false) router.push('/');
+      if (isConnected === false) {
+        router.push('/');
+        handleLogout()
+      }
     }
-  }, [mounted]);
+  }, [mounted, isConnected]);
+
+  useEffect(()=> {
+    fetchDetailsFromDb()
+  },[])
 
   return (
     <div className='flex'>
