@@ -1,14 +1,24 @@
 import { Box, Button, Flex, Image, Text } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { useAccount } from 'wagmi';
 import OverviewBook from '../../../assets/svgs/OverviewBook';
 import Wallet from '../../../assets/svgs/wallet';
 import OverviewCard from '../../../components/Dashboard/OverviewCard';
+import { useAuth } from '../../../context/AppContext';
 import { getLayout } from '../../../layout/DashboardLayout';
 
 const Overview = () => {
 
   const router = useRouter();
+  const { user } = useAuth()
+  const { address } = useAccount()
+
+  const truncate = (addr) => {
+    let starter = addr.slice(0,5)
+    let end = addr.slice(-4)
+    return starter + "..." + end
+  }
 
   return (
     <Box>
@@ -16,13 +26,13 @@ const Overview = () => {
         <Flex color='#1F2937'>
           <Box mr={3}>
             <Text fontWeight='700' fontSize='21px' fontFamily="'Inter', sans-serif">
-              Hello mayor.delibra.eth, 👋🏾{' '}
+              Hello {user.userName===""? truncate(address) : user.userName}, 👋🏾{' '}
             </Text>
             <Text fontWeight='400' fontSize='15px'>
               Welcome to your dashboard
             </Text>
           </Box>
-          <Image src='/dp.png' alt='avatar' width='56px' height='56px' borderRadius='50%' />
+          <Image src={user.profileImg ||'/dp.png'} alt='avatar' width='56px' height='56px' borderRadius='50%' />
         </Flex>
         <Button
           background='linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)'
@@ -39,13 +49,13 @@ const Overview = () => {
       </Flex>
 
       <Flex w='100%' px={10} justify='space-between' my={5}>
-        <OverviewCard title='My Earnings .' count='-' text='24.5 MATIC' icon={<Wallet />} w='30%' />
+        <OverviewCard title='My Earnings .' count={user.earnings || 0} text={`${user.booksPublished || 0} MATIC`} icon={<Wallet />} w='30%' />
         <OverviewCard
           title='Total Books Published .'
-          count='-'
+          count={user.booksPublished || 0}
           text={
             <>
-              Increased <b>16%</b> from last month
+              Increased <b>0%</b> from last month
             </>
           }
           icon={<OverviewBook />}
@@ -53,10 +63,10 @@ const Overview = () => {
         />
         <OverviewCard
           title='Total Books Sold'
-          count='-'
+          count={user.booksSold || 0}
           text={
             <>
-              Increased <b>16%</b> from last month
+              Increased <b>0%</b> from last month
             </>
           }
           icon={<OverviewBook />}

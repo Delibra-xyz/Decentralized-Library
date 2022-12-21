@@ -14,13 +14,32 @@ import { useAccount } from 'wagmi';
 const Authentication = () => {
   const router  = useRouter();
   const toast = useToast();
-  const { user } = useAuth()
+  const { user, onLogin } = useAuth()
   const { address } = useAccount()
 
+  const getBody = (type) => {
+    if(type === 0){
+      return { genre: [], isOnboarded: false, profileImg:"", userName:"", userType: type }
+    } else{
+      return {
+        profileImg:"", 
+        userName:"", 
+        userType: type ,
+        earnings: 0,
+        booksPublished:0,
+        booksSold: 0,
+        transactions:[],
+        activities:[],
+        email:""
+      }
+    }
+  }
+
   const updateFirestoreUser = async(type) => {
+    await onLogin()
     try {
       let userRef = doc(db, "users", address);
-      await setDoc(userRef, { genre: [], isOnboarded: false, profileImg:"", userName:"", userType: type })
+      await setDoc(userRef, getBody(type))
       .then(res => {
         toast({
           title: "Registeration successful",
@@ -53,10 +72,10 @@ const Authentication = () => {
   }
 
   const register = (type) => {
-      setUser(window.ethereum,"", false, type, "").then(res => 
+      setUser(window.ethereum,"", false, type, "").then(async res => 
         {
           if(res){
-            updateFirestoreUser(type)
+            await updateFirestoreUser(type)
             type === 0 ? router.push("/reader/home") : router.push("/author/overview")
           } else {
             toast({
@@ -67,7 +86,15 @@ const Authentication = () => {
               duration: 3000,
             })
           }
-        }).catch(err => console.log(err))
+        }).catch(err => {
+          toast({
+            title: "An error occured",
+            description:"Please try again later",
+            status: "error",
+            isClosable: true,
+            duration: 3000,
+          })
+        })
   }
 
   useEffect(()=> {
