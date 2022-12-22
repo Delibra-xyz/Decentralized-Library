@@ -104,7 +104,7 @@ const Home = () => {
                 bgClip="text"
                 fontFamily="'Clash Grotesk', sans-serif"
               >
-                View Whitepaper
+                View Litepaper
               </Text>
             </Button>
           </Box>
