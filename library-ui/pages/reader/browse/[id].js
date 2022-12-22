@@ -40,7 +40,7 @@ const BookOverview = ({ id }) => {
     <Box px='24px' py='30px'>
       <Flex>
         <Image
-          src='/featured1.jfif'
+          src='/featured6.jfif'
           alt='book-cover'
           width='305px'
           height='479px'
