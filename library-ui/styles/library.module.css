@@ -1,0 +1,24 @@
+.library {
+  margin-top: 23px;
+  padding: 0 25px;
+}
+
+.library__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.library__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 27px;
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+
+.library__wrapper svg {
+  display: inline-block;
+}

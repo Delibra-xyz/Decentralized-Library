@@ -1,45 +1,43 @@
+---
+# The First Decentralized Library Built on Polygon Blockchain
+---
 
-#  📚 OPEN BOOKS
-A Decentralized Library  running on Polygon blockchain. Any User Can sign up as an Author or Reader to buy , sell and borrow a book
+
+## Overview
+
+Delibra is a decentralized library and marketplace for books where authors and readers get access to both paid and free books. We also did not limit our DAPP to native book owners; Students in schools can use it to upload past exam questions, chefs can upload book recipes, and anybody can publish articles. We want to immortalize information, and we are using blockchain to do so
+
 
 ### 🏚 Structure
-The directory is made up of two open source smart contracts written in solidity in the [contracts](https://github.com/Khadeeejah/Decentralized-Library/tree/main/hardhat-tutorial/contracts) folder, OpenBooks is currently deployed on the Polygon Mumbai testnet, you can find their addresses in [deployed_addresses.txt](). 
-The [Ui-library](https://github.com/Khadeeejah/Decentralized-Library/tree/main/library-ui) directory holds the frontend of the dapp built using Reactjs.
+The directory is made up of two open source smart contracts written in solidity in the [Delibra](https://github.com/Delibra-xyz/Decentralized-Library/tree/staging/Delibra/contracts) folder, 
 
-##  🎉 Features
-- ### Landing Page
-  The Landing shows all your books with different sections for free and paid books. It also gives you buttons to withdraw proceeds made from selling books and connecting your wallet
-
-- ### Author's Page
-  For users coming in as authors, to sell, and also buy books
- 
-- ### Reader's page
-  For users coming in to buy, borrow , and re-sell books
-  
-- ### Book page
-  This page gives you the option to delete, list, delist, buy or change the price of a book. You'll see different options depending on if you are the book's owner and if it is listed.
- 
-
-## 🔖 How to Mint
-If you have a book for sale and hold the rights to the book, you can elect to sell it. To do so, you must first create a book. When minting a book, you'll submit the title, cover image, and content of the book. They'll all be uploaded to Filecoin (for the time being), and you'll be instructed to mint by signing a mint transaction. This generates an ER721 token that represents the book that your address owns.
+The Book cover contract and the User authentication smart contracts are  currently deployed on the Polygon zkEVM testnet. 
 
 
-## 💰 How to Sell
-After minting you'll see the wallet in your dashboard. Click on it for more information. You'll be able to list it for sale after entering a price. When a purchase is successfully made on your book, the balance on your dashboard is immediately updated and this can be withdrawn at anytime. When you withdraw, you empty your balance.
+[Book cover contract address](https://explorer.public.zkevm-test.net/tx/0xb6d352c789bab5ab0bfdc197f0431382f42bf91ce91975217ff641427de98994)
 
-## 💳 How to Buy
-To buy a user need to have a matic token for gas fee, 
+[User Authentication contract address](https://explorer.public.zkevm-test.net/tx/0x9f85f3249715b240ea9b394febe3ca52cf600ced9825eb8a608197c4ef33d370)
+
+The [Ui-library](https://github.com/Delibra-xyz/Decentralized-Library/tree/staging/library-ui) directory holds the frontend of the dapp built using Nextjs and Chakra Ui.
+
+The Files which are encrypted using lit protocol are store on  are stored on Bundlr using [Arweave](https://github.com/Delibra-xyz/Decentralized-Library/tree/staging/library-ui/arweave) 
+
+### 🏚 Links
+
+[Deployed url](https://delibra.netlify.app)
+
+[Figma Design](https://www.figma.com/file/rbeaLxK8yJNA3NQcL8VTc1/Delibra?node-id=978%3A2409&t=VuK4Avh2niydERDH-0)
+
+Link to [Whitepaper](https://khadijah-wuraola-amusat.gitbook.io/delibra/)
+
+A quick video [demo](https://www.loom.com/share/26a0ac26194c4d29ac4bdb3eac5d3a0a) to show how the daap works.
 
 
 
-## 📟 Technologies
-- Filecoin: The token metatdata of the assets files are currently stored using ipfs.
-- ERC721: The OpenBooks smart contract implements the ERC721 standard.
-- Reactjs, Solidity, Chakra-ui ethersjs
 
 
-## 🛠 Pitch deck
-[Pitch Deck](https://docs.google.com/presentation/d/1ZinFCA4vuUHbJYHx6Xo9ivtsvnQ9cMzQZuwfSLcUZLc/edit#slide=id.gd91e1f37e_0_0)
+
+
 
 
 

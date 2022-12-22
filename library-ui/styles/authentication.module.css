@@ -1,0 +1,36 @@
+.authentication__container {
+  margin: 100px 0 34px;
+  padding: 0 90px;
+}
+
+.authentication__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto 120px;
+}
+
+.authentication__box {
+  padding: 60px 46px 37px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 13px;
+  height: 246px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.authentication__box:first-child {
+  margin-right: 20px;
+}
+
+.authentication__box:last-child {
+  margin-left: 20px;
+}
+
+.authentication__box__link {
+  margin: 0 auto;
+}
