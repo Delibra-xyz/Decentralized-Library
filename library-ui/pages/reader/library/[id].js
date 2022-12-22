@@ -52,7 +52,7 @@ const BookDetails = () => {
                 fontFamily='DM Sans'
                 letterSpacing='-0.02em'
               >
-                Jeneva Rose
+                Anthony Doerr
               </Heading>
             </Box>
             <Box mr='50px'>
@@ -118,14 +118,9 @@ const BookDetails = () => {
           </Box>
         </Box>
         <Spacer />
-        <Image
-          src='/featured1.jfif'
-          alt='book-cover'
-          width='151px'
-          height='238px'
-          filter='drop-shadow(13.0191px 13.0191px 13.0191px rgba(0, 0, 0, 0.12));'
-          boxShadow='0px 10.5444px 15.8166px -2.63609px rgba(16, 24, 40, 0.1), 0px 5.27219px 10.5444px -5.27219px rgba(16, 24, 40, 0.1)'
-        />
+        <Box bgImg={'/bookCover.png'} bgRepeat='no-repeat' width='155px' backgroundSize={'165px 250px'}>
+          <Image src='/featured1.png' alt='book-cover' width='150px' height='238px' />
+        </Box>
       </Flex>
       <Box pt='40px'>
         <Tabs>

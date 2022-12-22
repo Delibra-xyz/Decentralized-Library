@@ -12,6 +12,7 @@ import {
   Tabs,
   Text,
 } from '@chakra-ui/react';
+import { books } from '../../../utils/data/bookData';
 import Search from '../../../assets/svgs/search';
 import Eye from '../../../assets/svgs/Eye';
 import Bookmark from '../../../assets/svgs/Bookmark';
@@ -75,8 +76,16 @@ const Library = () => {
               </Text>
               <Box mt={6}>
                 <SimpleGrid templateColumns='repeat(5, 1fr)' gap={4} rowGap={10}>
-                  <ReaderLibraryCard id='1' link={`/reader/library/1`} />
-                  <ReaderLibraryCard id='1' link={`/reader/library/1`} />
+                  {books.map(({ id, bookName, bookCover, bookAuthor }) => (
+                    <ReaderLibraryCard
+                      key={id}
+                      id={id}
+                      link={`/reader/library/${id}`}
+                      bookName={bookName}
+                      bookAuthor={bookAuthor}
+                      bookCover={bookCover}
+                    />
+                  ))}
                 </SimpleGrid>
               </Box>
             </TabPanel>

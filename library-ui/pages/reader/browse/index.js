@@ -20,6 +20,7 @@ import LibraryCard from '../../../components/Dashboard/LibraryCard';
 import LibraryEmptyState from '../../../components/Dashboard/LibraryEmptyState';
 import BookOpenColoured from '../../../assets/svgs/BookOpenColoured';
 import User from '../../../assets/svgs/User';
+import { books } from '../../../utils/data/bookData';
 
 const Browse = () => {
   const tabNames = [
@@ -106,9 +107,16 @@ const Browse = () => {
                     Recommended for you
                   </Heading>
                   <Box mt={4}>
-                    <SimpleGrid templateColumns='repeat(4, 1fr)' gap={5}>
-                      <LibraryCard id='1' link={`/reader/browse/1`} />
-                      <LibraryCard id='2' />
+                    <SimpleGrid templateColumns='repeat(5, 1fr)' gap={4} rowGap={10}>
+                      {books.map(({ id, bookName, bookCover }) => (
+                        <LibraryCard
+                          key={id}
+                          id={id}
+                          link={`/reader/browse/${id}`}
+                          bookCover={bookCover}
+                          bookName={bookName}
+                        />
+                      ))}
                     </SimpleGrid>
                   </Box>
                 </Box>
@@ -126,16 +134,23 @@ const Browse = () => {
                     Based on your recently added
                   </Heading>
                   <Box mt={4}>
-                    <SimpleGrid templateColumns='repeat(4, 1fr)' gap={5}>
-                      <LibraryCard id='1' link={`/reader/browse/1`} />
+                    <SimpleGrid templateColumns='repeat(5, 1fr)' gap={4}>
+                      {books.map(({ id, bookName, bookCover }) => (
+                        <LibraryCard
+                          key={id}
+                          id={id}
+                          link={`/reader/browse/${id}`}
+                          bookCover={bookCover}
+                          bookName={bookName}
+                        />
+                      ))}
                     </SimpleGrid>
                   </Box>
                 </Box>
               </>
             </TabPanel>
-            <TabPanel px={0} py={6}>
-              <LibraryEmptyState />
-            </TabPanel>
+            {/* <TabPanel px={0} py={6}>
+            </TabPanel> */}
           </TabPanels>
         </Tabs>
       </Box>

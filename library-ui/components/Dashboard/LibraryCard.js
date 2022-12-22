@@ -3,7 +3,7 @@ import { Link as NextLink } from 'next/link';
 import Unit from '../../assets/svgs/unit';
 import styles from '../../styles/library.module.css';
 
-const LibraryCard = ({ id, link, ...props }) => {
+const LibraryCard = ({ id, link, bookName, bookCover, ...props }) => {
   return (
     <Box
       maxW='3xs'
@@ -23,7 +23,7 @@ const LibraryCard = ({ id, link, ...props }) => {
         }}
       >
         <Box bg='#F3F4F6' borderRadius='8' overflow='hidden' py='4'>
-          <Image src='/featured1.jfif' alt='bookCover' width='86px' height='110px' margin='0 auto' />
+          <Image src={bookCover} alt='bookCover' width='86px' height='110px' margin='0 auto' />
         </Box>
         <Box>
           <Text fontSize='12px' color='#374151' fontFamily='DM Sans' pt={3}>
@@ -37,7 +37,7 @@ const LibraryCard = ({ id, link, ...props }) => {
             fontFamily='Inter'
             pt='2px'
           >
-            Life on the Mississppi
+            {bookName}
           </Heading>
         </Box>
         <div className={styles.library__wrapper}>

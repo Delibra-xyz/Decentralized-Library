@@ -2,7 +2,7 @@ import { Link, Box, Heading, Image, Text, Flex } from '@chakra-ui/react';
 import { Link as NextLink } from 'next/link';
 import Star from '../../assets/svgs/Star';
 
-const ReaderLibraryCard = ({ id, link, ...props }) => {
+const ReaderLibraryCard = ({ id, link, bookName, bookAuthor, bookCover, ...props }) => {
   return (
     <Box
       maxW='3xs'
@@ -22,7 +22,7 @@ const ReaderLibraryCard = ({ id, link, ...props }) => {
         }}
       >
         <Box bg='#F3F4F6' borderRadius='8' overflow='hidden' py='4'>
-          <Image src='/featured1.jfif' alt='bookCover' width='86px' height='110px' margin='0 auto' />
+          <Image src={bookCover} alt='bookCover' width='86px' height='110px' margin='0 auto' />
         </Box>
         <Box pt='12px' pb='16px'>
           <Heading
@@ -33,10 +33,10 @@ const ReaderLibraryCard = ({ id, link, ...props }) => {
             fontFamily='DM Sans'
             pb='2px'
           >
-            Cloud Cuckoo Land
+            {bookName}
           </Heading>
           <Text fontSize='12px' color='#374151' fontFamily='DM Sans' fontWeight={500}>
-            by Rinker Buck
+            by {bookAuthor}
           </Text>
         </Box>
         <Box>
