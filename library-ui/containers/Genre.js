@@ -1,34 +1,35 @@
 import { Flex, Heading, Tag, Text } from '@chakra-ui/react';
 import React from 'react';
 
-export default function Genre({genre, setGenre}){
-    const tags = [
-        'Art',
-        'Thriller',
-        'Romance',
-        'Travel',
-        'Non-fiction',
-        "Children",
-        'Religion',
-        'Christian',
-        'Fantasy',
-        'E-books',
-        'Business',
-        'Graphic Novel',
-        'Philosphy',
-        'Poetry',
-        'Rom-Com',
-        'Crime',
-        'Sci-Fi',
-        'Biography',
-        'Classic',
-        'Comics',
-        'Contemporary',
-        'Cookbooks',
-        'Music',
-        'Sport',
-      ];
+export const tags = [
+  'Art',
+  'Thriller',
+  'Romance',
+  'Travel',
+  'Non-fiction',
+  "Children",
+  'Religion',
+  'Christian',
+  'Fantasy',
+  'E-books',
+  'Business',
+  'Graphic Novel',
+  'Philosphy',
+  'Poetry',
+  'Rom-Com',
+  'Crime',
+  'Sci-Fi',
+  'Biography',
+  'Classic',
+  'Comics',
+  'Contemporary',
+  'Cookbooks',
+  'Music',
+  'Sport',
+];
 
+
+export default function Genre({genre, setGenre}){
       const handleSelect = x => {
         if(!genre.includes(x)){
             setGenre(prev => [...prev, x])

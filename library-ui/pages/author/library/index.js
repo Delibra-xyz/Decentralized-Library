@@ -24,9 +24,42 @@ import Search from '../../../assets/svgs/search';
 import LibraryCard from '../../../components/Dashboard/LibraryCard';
 import LibraryEmptyState from '../../../components/Dashboard/LibraryEmptyState';
 import styles from '../../../styles/library.module.css';
+import { useEffect, useState } from 'react';
+import { collection, getDocs, query, QuerySnapshot, where } from 'firebase/firestore';
+import { db } from '../../../utils/firebase';
+import { useAccount } from 'wagmi';
+import { listBook } from '../../../utils/contractUtils';
+import { BsFillFlagFill } from 'react-icons/bs';
 
 const Library = () => {
-  const tabNames = ['Published', 'Activities'];
+  const { address } = useAccount()
+  const tabNames = ['Published', 'Uploads'];
+  const [uploads, setUploads] = useState([]);
+  const [loading, setLoading] = useState(false)
+  const [reload, setReload] = useState(false)
+  const published = uploads.filter(x => x.minted === true);
+
+  async function getBooks(){
+    let b = []
+    const booksRef = collection(db, 'books')
+    const q = query(booksRef, where("userId", "==", address))
+    const ss =  await getDocs(q);
+    await ss.forEach(doc => {
+      let book = {id: doc.id, ...doc.data()}
+      b.push(book)
+      // setUploads(prev => [...prev,book])
+    })
+    return b;
+    
+  }
+
+  useEffect(()=> {
+    setLoading(true)
+    getBooks().then(r => {
+      setUploads(r);
+      setLoading(false)
+    })
+  },[reload])
 
   return (
     <div className={styles.library}>
@@ -121,22 +154,82 @@ const Library = () => {
               />
             </Box>
           </Flex>
+          {loading ? 
+          <Box px={10} py={5} h="65vh" w="100%">
+            <lottie-player 
+              src="https://assets7.lottiefiles.com/temp/lf20_MoTZke.json"  
+              background="transparent"  
+              speed="1"    
+              loop 
+              autoplay
+            >   
+            </lottie-player>
+          </Box> : 
           <TabPanels>
             <TabPanel px={0} py={6}>
-              <LibraryEmptyState />
-            </TabPanel>
-            <TabPanel>
-              <Text color='#1F2937' fontWeight='500' opacity='0.9'>
+            { published.length ===0 && !loading ?
+             <LibraryEmptyState text="You have not published any book yet."/> :
+             <>
+              <Text color='#1F2937' fontWeight='500' opacity='0.9' mb={3}>
                 Showing 1-10 out of 20
               </Text>
               <Box mt={6}>
                 <SimpleGrid templateColumns='repeat(4, 1fr)' gap={5}>
-                  <LibraryCard id='1' link={`/author/library/1`} />
-                  <LibraryCard id='2' link={`/author/library/2`} />
+                  {published.map(upload => (
+                     <LibraryCard 
+                        id={upload.id} 
+                        link={`/author/library/${upload.id}`} 
+                        unit={upload.unit}
+                        price={upload.price} 
+                        title={upload.title}
+                        category={upload.category}
+                        showMint={false}
+                        uri={upload.tokenUri}
+                        image={`https://${upload.bookCoverCid}.ipfs.w3s.link`}
+                        minted={upload.minted}
+                        reload={reload}
+                        setReload={setReload}
+                      />
+                  ))}
                 </SimpleGrid>
               </Box>
+              </>}
+            </TabPanel>
+            <TabPanel>
+             { uploads.length ===0 && !loading ?
+             <LibraryEmptyState btn="Upload  a book" text="You have not uploaded any book yet."/> :
+             <>
+              <Text color='#1F2937' fontWeight='500' opacity='0.9' mb={3}>
+                Showing 1-10 out of 20
+              </Text>
+              <Text color='green' fontSize='14px' fontWeight={500} display="flex" alignItems="center">
+                <BsFillFlagFill/>&nbsp; Publishing costs 0.0001MATIC
+              </Text>
+              <Box mt={6}>
+                <SimpleGrid templateColumns='repeat(4, 1fr)' gap={5}>
+                  {uploads.map(upload => (
+                     <LibraryCard 
+                        id={upload.id} 
+                        link={`/author/library/${upload.id}`} 
+                        unit={upload.unit}
+                        price={upload.price} 
+                        title={upload.title}
+                        category={upload.category}
+                        showMint
+                        uri={upload.tokenUri}
+                        image={`https://${upload.bookCoverCid}.ipfs.w3s.link`}
+                        minted={upload.minted}
+                        reload={reload}
+                        setReload={setReload}
+                      />
+                  ))}
+                </SimpleGrid>
+              </Box>
+              </>}
+              
             </TabPanel>
           </TabPanels>
+          }   
         </Tabs>
       </Box>
     </div>

@@ -1,6 +1,8 @@
 import { ethers } from "ethers";
 import abi from "../contracts/User/abi.json"
 import contractAddress from "../contracts/User/contract_address.json"
+import marketContractAddress from "../contracts/Marketplace/contract_address.json"
+import marketAbi from "../contracts/Marketplace/abi.json"
 
 const getProvider = async (ethereum) => {
     const provider = new ethers.providers.Web3Provider(ethereum)
@@ -16,6 +18,12 @@ const getSigner = async (ethereum) => {
 const getContract = async (ethereum) => {
     const signer = await getSigner(ethereum)
     const contract = new ethers.Contract(contractAddress.contractAddress, abi.abi, signer)
+    return contract;
+}
+
+const getMarketPlaceContract = async (ethereum) => {
+    const signer = await getSigner(ethereum)
+    const contract = new ethers.Contract(marketContractAddress.contractAddress, marketAbi.abi, signer)
     return contract;
 }
 
@@ -43,6 +51,16 @@ export const setUser = async (ethereum, username, onboarded, type, url) => {
     try {
         const contract = await getContract(ethereum)
         const txnResult = contract.setUserInfo(username, onboarded, type, url)
+        return txnResult;
+    } catch(error) {
+        console.log("Error: ", error)
+    }
+}
+
+export const listBook = async (ethereum, uri, price, quantity, fee) => {
+    try {
+        const contract = await getMarketPlaceContract(ethereum)
+        const txnResult = contract.listNft(uri, price,quantity, {value: ethers.utils.parseEther(fee)})
         return txnResult;
     } catch(error) {
         console.log("Error: ", error)
