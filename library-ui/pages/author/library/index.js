@@ -2,7 +2,6 @@ import { Link as NextLink } from 'next/link';
 import { getLayout } from '../../../layout/DashboardLayout';
 import {
   Box,
-  Button,
   Flex,
   IconButton,
   Input,
@@ -18,6 +17,7 @@ import {
   Tabs,
   Text,
 } from '@chakra-ui/react';
+import { books } from '../../../utils/data/bookData';
 import List from '../../../assets/svgs/list';
 import Grid2 from '../../../assets/svgs/Grid2';
 import Search from '../../../assets/svgs/search';
@@ -51,10 +51,11 @@ const Library = () => {
           as={NextLink}
           href='/author/library/upload'
           display='block'
+          textAlign='center'
           fontWeight={700}
           px='24px'
           py='12px'
-          width='15%'
+          width='18%'
           borderRadius='8px'
           bgGradient='linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)'
           _hover={{ bg: 'linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)' }}
@@ -125,14 +126,21 @@ const Library = () => {
             <TabPanel px={0} py={6}>
               <LibraryEmptyState />
             </TabPanel>
-            <TabPanel>
+            <TabPanel px={0}>
               <Text color='#1F2937' fontWeight='500' opacity='0.9'>
                 Showing 1-10 out of 20
               </Text>
               <Box mt={6}>
-                <SimpleGrid templateColumns='repeat(4, 1fr)' gap={5}>
-                  <LibraryCard id='1' link={`/author/library/1`} />
-                  <LibraryCard id='2' link={`/author/library/2`} />
+                <SimpleGrid templateColumns='repeat(5, 1fr)' gap={4}>
+                  {books.map(({ id, bookName, bookCover }) => (
+                    <LibraryCard
+                      key={id}
+                      id={id}
+                      link={`/author/library/${id}`}
+                      bookCover={bookCover}
+                      bookName={bookName}
+                    />
+                  ))}
                 </SimpleGrid>
               </Box>
             </TabPanel>

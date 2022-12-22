@@ -2,7 +2,7 @@ import { Box, Button, Image, Text } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 
 const LibraryEmptyState = () => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <Box mt={10}>
       <Image src='/StackOfBooks.png' alt='' margin='0 auto' />
@@ -10,16 +10,18 @@ const LibraryEmptyState = () => {
         You have not written any book yet.
       </Text>
       <Button
-        bg='#FFFFFF'
-        boxShadow='0px 9px 21px rgba(16, 24, 40, 0.05)'
+        p='12px 24px'
+        bg='#F3F4F6'
         borderRadius='8px'
         fontSize='14px'
         color='#1A0830'
         fontWeight={500}
         margin='0 auto'
         display='flex'
-        _hover={{ bg: '#FFFFFF' }}
-        onClick={() => router.push("/author/library/upload")}
+        _hover={{ bg: '#F3F4F6' }}
+        _active={{ bg: '#F3F4F6' }}
+        _focus={{ bg: '#F3F4F6' }}
+        onClick={() => router.push('/author/library/upload')}
       >
         Publish a book
       </Button>
