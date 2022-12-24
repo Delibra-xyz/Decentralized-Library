@@ -24,7 +24,7 @@ const LibraryOverview = ({ id }) => {
   return (
     <Box bgColor='#ffffff'>
       <Box bgColor='#F3F4F6' p='16px' display='flex' justifyContent='center'>
-        <Image src='/featured6.jfif' alt='book-cover' width='120px' height='188px' />
+        <Image src='/featured6.png' alt='book-cover' width='120px' height='188px' />
         <Box pl='40px' display='flex' justifyContent='space-between' flexDirection='column'>
           <Box>
             <Box display='flex' alignItems='center' pb='8px'>

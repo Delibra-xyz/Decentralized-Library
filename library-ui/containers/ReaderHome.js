@@ -31,7 +31,7 @@ export default function ReaderHome() {
           <Flex mb={5}>
             <Box w='35px' h='65px' bg='#113E6B' pos='relative'>
               <Image
-                src='/featured6.jfif'
+                src='/featured6.png'
                 alt='bookCover'
                 width='35px'
                 height='55px'
@@ -52,7 +52,7 @@ export default function ReaderHome() {
           <Flex>
             <Box w='35px' h='65px' bg='#113E6B' pos='relative'>
               <Image
-                src='/featured6.jfif'
+                src='/featured6.png'
                 alt='bookCover'
                 width='35px'
                 height='55px'
