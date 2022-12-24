@@ -158,7 +158,6 @@ const LibraryCard = ({
           >
             {unit || "10"}
           </Heading>
-          <Unit />
         </Box>
       </div>
       {showMint && (

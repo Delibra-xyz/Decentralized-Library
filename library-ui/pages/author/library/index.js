@@ -2,7 +2,6 @@ import { Link as NextLink } from 'next/link';
 import { getLayout } from '../../../layout/DashboardLayout';
 import {
   Box,
-  Button,
   Flex,
   IconButton,
   Input,
@@ -18,6 +17,7 @@ import {
   Tabs,
   Text,
 } from '@chakra-ui/react';
+import { books } from '../../../utils/data/bookData';
 import List from '../../../assets/svgs/list';
 import Grid2 from '../../../assets/svgs/Grid2';
 import Search from '../../../assets/svgs/search';
@@ -84,10 +84,11 @@ const Library = () => {
           as={NextLink}
           href='/author/library/upload'
           display='block'
+          textAlign='center'
           fontWeight={700}
           px='24px'
           py='12px'
-          width='15%'
+          width='18%'
           borderRadius='8px'
           bgGradient='linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)'
           _hover={{ bg: 'linear-gradient(115.03deg, #FFB0BD 6.95%, #FFC2A1 89.09%)' }}

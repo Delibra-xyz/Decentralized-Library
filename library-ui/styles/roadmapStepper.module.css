@@ -39,7 +39,7 @@
   margin-left: auto;
   border-left: 16px solid #ffc2a1;
   padding-left: 70px;
-  margin-right: 5px;
+  /* margin-right: 5px; */
 }
 
 .roadmapStepper__content__wrapper.left {
@@ -78,7 +78,7 @@
   min-height: 24px;
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   .roadmapStepper__content__wrapper.left {
     padding-right: 20px;
   }
@@ -91,14 +91,13 @@
     padding-left: 30px;
     margin-right: 10px;
   }
-  
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width: 480px) {
   .roadmapStepper__heading {
     font-size: 20px;
   }
-  
+
   .roadmapStepper__content {
     font-size: 14px;
   }

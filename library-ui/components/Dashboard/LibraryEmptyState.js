@@ -10,8 +10,8 @@ const LibraryEmptyState = ({text,btn, link}) => {
         {text || "You have not written any book yet."}
       </Text>
       <Button
-        bg='#FFFFFF'
-        boxShadow='0px 9px 21px rgba(16, 24, 40, 0.05)'
+        p='12px 24px'
+        bg='#F3F4F6'
         borderRadius='8px'
         fontSize='14px'
         color='#1A0830'
