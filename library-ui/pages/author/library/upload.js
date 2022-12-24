@@ -384,8 +384,8 @@ const UploadBook = () => {
               onChange={(e) => setValues({...values, category: e.target.value})}
               isRequired
             >
-              {tags.map(tag => (
-                    <option value={tag}>{tag}</option>
+              {tags.map((tag, index) => (
+                    <option value={tag} key={index}>{tag}</option>
               ))}
             </Select>
           </FormControl>
@@ -466,8 +466,8 @@ const UploadBook = () => {
               onChange={(e) => setValues({...values, unit: e.target.value})}
               isRequired
             >
-              {numbers.map(number => (
-              <option value={number}>{number}</option>
+              {numbers.map((number, index) => (
+              <option value={number} key={index}>{number}</option>
               ))}
             </Select>
             <FormHelperText color='#6B7280' fontSize='14px' fontWeight={500}>

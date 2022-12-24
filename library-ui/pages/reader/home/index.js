@@ -46,11 +46,11 @@ const Home = () => {
 
   useEffect(()=> {
     setPageLoading(true)
-    if(user){
-      if(user.isOnboarded){
+    if(user && user.isOnboarded){
+      if(user.isOnboarded === true){
         setPage(2)
         setPageLoading(false)
-      } else{
+      } else {
         setPage(0)
         setPageLoading(false)
       }
@@ -58,18 +58,18 @@ const Home = () => {
   },[user])
 
   return (
-    pageLoading || !page ? 
-    <Box px={10} py={5} h="83vh" w="100%">
-      <lottie-player 
-        src="https://assets7.lottiefiles.com/temp/lf20_MoTZke.json"  
-        background="transparent"  
-        speed="1"    
-        loop 
-        autoplay
-      >   
-      </lottie-player>
-    </Box> 
-    :
+    // pageLoading || !page ? 
+    // <Box px={10} py={5} h="83vh" w="100%">
+    //   <lottie-player 
+    //     src="https://assets7.lottiefiles.com/temp/lf20_MoTZke.json"  
+    //     background="transparent"  
+    //     speed="1"    
+    //     loop 
+    //     autoplay
+    //   >   
+    //   </lottie-player>
+    // </Box> 
+    // :
     <Box px={10} py={5} bg="#F3F4F6"> 
       {page === 2 ? <ReaderHome/> : 
       <Box border='1px solid #E5E7EB' borderRadius='8px' px='50px' pb='16px' bg="#fff">
