@@ -20,3 +20,4 @@ Delibra is a decentralized library and marketplace for books where authors and r
 
 
 For more Information Checkout the 
+[Litepaper](https://khadijah-wuraola-amusat.gitbook.io/delibra/) and watch the video demo [here](https://www.youtube.com/watch?v=12fZxIIbaBE) 
