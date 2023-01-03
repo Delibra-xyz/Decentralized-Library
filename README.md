@@ -13,7 +13,7 @@ Delibra is a decentralized library and marketplace for books where authors and r
 
 ## Solution
 
-1. Second-hand marketplace for e-books
-2. Multiple streams of income for payments and readers
-3. Books are listed globally
-4. Ease of payment with cryptocurrency
+1. Second-hand marketplace for e-books.
+2. Multiple streams of income for payments and readers.
+3. Books are listed globally.
+4. Ease of payment with cryptocurrency.
