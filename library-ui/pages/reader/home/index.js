@@ -1,16 +1,40 @@
 import { getLayout } from '../../../layout/DashboardLayout';
 import { Box, Button, Flex, Stack, Text } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Genre from '../../../containers/Genre';
 import Recommendation from '../../../containers/Recommendation';
 import ReaderHome from '../../../containers/ReaderHome';
+import { doc, setDoc } from "firebase/firestore";
+import { db } from '../../../utils/firebase';
+import { useAccount } from 'wagmi';
+import { useAuth } from '../../../context/AppContext';
 
 const Home = () => {
-  const [page, setPage] = useState(0);
+  const { address } = useAccount()
+  const { user } = useAuth();
+  const [page, setPage] = useState();
+  const [genre, setGenre] = useState([]);
+  const [ loading, setLoading] = useState(false)
+  const [ pageLoading, setPageLoading] = useState(true)
 
-  const handleContinue = () => {
+  const handleContinue = async() => {
     if(page===0){
-      setPage(1)
+      setLoading(true)
+      try {
+        let userRef = doc(db, "users", address);
+        await setDoc(userRef, { genre: genre, isOnboarded: true }, { merge: true })
+        .then(res => {
+          setPage(1)
+          setLoading(false)
+        })
+        .catch(err => {
+          console.error(err);
+          setLoading(false)
+        })
+      } catch (e) {
+        console.error("Error adding document: ", e);
+        setLoading(false)
+      }
     } else if(page === 1){
       setPage(2)
     }
@@ -20,9 +44,35 @@ const Home = () => {
     setPage(2)
   }
 
+  useEffect(()=> {
+    setPageLoading(true)
+    if(user && user.isOnboarded){
+      if(user.isOnboarded === true){
+        setPage(2)
+        setPageLoading(false)
+      } else {
+        setPage(0)
+        setPageLoading(false)
+      }
+    }
+  },[user])
+
   return (
+    // pageLoading || !page ? 
+    // <Box px={10} py={5} h="83vh" w="100%">
+    //   <lottie-player 
+    //     src="https://assets7.lottiefiles.com/temp/lf20_MoTZke.json"  
+    //     background="transparent"  
+    //     speed="1"    
+    //     loop 
+    //     autoplay
+    //   >   
+    //   </lottie-player>
+    // </Box> 
+    // :
     <Box px={10} py={5} bg="#F3F4F6"> 
-      {page === 2 ? <ReaderHome/> : <Box border='1px solid #E5E7EB' borderRadius='8px' px='50px' pb='16px' bg="#fff">
+      {page === 2 ? <ReaderHome/> : 
+      <Box border='1px solid #E5E7EB' borderRadius='8px' px='50px' pb='16px' bg="#fff">
         <Flex mb={5} w="60%" mx="auto">
           <Flex 
             borderBottom={page ===0 ? "3px solid #FFC2A1" : "1px solid #E5E7EB" } 
@@ -99,7 +149,7 @@ const Home = () => {
             </Box>
           </Flex>
         </Flex>
-        {page === 0 ? <Genre/> : null}
+        {page === 0 ? <Genre genre={genre} setGenre={setGenre}/> : null}
         {page === 1 ? <Recommendation/> : null}
         <Stack direction='row' spacing={4} align='center' justifyContent='flex-end' my='20px'>
           <Button
@@ -129,6 +179,7 @@ const Home = () => {
               boxShadow: 'unset',
             }}
             onClick={handleContinue}
+            isLoading={loading}
           >
             Continue
           </Button>

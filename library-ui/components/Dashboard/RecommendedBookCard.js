@@ -7,7 +7,7 @@ const RecommendedBookCard = ({ id, ...props }) => {
   return (
     <Flex border='1px solid #E5E7EB' borderRadius='8px' p={1} pos='relative' m={3} {...props}>
       <Box w='150px' h='175px' bg='#F3F4F6' borderRadius='4px'>
-        <Image src='/featured6.jfif' alt='bookCover' width='86px' height='109px' margin='33px auto' />
+        <Image src='/featured6.png' alt='bookCover' width='86px' height='109px' margin='33px auto' />
       </Box>
       <Box px={5} py={3}>
         <Link

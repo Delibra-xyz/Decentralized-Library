@@ -13,7 +13,7 @@ import { GiHamburgerMenu } from "react-icons/gi"
 const Navbar = () => {
   const { isConnected, address } = useAccount();
   const router  = useRouter();
-  const { mounted, setUser } = useAuth();
+  const { mounted, setUser, onLogin } = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef()
 
@@ -30,6 +30,7 @@ const Navbar = () => {
               isOnboarded: res.onboarded,
               userName: res.userName
             })
+            onLogin();
             res.userType === 0 ? router.push("/reader/home") : router.push("/author/overview")
           }).catch(err => console.log(err))
         }

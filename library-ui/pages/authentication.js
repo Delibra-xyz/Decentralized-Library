@@ -7,22 +7,75 @@ import { setUser } from '../utils/contractUtils';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useAuth } from '../context/AppContext';
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../utils/firebase';
+import { useAccount } from 'wagmi';
 
 const Authentication = () => {
   const router  = useRouter();
   const toast = useToast();
-  const { user } = useAuth()
+  const { user, onLogin } = useAuth()
+  const { address } = useAccount()
+
+  const getBody = (type) => {
+    if(type === 0){
+      return { genre: [], isOnboarded: false, profileImg:"", userName:"", userType: type }
+    } else{
+      return {
+        profileImg:"", 
+        userName:"", 
+        userType: type ,
+        earnings: 0,
+        booksPublished:0,
+        booksSold: 0,
+        transactions:[],
+        activities:[],
+        email:""
+      }
+    }
+  }
+
+  const updateFirestoreUser = async(type) => {
+    await onLogin()
+    try {
+      let userRef = doc(db, "users", address);
+      await setDoc(userRef, getBody(type))
+      .then(res => {
+        toast({
+          title: "Registeration successful",
+          status: "success",
+          isClosable: true,
+          duration: 3000,
+        })
+        console.log("successful")
+      })
+      .catch(err => {
+        console.error(err);
+        toast({
+          title: "An error occured",
+          description:"Please try again later",
+          status: "error",
+          isClosable: true,
+          duration: 3000,
+        })
+      })
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      toast({
+        title: "An error occured",
+        description:"Please try again later",
+        status: "error",
+        isClosable: true,
+        duration: 3000,
+      })
+    }
+  }
 
   const register = (type) => {
-      setUser(window.ethereum,"", false, type, "").then(res => 
+      setUser(window.ethereum,"", false, type, "").then(async res => 
         {
           if(res){
-            toast({
-              title: "Registeration successful",
-              status: "success",
-              isClosable: true,
-              duration: 3000,
-            })
+            await updateFirestoreUser(type)
             type === 0 ? router.push("/reader/home") : router.push("/author/overview")
           } else {
             toast({
@@ -33,7 +86,15 @@ const Authentication = () => {
               duration: 3000,
             })
           }
-        }).catch(err => console.log(err))
+        }).catch(err => {
+          toast({
+            title: "An error occured",
+            description:"Please try again later",
+            status: "error",
+            isClosable: true,
+            duration: 3000,
+          })
+        })
   }
 
   useEffect(()=> {

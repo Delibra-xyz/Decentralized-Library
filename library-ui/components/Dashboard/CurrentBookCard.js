@@ -25,7 +25,7 @@ const CurrentBookCard = ({ id, ...props }) => {
         mr={5}
       >
         <Image
-          src="/featured6.jfif"
+          src="/featured6.png"
           alt="bookCover"
           width="185px"
           height="278px"
