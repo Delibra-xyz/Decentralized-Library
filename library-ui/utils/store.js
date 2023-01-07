@@ -1,5 +1,4 @@
 import {Web3Storage} from "web3.storage";
-// const fs = require('fs')
 
 const token = process.env.NEXT_PUBLIC_WEB3STORAGE_TOKEN
 
@@ -13,13 +12,3 @@ export async function storeFiles(files, name){
     })
     return cid;
 }
-
-// export async function createNftMetadata(fileName, content){
-//     // var writeStream = fs.createWriteStream(fileName)
-//     // writeStream.write(content);
-//     // writeStream.end()
-//     fs.writeFile(fileName, content, function(err){
-//         if(err) throw err;
-//         console.log("file created successfully")
-//     })
-// }

@@ -98,7 +98,7 @@ const UploadBook = () => {
     const data = {
       name: values.title,
       description: values.description,
-      image:`https//ipfs.io/ipfs/${values.bookCoverCid}`
+      image:`https://ipfs.io/ipfs/${values.bookCoverCid}`
     }
     const myFile = await new File([JSON.stringify(data)], `${values.title.trim()}.json`);
     if(myFile){
