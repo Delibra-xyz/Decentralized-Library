@@ -10,6 +10,7 @@ import {
   Link,
   SimpleGrid,
   Spacer,
+  Spinner,
   Tab,
   TabList,
   TabPanel,
@@ -30,13 +31,16 @@ import { db } from '../../../utils/firebase';
 import { useAccount } from 'wagmi';
 import { listBook } from '../../../utils/contractUtils';
 import { BsFillFlagFill } from 'react-icons/bs';
+import { useRouter } from 'next/router';
 
 const Library = () => {
-  const { address } = useAccount()
+  const { address } = useAccount();
+  // const router = useRouter()
   const tabNames = ['Published', 'Uploads'];
   const [uploads, setUploads] = useState([]);
   const [loading, setLoading] = useState(false)
   const [reload, setReload] = useState(false)
+  // const [idx, setIdx] = useState()
   const published = uploads.filter(x => x.minted === true);
 
   async function getBooks(){
@@ -47,7 +51,6 @@ const Library = () => {
     await ss.forEach(doc => {
       let book = {id: doc.id, ...doc.data()}
       b.push(book)
-      // setUploads(prev => [...prev,book])
     })
     return b;
     
@@ -157,14 +160,15 @@ const Library = () => {
           </Flex>
           {loading ? 
           <Box px={10} py={5} h="65vh" w="100%">
-            <lottie-player 
-              src="https://assets7.lottiefiles.com/temp/lf20_MoTZke.json"  
-              background="transparent"  
-              speed="1"    
-              loop 
-              autoplay
-            >   
-            </lottie-player>
+              <Spinner
+                thickness='4px'
+                speed='0.65s'
+                emptyColor='gray.200'
+                color='blue.500'
+                size='xl'
+                mx="48%"
+                my="24%"
+              />
           </Box> : 
           <TabPanels>
             <TabPanel px={0} py={6}>

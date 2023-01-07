@@ -15,13 +15,13 @@ const getSigner = async (ethereum) => {
     return provider.getSigner()
 }
 
-const getContract = async (ethereum) => {
+export const getContract = async (ethereum) => {
     const signer = await getSigner(ethereum)
     const contract = new ethers.Contract(contractAddress.contractAddress, abi.abi, signer)
     return contract;
 }
 
-const getMarketPlaceContract = async (ethereum) => {
+export const getMarketPlaceContract = async (ethereum) => {
     const signer = await getSigner(ethereum)
     const contract = new ethers.Contract(marketContractAddress.contractAddress, marketAbi.abi, signer)
     return contract;
@@ -61,6 +61,26 @@ export const listBook = async (ethereum, uri, price, quantity, fee) => {
     try {
         const contract = await getMarketPlaceContract(ethereum)
         const txnResult = contract.listNft(uri, price,quantity, {value: ethers.utils.parseEther(fee)})
+        return txnResult;
+    } catch(error) {
+        console.log("Error: ", error)
+    }
+}
+
+export const getBookInfo = async (ethereum, tokenId) => {
+    try {
+        const contract = await getMarketPlaceContract(ethereum)
+        const txnResult = contract._idToNFT(tokenId)
+        return txnResult;
+    } catch(error) {
+        console.log("Error: ", error)
+    }
+}
+
+export const buyBook = async (ethereum, amount,tokenId) => {
+    try {
+        const contract = await getMarketPlaceContract(ethereum)
+        const txnResult = contract.buyNft(tokenId, {value: ethers.utils.parseEther(amount)})
         return txnResult;
     } catch(error) {
         console.log("Error: ", error)
