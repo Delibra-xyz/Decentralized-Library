@@ -1,9 +1,10 @@
-import { onAuthStateChanged, signInAnonymously, signOut } from 'firebase/auth';
+import { onAuthStateChanged, onIdTokenChanged, signInAnonymously, signOut } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import React, { createContext, useState, useContext, useEffect} from 'react';
 import { useAccount } from 'wagmi'
 import { getUser, isDelibraUser } from '../utils/contractUtils';
 import { auth, db } from '../utils/firebase';
+import nookies from 'nookies';
 // import { ethers } from 'ethers';
 // import contractAddress from "../contracts/User/contract_address.json"
 // import abi from "../contracts/User/abi.json"
@@ -20,8 +21,21 @@ export const AppProvider = ({children}) => {
         setMounted(true)
     },[])
 
+    useEffect(()=> {
+      onIdTokenChanged(auth, async (user) => {
+          if(!user){
+            setFirebaseUser({})
+            nookies.set(undefined, 'token', "", { path: '/'})
+          }else {
+            const token = await user.getIdToken();
+            setFirebaseUser(user)
+            nookies.set(undefined, 'token', token, { path: '/'})
+          }
+      })
+    },[])
+
     useEffect(()=>{
-      onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, (user) => {
           if (user) {
             setFirebaseUser(user)
           } else {

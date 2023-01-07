@@ -28,8 +28,6 @@ const Authentication = () => {
         earnings: 0,
         booksPublished:0,
         booksSold: 0,
-        transactions:[],
-        activities:[],
         email:""
       }
     }

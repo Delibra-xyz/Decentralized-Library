@@ -3,27 +3,27 @@ import { RiStarFill } from 'react-icons/ri';
 import { BsEmojiSunglasses } from 'react-icons/bs';
 import { Link as NextLink } from 'next/link';
 
-const RecommendedBookCard = ({ id, ...props }) => {
+const RecommendedBookCard = ({ id,image, author, title, price, ...props }) => {
   return (
     <Flex border='1px solid #E5E7EB' borderRadius='8px' p={1} pos='relative' m={3} {...props}>
       <Box w='150px' h='175px' bg='#F3F4F6' borderRadius='4px'>
-        <Image src='/featured6.png' alt='bookCover' width='86px' height='109px' margin='33px auto' />
+        <Image src={image ||'/featured6.png'} alt='bookCover' width='86px' height='109px' margin='33px auto' />
       </Box>
       <Box px={5} py={3}>
-        <Link
+        {/* <Link
           as={NextLink}
           href={`/reader/browse/${id}`}
           _hover={{ textDecoration: 'none' }}
           _focus={{
             boxShadow: 'unset',
           }}
-        >
+        > */}
           <Text fontSize='16px' fontWeight='800' fontFamily="'Inter', sans-serif" color='#000000' mb={2}>
-            Life on the Mississppi
+            {title || "Life on the Mississppi"}
           </Text>
-        </Link>
+        {/* </Link> */}
         <Text fontSize='14px' fontWeight='500' color='#000000' mb={1} display='flex' alignItems='center'>
-          Madeline Miller &nbsp; <Icon as={BsEmojiSunglasses} />
+          {author || "Madeline Miller"} &nbsp; <Icon as={BsEmojiSunglasses} />
         </Text>
 
         <Flex>
@@ -42,7 +42,7 @@ const RecommendedBookCard = ({ id, ...props }) => {
           </Text>
 
           <Text fontSize='16px' fontWeight='700' color='#000000'>
-            56.3 MATIC &nbsp;{' '}
+            {price || 56.3} MATIC &nbsp;{' '}
           </Text>
         </Box>
       </Box>

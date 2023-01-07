@@ -2,7 +2,7 @@ import { Link, Box, Flex, Image, Text, Icon } from "@chakra-ui/react";
 import { Link as NextLink } from "next/link";
 import { BsDot, BsEmojiSunglasses } from "react-icons/bs";
 
-const CurrentBookCard = ({ id, ...props }) => {
+const CurrentBookCard = ({ id,price, author, pages,category,image,title, ...props }) => {
   return (
     <Flex
       bg="#fff"
@@ -25,7 +25,7 @@ const CurrentBookCard = ({ id, ...props }) => {
         mr={5}
       >
         <Image
-          src="/featured6.png"
+          src={image || "/featured6.png"}
           alt="bookCover"
           width="185px"
           height="278px"
@@ -47,12 +47,12 @@ const CurrentBookCard = ({ id, ...props }) => {
             fontFamily="'Inter', sans-serif"
             color="#000000"
           >
-            The song of archilles
+            {title || "The song of archilles"}
           </Text>
         </Link>
         <Text color="#4B5563" fontSize="14px" fontWeight="500" display="flex" alignItems="center" mb={7}>
-          Thriller &nbsp;
-          <BsDot style={{fontSize:"20px"}}/> &nbsp; 246 pages
+          {category || "Thriller"} &nbsp;
+          <BsDot style={{fontSize:"20px"}}/> &nbsp; {pages ||"246 pages"}
         </Text>
 
         <Text color="#4B5563" fontSize="14px" fontWeight="500">
@@ -65,7 +65,7 @@ const CurrentBookCard = ({ id, ...props }) => {
           display="flex"
           alignItems="center"
         >
-          Madeline Miller &nbsp; <Icon as={BsEmojiSunglasses} />
+         {author || "Madeline Miller"} &nbsp; <Icon as={BsEmojiSunglasses} />
         </Text>
 
         <Box pos="absolute" bottom={3}>
@@ -74,7 +74,7 @@ const CurrentBookCard = ({ id, ...props }) => {
           </Text>
 
           <Text fontSize="18px" fontWeight="700" color="#000000">
-            56.3 MATIC &nbsp;{" "}
+            {price || 56.3} MATIC &nbsp;{" "}
           </Text>
         </Box>
       </Box>

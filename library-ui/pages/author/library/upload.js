@@ -53,6 +53,8 @@ const UploadBook = () => {
     tags:[],
     price:"",
     unit:"",
+    author:"",
+    pages:"",
     royalties:""
   })
 
@@ -137,6 +139,8 @@ const UploadBook = () => {
         tags:[],
         price:"",
         unit:"",
+        author:"",
+        pages:"",
         royalties:""
       })
       setImageCid("")
@@ -351,6 +355,24 @@ const UploadBook = () => {
           </FormControl>
           <FormControl mb='32px'>
             <FormLabel fontSize='18px' color='#000000' fontWeight={500} letterSpacing='-0.02em'>
+              Author
+            </FormLabel>
+            <Input
+              type='text'
+              placeholder='Enter the name of the author'
+              color='#1F2937'
+              fontSize='16px'
+              focusBorderColor='#6B7280'
+              bg='#FFFFFF'
+              borderRadius='6px'
+              border='1px solid #D1D5DB'
+              _placeholder={{ color: '#9CA3AF' }}
+              onChange={(e) => setValues({...values, author: e.target.value})}
+              isRequired
+            />
+          </FormControl>
+          <FormControl mb='32px'>
+            <FormLabel fontSize='18px' color='#000000' fontWeight={500} letterSpacing='-0.02em'>
               Description
             </FormLabel>
             <Input
@@ -404,6 +426,24 @@ const UploadBook = () => {
               border='1px solid #D1D5DB'
               _placeholder={{ color: '#9CA3AF' }}
               onChange={(e) => setValues({...values, tags: e.target.value.split(",")})}
+              isRequired
+            />
+          </FormControl>
+          <FormControl mb='32px'>
+            <FormLabel fontSize='18px' color='#000000' fontWeight={500} letterSpacing='-0.02em'>
+              Number of pages
+            </FormLabel>
+            <Input
+              type='text'
+              placeholder='Enter the number of pages of your book'
+              color='#1F2937'
+              fontSize='16px'
+              bg='#FFFFFF'
+              borderRadius='6px'
+              focusBorderColor='#6B7280'
+              border='1px solid #D1D5DB'
+              _placeholder={{ color: '#9CA3AF' }}
+              onChange={(e) => setValues({...values, pages: e.target.value})}
               isRequired
             />
           </FormControl>
