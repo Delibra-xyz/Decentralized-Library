@@ -26,16 +26,16 @@ import {
 } from '@chakra-ui/react';
 import { getLayout } from '../../../layout/DashboardLayout';
 import BookOpen2 from '../../../assets/svgs/BookOpen2';
-import Ethereum from '../../../assets/svgs/ethereum';
+// import Ethereum from '../../../assets/svgs/ethereum';
 import Share from '../../../assets/svgs/share';
-import Star from '../../../assets/svgs/Star';
+// import Star from '../../../assets/svgs/Star';
 import styles from '../../../styles/browse.module.css';
 import firebaseAdmin from '../../../utils/db';
 import { useEffect, useState } from 'react';
-import { buyBook, getBookInfo, getMarketPlaceContract } from '../../../utils/contractUtils';
+import { buyBook, getMarketPlaceContract, getNftOwners } from '../../../utils/contractUtils';
 import { useAccount } from 'wagmi';
 import { db } from '../../../utils/firebase';
-import { addDoc, collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, query, setDoc, where } from 'firebase/firestore';
 import moment from "moment"
 
 const BookOverview = ({ data }) => {
@@ -91,6 +91,15 @@ const BookOverview = ({ data }) => {
     }
   }
 
+  const updateAuthorSoldCount = () => {
+    const userRef = doc(db, "users", data.userId)
+    let s = getDoc(userRef);
+    s.then(res => {
+      console.log(res.data())
+      setDoc(userRef,{ booksSold: res.data().booksSold + 1, earnings: res.data().earnings + data.price}, { merge: true })
+    })
+  }
+
   const addToPurchases = async ()=> {
     let purchaseRef = collection(db, "purchases");
     await addDoc(purchaseRef, 
@@ -100,6 +109,7 @@ const BookOverview = ({ data }) => {
         author: data.author, 
         authorId: data.userId,
         bookCoverCid: data.bookCoverCid,
+        title: data.title,
         time: new Date()
       })
       .then(res => {
@@ -127,6 +137,7 @@ const BookOverview = ({ data }) => {
   const mintBook = () => {
     setLoading(true)
     buyBook(window.ethereum,data.price,data.tokenUri).then(async res => {
+      updateAuthorSoldCount();
       const contract = await getMarketPlaceContract(window.ethereum)
       contract.on("NFTSold", (seller, buyer, price, event) => {
         updateTxns(event.transactionHash);
@@ -158,14 +169,14 @@ const BookOverview = ({ data }) => {
   }
 
   useEffect(()=> {
-    // check if current acc is part of owners
-    getBookInfo(window.ethereum, data.tokenUri).then(
+    // get nft holders
+    getNftOwners(window.ethereum, data.tokenUri)
+    .then(
       res => {
         console.log(res)
-        if(res.owners){
-          setHolders(res.owners)
-        }
+        setHolders(res)
       })
+    .catch(err => console.log(err))
       // fetch purchases
     fetchAllPurchases()
     .then(r => setTransactions(r))

@@ -21,7 +21,9 @@ const Home = () => {
   const [ pageLoading, setPageLoading] = useState(true)
 
   useEffect(()=> {
+    if(user.genre){
       setGenre(user.genre)
+    }
   },[user])
 
   const handleContinue = async() => {
@@ -143,7 +145,7 @@ const Home = () => {
   },[user])
 
   return (
-    pageLoading ? 
+    pageLoading || !page  ? 
     <Box px={10} py={5} h="83vh" w="100%">
       <Spinner
         thickness='4px'

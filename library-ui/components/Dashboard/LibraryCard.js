@@ -8,10 +8,11 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { ethers } from "ethers";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { Link as NextLink } from "next/link";
 import { useState } from "react";
-import Unit from "../../assets/svgs/unit";
+import { useAccount } from "wagmi";
+// import Unit from "../../assets/svgs/unit";
 import styles from "../../styles/library.module.css";
 import { listBook } from "../../utils/contractUtils";
 import { db } from "../../utils/firebase";
@@ -33,6 +34,7 @@ const LibraryCard = ({
 }) => {
   const fee = "0.0001";
   const toast = useToast();
+  const { address } = useAccount()
   const [minting, setMinting] = useState(false);
 
   const update = async () => {
@@ -52,6 +54,15 @@ const LibraryCard = ({
     }
   };
 
+  const updateAuthorPublishCount = () => {
+    const userRef = doc(db, "users", address)
+    let s = getDoc(userRef);
+    s.then(res => {
+      console.log(res.data())
+      setDoc(userRef,{ booksPublished: res.data().booksPublished + 1}, { merge: true })
+    })
+  }
+
   const handleMint = () => {
     setMinting(true);
     listBook(
@@ -63,6 +74,7 @@ const LibraryCard = ({
     )
       .then(async (res) => {
         await update();
+        updateAuthorPublishCount();
         setMinting(false);
       })
       .catch((err) => {

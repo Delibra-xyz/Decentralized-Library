@@ -131,6 +131,13 @@ contract Marketplace is ReentrancyGuard,BookCover  {
         }
     }
 
+    function getNftOwners(string memory _tokenUri) public view returns (address[] memory) {
+        require (nftExists(_tokenUri) == true , "NFT does not exist");
+        NFT memory sample = _idToNFT[_tokenUri];
+        return sample.owners;
+        
+    }
+
     // Resell an NFT purchased from the marketplace
     // function resellNft(
     //     address _nftContract,

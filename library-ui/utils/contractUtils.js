@@ -67,10 +67,10 @@ export const listBook = async (ethereum, uri, price, quantity, fee) => {
     }
 }
 
-export const getBookInfo = async (ethereum, tokenId) => {
+export const getNftOwners = async (ethereum, tokenId) => {
     try {
         const contract = await getMarketPlaceContract(ethereum)
-        const txnResult = contract._idToNFT(tokenId)
+        const txnResult = contract.getNftOwners(tokenId)
         return txnResult;
     } catch(error) {
         console.log("Error: ", error)
