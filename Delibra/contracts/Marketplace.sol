@@ -17,9 +17,9 @@ contract Marketplace is ReentrancyGuard,BookCover  {
     // stores the Marketplace contract owner, so that we know who to pay the listing fee to
     address payable private _marketOwner;
     // associates the unique tokenId to a the NFT struct.
-    mapping(string => NFT) private _idToNFT;
+    mapping(string => NFT) public _idToNFT;
     // associates an address to nfts listed by them
-    mapping(address => NFT[]) private authorStore;
+    mapping(address => NFT[]) public authorStore;
     //  stores relevant information for an NFT listed in the marketplace
     struct NFT {
         address payable seller;
