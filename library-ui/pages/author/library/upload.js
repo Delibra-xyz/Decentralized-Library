@@ -118,7 +118,7 @@ const UploadBook = () => {
 
   const uploadToFireStore = async(r) => {
     let bookRef = collection(db, "books");
-    await addDoc(bookRef, {...values, tokenUri: r, userId: address, minted: false})
+    await addDoc(bookRef, {...values, tokenUri: r, userId: address, minted: false, time: new Date()})
     .then(res => {
       toast({
         title: "Upload successful",

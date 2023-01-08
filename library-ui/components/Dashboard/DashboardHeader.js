@@ -1,9 +1,17 @@
 import { Image} from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
 import Bell from '../../assets/svgs/Bell';
+import { useAuth } from '../../context/AppContext';
 import styles from '../../styles/dashboard-header.module.css';
 import ConnectWalletButton from '../ConnectWalletButton';
 
 const DashboardHeader = () => {
+  const { user } = useAuth();
+  const [dp, setDp] = useState(user?.profileImg)
+
+  useEffect(()=> {
+    user.profileImg && setDp(user.profileImg)
+  },[user])
   return (
     <div className={styles.dashboardHeader}>
       <div className={styles.dashboardHeader__container}>
@@ -21,7 +29,7 @@ const DashboardHeader = () => {
             _hover={{ bg: '#f3f4f6' }}
           />
           
-          <Image src='/dp.png' alt='avatar' width='40px' height='40px' borderRadius='50%' />
+          <Image src={dp || '/dp.png'} alt='avatar' width='40px' height='40px' borderRadius='50%' />
         </div>
       </div>
     </div>
