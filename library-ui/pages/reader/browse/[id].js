@@ -467,7 +467,7 @@ const BookOverview = ({ data }) => {
                             Purchased by {truncate(tx.buyerId)}
                           </Heading>
                           <Text color='#9CA3AF' fontSize='15px' fontWeight={500}>
-                            {moment().endOf(tx.time).fromNow()}
+                            {moment().endOf(new Date((tx.time).seconds * 1000)).fromNow()}
                           </Text>
                         </Box>
                       </Flex>
@@ -616,8 +616,9 @@ export async function getStaticProps({params}) {
   let data = {}
   await firebaseAdmin.collection("books").doc(params.id).get()
   .then(res => {
-      data = {id: params.id, ...res.data()}
+      data = JSON.parse(JSON.stringify({id: params.id, ...res.data()}))
   })
+  
   // Pass data to the page via props
   return { props: { data } }
 }

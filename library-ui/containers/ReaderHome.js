@@ -6,11 +6,13 @@ import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { useAccount } from 'wagmi';
 import CurrentBookCard from '../components/Dashboard/CurrentBookCard';
 import LibraryCard from '../components/Dashboard/LibraryCard';
+import { useAuth } from '../context/AppContext';
 import { db } from '../utils/firebase';
 
 export default function ReaderHome({recommended, all}) {
   const toast = useToast();
-  const router = useRouter()
+  const router = useRouter();
+  const { user } = useAuth()
   const { address } = useAccount();
   const [reads, setReads] = useState([])
 
@@ -58,7 +60,7 @@ export default function ReaderHome({recommended, all}) {
             What are you reading today?
           </Text>
         </Box>
-        <Image src='/dp.png' alt='avatar' width='56px' height='56px' borderRadius='50%' />
+        <Image src={user.profileImg || '/dp.png'} alt='avatar' width='56px' height='56px' borderRadius='50%' />
       </Flex>
 
       {reads.length === 0 ? 

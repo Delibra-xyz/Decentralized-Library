@@ -98,7 +98,7 @@ const UploadBook = () => {
     const data = {
       name: values.title,
       description: values.description,
-      image:`https//ipfs.io/ipfs/${values.bookCoverCid}`
+      image:`https://ipfs.io/ipfs/${values.bookCoverCid}`
     }
     const myFile = await new File([JSON.stringify(data)], `${values.title.trim()}.json`);
     if(myFile){
@@ -118,7 +118,7 @@ const UploadBook = () => {
 
   const uploadToFireStore = async(r) => {
     let bookRef = collection(db, "books");
-    await addDoc(bookRef, {...values, tokenUri: r, userId: address, minted: false})
+    await addDoc(bookRef, {...values, tokenUri: r, userId: address, minted: false, time: new Date()})
     .then(res => {
       toast({
         title: "Upload successful",
