@@ -25,11 +25,11 @@ const Navbar = () => {
         } else {
           getUser(window.ethereum).then(
             res => {
-              setUser({
-              userType: res.userType,
-              isOnboarded: res.onboarded,
-              userName: res.userName
-            })
+            //   setUser({
+            //   userType: res.userType,
+            //   isOnboarded: res.onboarded,
+            //   userName: res.userName
+            // })
             onLogin();
             res.userType === 0 ? router.push("/reader/home") : router.push("/author/overview")
           }).catch(err => console.log(err))

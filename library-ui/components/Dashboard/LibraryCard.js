@@ -102,7 +102,7 @@ const LibraryCard = ({
     >
       <Box bg="#F3F4F6" borderRadius="8" overflow="hidden" py="4">
         <Image
-          src={image || "/featured1.png"}
+          src={image}
           alt="bookCover"
           width="86px"
           height="110px"
