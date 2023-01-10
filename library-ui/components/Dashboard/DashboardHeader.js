@@ -10,7 +10,12 @@ const DashboardHeader = () => {
   const [dp, setDp] = useState(user?.profileImg)
 
   useEffect(()=> {
-    user.profileImg && setDp(user.profileImg)
+    if(user.profileImg){
+      user.profileImg && setDp(user.profileImg)
+    } else{
+      setDp('/dp.png')
+    }
+    
   },[user])
   return (
     <div className={styles.dashboardHeader}>
@@ -29,7 +34,7 @@ const DashboardHeader = () => {
             _hover={{ bg: '#f3f4f6' }}
           />
           
-          <Image src={dp || '/dp.png'} alt='avatar' width='40px' height='40px' borderRadius='50%' />
+          <Image src={dp} alt='avatar' width='40px' height='40px' borderRadius='50%' />
         </div>
       </div>
     </div>

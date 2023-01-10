@@ -1,5 +1,5 @@
 import { getLayout } from '../../../layout/DashboardLayout';
-import { Box, Button, Flex, Spinner, Stack, Text, useToast } from '@chakra-ui/react';
+import { Box, Button, Flex, Skeleton, Spinner, Stack, Text, useToast } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import Genre from '../../../containers/Genre';
 import Recommendation from '../../../containers/Recommendation';
@@ -101,7 +101,6 @@ const Home = () => {
         })
     } else {
       fetchRecommended().then(res => {
-        console.log(res)
         setRecommended(res)
       }).catch(err => {
         toast({
@@ -116,36 +115,39 @@ const Home = () => {
   },[page, genre])
 
   useEffect(()=> {
-    fetchRandom().then(r => {
-      setAll(r)
-    })
-    .catch(err => {
-      console.log(err)
-      toast({
-        title: "An error occured while fetching books",
-        status: "error",
-        isClosable: true, 
-        duration: 3000,
-      });
-    })
-  },[])
+    if(page === 2){
+      fetchRandom().then(r => {
+        setAll(r)
+      })
+      .catch(err => {
+        console.log(err)
+        toast({
+          title: "An error occured while fetching books",
+          status: "error",
+          isClosable: true, 
+          duration: 3000,
+        });
+      })
+    }
+  },[page])
 
 
   useEffect(()=> {
     setPageLoading(true)
-    if(user){
+    if(Object.keys(user).length !== 0){
       if(user.isOnboarded === true){
         setPage(2)
-        setPageLoading(false)
-      }else {
+        console.log("auth")
+      } else {
+        console.log("here")
         setPage(0)
-        setPageLoading(false)
       }
+      setPageLoading(false)
     }
   },[user])
 
   return (
-    pageLoading || !page  ? 
+    pageLoading  ? 
     <Box px={10} py={5} h="83vh" w="100%">
       <Spinner
         thickness='4px'
@@ -159,9 +161,11 @@ const Home = () => {
     </Box> 
     :
     <Box px={10} py={5} bg="#F3F4F6"> 
-      {page === 2 ? <ReaderHome recommended={recommended} all={all}/> : 
-      <Box border='1px solid #E5E7EB' borderRadius='8px' px='50px' pb='16px' bg="#fff">
+      {page === undefined ? <Skeleton w="100%" h="85vh"/> : null}
+      {page === 2 ? <ReaderHome recommended={recommended} all={all}/> : null}
+      {page === 1 || page === 0 ? <Box border='1px solid #E5E7EB' borderRadius='8px' px='50px' pb='16px' bg="#fff">
         <Flex mb={5} w="60%" mx="auto">
+          
           <Flex 
             borderBottom={page ===0 ? "3px solid #FFC2A1" : "1px solid #E5E7EB" } 
             w="50%" 
@@ -272,7 +276,7 @@ const Home = () => {
             Continue
           </Button>
         </Stack>
-      </Box>}
+      </Box>  : null}
     </Box>
   );
 };
