@@ -20,6 +20,7 @@ contract DelibraUserAuth {
         string userName;
         bool onboarded;
         UserType userType;
+        bool isUser;
         string profileUrl;
     }
 
@@ -35,11 +36,9 @@ contract DelibraUserAuth {
     }
 
     function isDelibraUser(address _addr) public view returns (bool){
-        for(uint i=0; i<UsersAddress.length; ++i){
-            if(UsersAddress[i] == _addr){
+            if(users[_addr].isUser){
                 return true;
             } 
-        }
         return false;
     }
 
@@ -48,13 +47,18 @@ contract DelibraUserAuth {
         bool _onboarded, 
         UserType _usertype,
         string calldata _profileUrl) public returns (bool){
-        users[msg.sender] = User(_username, _onboarded, _usertype, _profileUrl);
-        if(isDelibraUser(msg.sender) == false){
+        bool _isUser = isDelibraUser(msg.sender);
+        if(_isUser == false){
+            users[msg.sender] = User(_username, _onboarded, _usertype, true, _profileUrl);
             UsersAddress.push(msg.sender);
             emit UserCreated(msg.sender, block.timestamp);
         } else{
             emit UserUpdated(msg.sender, block.timestamp);
         }
         return true;
+    }
+
+    function userCount() public view returns (uint256) {
+        return UsersAddress.length;
     }
 }
