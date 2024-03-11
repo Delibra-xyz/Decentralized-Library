@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
-    "hardhat": "^2.12.2"
+    "hardhat": "^2.21.0"
   },
   "dependencies": {
+    "@bonadocs/docgen": "^1.0.1-alpha.1",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.0",
     "@nomiclabs/hardhat-ethers": "^2.0.0",
     "@nomiclabs/hardhat-etherscan": "^3.0.0",
@@ -15,6 +16,7 @@
     "@types/chai": "^4.2.0",
     "@types/mocha": "^10.0.0",
     "chai": "^4.2.0",
+    "docgen": "^0.0.1",
     "dotenv": "^16.0.3",
     "fs": "^0.0.1-security",
     "hardhat-gas-reporter": "^1.0.8",

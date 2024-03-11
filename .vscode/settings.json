@@ -6,5 +6,6 @@
     "roadmap",
     "rotateplane",
     "Simpleanalytics"
-  ]
+  ],
+  "liveServer.settings.port": 5501
 }

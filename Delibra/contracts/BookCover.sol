@@ -8,18 +8,17 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract BookCover is ERC721URIStorage, Ownable {
+contract BookCover is ERC721 {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
-    address private Delibra = 0x20dB5945336B9Ba91084dd6FC70Be3D841304E73;
+    address private Delibra = 0x79348433D02B91f11e222094D6c41A5D6911F9d6;
     uint transactionFee = 10 ^ 18;
 
     constructor() ERC721("NFT", "ENFT") {}
 
-    function mintNFT(string memory tokenURI)
+    function mintNFT(string memory )
         public
         payable
-        onlyOwner
         returns (uint256)
     {
         require(msg.value == transactionFee, "invalid amount");
@@ -27,7 +26,6 @@ contract BookCover is ERC721URIStorage, Ownable {
 
         uint256 newItemId = _tokenIds.current();
         _mint(msg.sender, newItemId);
-        _setTokenURI(newItemId, tokenURI);
 
         return newItemId;
 
